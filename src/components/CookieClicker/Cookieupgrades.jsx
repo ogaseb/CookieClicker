@@ -10,11 +10,22 @@ class CookieUpgrades extends Component {
   componentDidMount() {
     console.log(this.props.upgrades);
   }
-
+  windowHeight() {
+    return document.documentElement.scrollHeight - 100;
+  }
   render() {
     // const { mouse, grandma } = this.props.upgrades;
     return (
-      <Grid item xs={6} style={{ marginTop: 5 }}>
+      <Grid
+        item
+        xs={6}
+        style={{
+          marginTop: 5,
+          overflowX: "hidden",
+          overflowY: "scroll",
+          maxHeight: this.windowHeight()
+        }}
+      >
         {/* {this} */}
         {this.props.upgrades.map((content, index) => (
           <Paper key={index}>

@@ -54,6 +54,18 @@ class App extends Component {
           count: 0,
           multiplier: 260,
           price: 130000
+        },
+        {
+          upgrade: "bank",
+          count: 0,
+          multiplier: 1400,
+          price: 1400000
+        },
+        {
+          upgrade: "temple",
+          count: 0,
+          multiplier: 7800,
+          price: 20000000
         }
       ]
     };
@@ -71,6 +83,63 @@ class App extends Component {
       );
     }, 1000);
   }
+
+  handleReset = () => {
+    const objStatus = {
+      totalCookies: 0,
+      playerLevel: 1,
+      playerToNextLevel: 10,
+      cookiePerSecond: 0
+    };
+    const objUpgrades = [
+      {
+        upgrade: "mouse",
+        count: 0,
+        multiplier: 0.1,
+        price: 10
+      },
+      {
+        upgrade: "grandma",
+        count: 0,
+        multiplier: 1,
+        price: 100
+      },
+      {
+        upgrade: "farm",
+        count: 0,
+        multiplier: 8,
+        price: 1100
+      },
+      {
+        upgrade: "mine",
+        count: 0,
+        multiplier: 47,
+        price: 12000
+      },
+      {
+        upgrade: "factory",
+        count: 0,
+        multiplier: 260,
+        price: 130000
+      },
+      {
+        upgrade: "bank",
+        count: 0,
+        multiplier: 1400,
+        price: 1400000
+      },
+      {
+        upgrade: "temple",
+        count: 0,
+        multiplier: 7800,
+        price: 20000000
+      }
+    ];
+
+    this.setState({ cookieClicker: objStatus });
+    this.setState({ upgrades: objUpgrades });
+    localStorage.removeItem("save");
+  };
 
   saveProgressInLocalStorage = () => {
     const toSaveStatus = this.state.cookieClicker;
@@ -92,13 +161,7 @@ class App extends Component {
 
   handleIncrementTotalCookies = float => {
     console.log("Increment!", float);
-
-    let obj = {
-      totalCookies: this.state.cookieClicker.totalCookies,
-      playerLevel: this.state.cookieClicker.playerLevel,
-      playerToNextLevel: this.state.cookieClicker.playerToNextLevel,
-      cookiePerSecond: this.state.cookieClicker.cookiePerSecond
-    };
+    let obj = Object.assign({}, this.state.cookieClicker);
 
     obj.totalCookies = this.state.cookieClicker.totalCookies + float;
     if (
@@ -112,51 +175,6 @@ class App extends Component {
     // this.placeCookie();
   };
 
-  handleReset = () => {
-    const objStatus = {
-      totalCookies: 0,
-      playerLevel: 1,
-      playerToNextLevel: 10,
-      cookiePerSecond: 0
-    };
-    const objUpgrades = [
-      {
-        upgrade: "mouse",
-        count: 0,
-        multiplier: 0.1,
-        price: 10
-      },
-      {
-        upgrade: "grandma",
-        count: 0,
-        multiplier: 5,
-        price: 200
-      },
-      {
-        upgrade: "farm",
-        count: 0,
-        multiplier: 8,
-        price: 1100
-      },
-      {
-        upgrade: "mine",
-        count: 0,
-        multiplier: 47,
-        price: 12000
-      },
-      {
-        upgrade: "factory",
-        count: 0,
-        multiplier: 260,
-        price: 130000
-      }
-    ];
-
-    this.setState({ cookieClicker: objStatus });
-    this.setState({ upgrades: objUpgrades });
-    localStorage.removeItem("save");
-  };
-
   handleUpgrade = upgradeID => {
     if (
       this.state.upgrades[upgradeID].price >
@@ -164,23 +182,13 @@ class App extends Component {
     ) {
       return;
     }
-
     console.log("Upgrade!", upgradeID);
-    let objUpgrades = {
-      upgrade: this.state.upgrades[upgradeID].upgrade,
-      count: this.state.upgrades[upgradeID].count,
-      multiplier: this.state.upgrades[upgradeID].multiplier,
-      price: this.state.upgrades[upgradeID].price
-    };
-    let objStatus = {
-      totalCookies: this.state.cookieClicker.totalCookies,
-      playerLevel: this.state.cookieClicker.playerLevel,
-      playerToNextLevel: this.state.cookieClicker.playerToNextLevel,
-      cookiePerSecond: this.state.cookieClicker.cookiePerSecond
-    };
+
+    let objStatus = Object.assign({}, this.state.cookieClicker);
+    let objUpgrades = Object.assign({}, this.state.upgrades[upgradeID]);
+
     objStatus.totalCookies =
       this.state.cookieClicker.totalCookies - objUpgrades.price;
-    // this.state.cookieClicker.totalCookies = objStatus.totalCookies;
 
     objUpgrades.count = this.state.upgrades[upgradeID].count + 1;
 
@@ -196,10 +204,8 @@ class App extends Component {
     let cookiePerSecondTemp = this.calculateMultiplier();
     objStatus.cookiePerSecond = cookiePerSecondTemp;
 
-    // this.state.cookieClicker.cookiePerSecond = objStatus.cookiePerSecond;
     this.setState({ cookieClicker: objStatus });
     this.forceUpdate();
-    // console.log(obj);
   };
 
   calculateMultiplier() {
@@ -210,6 +216,7 @@ class App extends Component {
     }
     return tempSum;
   }
+
   testFunction() {}
   render() {
     return (
