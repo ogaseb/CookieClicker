@@ -6,8 +6,9 @@ class CookeStatus extends Component {
     return (
       <Typography align="center">
         <Paper square={true}>
-          Ilość ciasteczek: {this.props.cookies.totalCookies} Twój poziom:{" "}
-          {this.props.cookies.playerLevel}
+          Ilość ciasteczek: {this.props.cookies.totalCookies.toFixed(1)} | Twój
+          poziom: {this.props.cookies.playerLevel} | cps:{" "}
+          {this.props.cookies.cookiePerSecond.toFixed(1)}
         </Paper>
       </Typography>
     );
