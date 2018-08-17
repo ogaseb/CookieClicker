@@ -14,4 +14,5 @@
 
 ## Linki
 
+* [CookieClicker](http://orteil.dashnet.org/cookieclicker/) - Gra Cookie Clickera
 * [CookieClicerWiki](http://cookieclicker.wikia.com/wiki/Cookie_Clicker_Wiki) - Wiki Cookie Clickera
