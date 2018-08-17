@@ -28,6 +28,7 @@ class App extends Component {
       upgrades: [
         {
           upgrade: "Cursor",
+          gfx: require("./gfx/upgrades/Cursor.png"),
           count: 0,
           multiplier: 0.1,
           basePrice: 15,
@@ -35,6 +36,7 @@ class App extends Component {
         },
         {
           upgrade: "Grandma",
+          gfx: require("./gfx/upgrades/Grandmas.gif"),
           count: 0,
           multiplier: 1,
           basePrice: 100,
@@ -42,6 +44,7 @@ class App extends Component {
         },
         {
           upgrade: "Farm",
+          gfx: require("./gfx/upgrades/Farm.png"),
           count: 0,
           multiplier: 8,
           basePrice: 1100,
@@ -49,6 +52,7 @@ class App extends Component {
         },
         {
           upgrade: "Mine",
+          gfx: require("./gfx/upgrades/Mine.png"),
           count: 0,
           multiplier: 47,
           basePrice: 12000,
@@ -56,6 +60,7 @@ class App extends Component {
         },
         {
           upgrade: "Factory",
+          gfx: require("./gfx/upgrades/Factory.png"),
           count: 0,
           multiplier: 260,
           basePrice: 130000,
@@ -63,6 +68,7 @@ class App extends Component {
         },
         {
           upgrade: "Bank",
+          gfx: require("./gfx/upgrades/Bank.png"),
           count: 0,
           multiplier: 1400,
           basePrice: 1400000,
@@ -70,6 +76,7 @@ class App extends Component {
         },
         {
           upgrade: "Temple",
+          gfx: require("./gfx/upgrades/Temple.png"),
           count: 0,
           multiplier: 7800,
           basePrice: 20000000,
@@ -77,6 +84,7 @@ class App extends Component {
         },
         {
           upgrade: "Wizard Tower",
+          gfx: require("./gfx/upgrades/Wizardtower.png"),
           count: 0,
           multiplier: 44000,
           basePrice: 330000000,
@@ -84,6 +92,7 @@ class App extends Component {
         },
         {
           upgrade: "Shipment",
+          gfx: require("./gfx/upgrades/Shipment.png"),
           count: 0,
           multiplier: 260000,
           basePrice: 5100000000,
@@ -91,6 +100,7 @@ class App extends Component {
         },
         {
           upgrade: "Alchemy Lab",
+          gfx: require("./gfx/upgrades/Alchemylab.png"),
           count: 0,
           multiplier: 1600000,
           basePrice: 75000000000,
@@ -98,6 +108,7 @@ class App extends Component {
         },
         {
           upgrade: "Portal",
+          gfx: require("./gfx/upgrades/Portal.png"),
           count: 0,
           multiplier: 10000000,
           basePrice: 100000000000,
@@ -105,6 +116,7 @@ class App extends Component {
         },
         {
           upgrade: "Time Machine",
+          gfx: require("./gfx/upgrades/Timemachine.png"),
           count: 0,
           multiplier: 65000000,
           basePrice: 1400000000000,
@@ -112,6 +124,7 @@ class App extends Component {
         },
         {
           upgrade: "Antimater Condenser",
+          gfx: require("./gfx/upgrades/Antim.png"),
           count: 0,
           multiplier: 430000000,
           basePrice: 17000000000000,
@@ -119,6 +132,7 @@ class App extends Component {
         },
         {
           upgrade: "Prism",
+          gfx: require("./gfx/upgrades/Prism.png"),
           count: 0,
           multiplier: 2900000000,
           basePrice: 210000000000000,
@@ -126,6 +140,7 @@ class App extends Component {
         },
         {
           upgrade: "Chancemaker",
+          gfx: require("./gfx/upgrades/Chancemaker.png"),
           count: 0,
           multiplier: 21000000000,
           basePrice: 2600000000000000,
@@ -162,6 +177,7 @@ class App extends Component {
     const objUpgrades = [
       {
         upgrade: "Cursor",
+        gfx: require("./gfx/upgrades/Cursor.png"),
         count: 0,
         multiplier: 0.1,
         basePrice: 15,
@@ -169,6 +185,7 @@ class App extends Component {
       },
       {
         upgrade: "Grandma",
+        gfx: require("./gfx/upgrades/Grandmas.gif"),
         count: 0,
         multiplier: 1,
         basePrice: 100,
@@ -176,6 +193,7 @@ class App extends Component {
       },
       {
         upgrade: "Farm",
+        gfx: require("./gfx/upgrades/Farm.png"),
         count: 0,
         multiplier: 8,
         basePrice: 1100,
@@ -183,6 +201,7 @@ class App extends Component {
       },
       {
         upgrade: "Mine",
+        gfx: require("./gfx/upgrades/Mine.png"),
         count: 0,
         multiplier: 47,
         basePrice: 12000,
@@ -190,6 +209,7 @@ class App extends Component {
       },
       {
         upgrade: "Factory",
+        gfx: require("./gfx/upgrades/Factory.png"),
         count: 0,
         multiplier: 260,
         basePrice: 130000,
@@ -197,6 +217,7 @@ class App extends Component {
       },
       {
         upgrade: "Bank",
+        gfx: require("./gfx/upgrades/Bank.png"),
         count: 0,
         multiplier: 1400,
         basePrice: 1400000,
@@ -204,6 +225,7 @@ class App extends Component {
       },
       {
         upgrade: "Temple",
+        gfx: require("./gfx/upgrades/Temple.png"),
         count: 0,
         multiplier: 7800,
         basePrice: 20000000,
@@ -211,6 +233,7 @@ class App extends Component {
       },
       {
         upgrade: "Wizard Tower",
+        gfx: require("./gfx/upgrades/Wizardtower.png"),
         count: 0,
         multiplier: 44000,
         basePrice: 330000000,
@@ -218,6 +241,7 @@ class App extends Component {
       },
       {
         upgrade: "Shipment",
+        gfx: require("./gfx/upgrades/Shipment.png"),
         count: 0,
         multiplier: 260000,
         basePrice: 5100000000,
@@ -225,6 +249,7 @@ class App extends Component {
       },
       {
         upgrade: "Alchemy Lab",
+        gfx: require("./gfx/upgrades/Alchemylab.png"),
         count: 0,
         multiplier: 1600000,
         basePrice: 75000000000,
@@ -232,6 +257,7 @@ class App extends Component {
       },
       {
         upgrade: "Portal",
+        gfx: require("./gfx/upgrades/Portal.png"),
         count: 0,
         multiplier: 10000000,
         basePrice: 100000000000,
@@ -239,6 +265,7 @@ class App extends Component {
       },
       {
         upgrade: "Time Machine",
+        gfx: require("./gfx/upgrades/Timemachine.png"),
         count: 0,
         multiplier: 65000000,
         basePrice: 1400000000000,
@@ -246,6 +273,7 @@ class App extends Component {
       },
       {
         upgrade: "Antimater Condenser",
+        gfx: require("./gfx/upgrades/Antim.png"),
         count: 0,
         multiplier: 430000000,
         basePrice: 17000000000000,
@@ -253,6 +281,7 @@ class App extends Component {
       },
       {
         upgrade: "Prism",
+        gfx: require("./gfx/upgrades/Prism.png"),
         count: 0,
         multiplier: 2900000000,
         basePrice: 210000000000000,
@@ -260,6 +289,7 @@ class App extends Component {
       },
       {
         upgrade: "Chancemaker",
+        gfx: require("./gfx/upgrades/Chancemaker.png"),
         count: 0,
         multiplier: 21000000000,
         basePrice: 2600000000000000,

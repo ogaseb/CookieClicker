@@ -31,8 +31,9 @@ class CookieUpgrades extends Component {
           .map((content, index) => (
             <Paper key={index}>
               <Typography variant="display2" align="center">
-                {" "}
-                {content.upgrade}{" "}
+                <img src={content.gfx} alt={content.upgrade}/>
+                {" "}{content.upgrade}{" "}
+                <img src={content.gfx} alt={content.upgrade}/>
               </Typography>
               <Typography>Ilość posiadanych: {content.count} </Typography>
               <Typography>Mnożnik: {content.multiplier} </Typography>

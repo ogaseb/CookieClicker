@@ -22,10 +22,10 @@ class CookieClick extends Component {
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 36;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
-    let compHeight = component.offsetHeight - 100;
-    console.log(compHeight)
 
-    let rangeHeight = Math.floor(Math.random() * (compHeight - 100 + 1)) + 0;
+    let compHeight = component.offsetHeight - 36;
+    let rangeHeight = Math.floor(Math.random() * (compHeight - 0 + 1)) + 0;
+
     let randomDeg = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
 
     let cookie = document.createElement("IMG");
