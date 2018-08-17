@@ -38,6 +38,10 @@ class CookieClick extends Component {
     cookie.style.transform = "rotate(" + randomDeg + "deg)";
 
     component.appendChild(cookie);
+
+    if (component.childNodes.length > 100) { // Or just `if (element.childNodes.length)`
+      component.removeChild(component.childNodes[1]);
+    }
   };
 
   render() {
