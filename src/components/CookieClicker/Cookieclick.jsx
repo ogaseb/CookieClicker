@@ -6,11 +6,11 @@ class CookieClick extends Component {
   }
   chooseRandomCookie() {
     const cookieArray = [
-      require("../../gfx/cookie.png"),
-      require("../../gfx/cookie1.png"),
-      require("../../gfx/cookie2.png"),
-      require("../../gfx/cookie3.png"),
-      require("../../gfx/cookie4.png")
+      require("../../gfx/cookies/cookie.png"),
+      require("../../gfx/cookies/cookie1.png"),
+      require("../../gfx/cookies/cookie2.png"),
+      require("../../gfx/cookies/cookie3.png"),
+      require("../../gfx/cookies/cookie4.png")
     ];
     let cookie = cookieArray[Math.floor(Math.random() * cookieArray.length)];
     return cookie;
@@ -22,7 +22,9 @@ class CookieClick extends Component {
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 36;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
-    let compHeight = component.offsetWidth - 100;
+    let compHeight = component.offsetHeight - 100;
+    console.log(compHeight)
+
     let rangeHeight = Math.floor(Math.random() * (compHeight - 100 + 1)) + 0;
     let randomDeg = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
 

@@ -148,6 +148,10 @@ class App extends Component {
     }, 1000);
   }
 
+  componentWillUnmount(){
+    this.saveProgressInLocalStorage()
+  }
+
   handleReset = () => {
     const objStatus = {
       totalCookies: 0,
@@ -268,6 +272,7 @@ class App extends Component {
     localStorage.removeItem("save");
   };
 
+  
   saveProgressInLocalStorage = () => {
     const toSaveStatus = this.state.cookieClicker;
     localStorage.setItem("save-status", JSON.stringify(toSaveStatus));
@@ -287,7 +292,6 @@ class App extends Component {
   };
 
   handleIncrementTotalCookies = float => {
-    console.log("Increment!", float);
     let obj = Object.assign({}, this.state.cookieClicker);
 
     obj.totalCookies = this.state.cookieClicker.totalCookies + float;
