@@ -11,6 +11,7 @@ import CookieStatus from "./components/CookieClicker/Cookiestatus";
 import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
 
 import { Autorenew } from "@material-ui/icons";
+import { GithubCircle } from "mdi-material-ui";
 
 import "./App.css";
 
@@ -26,46 +27,109 @@ class App extends Component {
       },
       upgrades: [
         {
-          upgrade: "cursor",
+          upgrade: "Cursor",
           count: 0,
           multiplier: 0.1,
+          basePrice: 15,
           price: 15
         },
         {
-          upgrade: "grandma",
+          upgrade: "Grandma",
           count: 0,
           multiplier: 1,
+          basePrice: 100,
           price: 100
         },
         {
-          upgrade: "farm",
+          upgrade: "Farm",
           count: 0,
           multiplier: 8,
+          basePrice: 1100,
           price: 1100
         },
         {
-          upgrade: "mine",
+          upgrade: "Mine",
           count: 0,
           multiplier: 47,
+          basePrice: 12000,
           price: 12000
         },
         {
-          upgrade: "factory",
+          upgrade: "Factory",
           count: 0,
           multiplier: 260,
+          basePrice: 130000,
           price: 130000
         },
         {
-          upgrade: "bank",
+          upgrade: "Bank",
           count: 0,
           multiplier: 1400,
+          basePrice: 1400000,
           price: 1400000
         },
         {
-          upgrade: "temple",
+          upgrade: "Temple",
           count: 0,
           multiplier: 7800,
+          basePrice: 20000000,
           price: 20000000
+        },
+        {
+          upgrade: "Wizard Tower",
+          count: 0,
+          multiplier: 44000,
+          basePrice: 330000000,
+          price: 330000000
+        },
+        {
+          upgrade: "Shipment",
+          count: 0,
+          multiplier: 260000,
+          basePrice: 5100000000,
+          price: 5100000000
+        },
+        {
+          upgrade: "Alchemy Lab",
+          count: 0,
+          multiplier: 1600000,
+          basePrice: 75000000000,
+          price: 75000000000
+        },
+        {
+          upgrade: "Portal",
+          count: 0,
+          multiplier: 10000000,
+          basePrice: 100000000000,
+          price: 100000000000
+        },
+        {
+          upgrade: "Time Machine",
+          count: 0,
+          multiplier: 65000000,
+          basePrice: 1400000000000,
+          price: 1400000000000
+        },
+        {
+          upgrade: "Antimater Condenser",
+          count: 0,
+          multiplier: 430000000,
+          basePrice: 17000000000000,
+          price: 17000000000000
+        },
+        {
+          upgrade: "Prism",
+          count: 0,
+          multiplier: 2900000000,
+          basePrice: 210000000000000,
+          price: 210000000000000
+        },
+        {
+          upgrade: "Chancemaker",
+          count: 0,
+          multiplier: 21000000000,
+          basePrice: 2600000000000000,
+          price: 2600000000000000
         }
       ]
     };
@@ -93,46 +157,109 @@ class App extends Component {
     };
     const objUpgrades = [
       {
-        upgrade: "mouse",
+        upgrade: "Cursor",
         count: 0,
         multiplier: 0.1,
-        price: 10
+        basePrice: 15,
+        price: 15
       },
       {
-        upgrade: "grandma",
+        upgrade: "Grandma",
         count: 0,
         multiplier: 1,
+        basePrice: 100,
         price: 100
       },
       {
-        upgrade: "farm",
+        upgrade: "Farm",
         count: 0,
         multiplier: 8,
+        basePrice: 1100,
         price: 1100
       },
       {
-        upgrade: "mine",
+        upgrade: "Mine",
         count: 0,
         multiplier: 47,
+        basePrice: 12000,
         price: 12000
       },
       {
-        upgrade: "factory",
+        upgrade: "Factory",
         count: 0,
         multiplier: 260,
+        basePrice: 130000,
         price: 130000
       },
       {
-        upgrade: "bank",
+        upgrade: "Bank",
         count: 0,
         multiplier: 1400,
+        basePrice: 1400000,
         price: 1400000
       },
       {
-        upgrade: "temple",
+        upgrade: "Temple",
         count: 0,
         multiplier: 7800,
+        basePrice: 20000000,
         price: 20000000
+      },
+      {
+        upgrade: "Wizard Tower",
+        count: 0,
+        multiplier: 44000,
+        basePrice: 330000000,
+        price: 330000000
+      },
+      {
+        upgrade: "Shipment",
+        count: 0,
+        multiplier: 260000,
+        basePrice: 5100000000,
+        price: 5100000000
+      },
+      {
+        upgrade: "Alchemy Lab",
+        count: 0,
+        multiplier: 1600000,
+        basePrice: 75000000000,
+        price: 75000000000
+      },
+      {
+        upgrade: "Portal",
+        count: 0,
+        multiplier: 10000000,
+        basePrice: 100000000000,
+        price: 100000000000
+      },
+      {
+        upgrade: "Time Machine",
+        count: 0,
+        multiplier: 65000000,
+        basePrice: 1400000000000,
+        price: 1400000000000
+      },
+      {
+        upgrade: "Antimater Condenser",
+        count: 0,
+        multiplier: 430000000,
+        basePrice: 17000000000000,
+        price: 17000000000000
+      },
+      {
+        upgrade: "Prism",
+        count: 0,
+        multiplier: 2900000000,
+        basePrice: 210000000000000,
+        price: 210000000000000
+      },
+      {
+        upgrade: "Chancemaker",
+        count: 0,
+        multiplier: 21000000000,
+        basePrice: 2600000000000000,
+        price: 2600000000000000
       }
     ];
 
@@ -193,7 +320,7 @@ class App extends Component {
     objUpgrades.count = this.state.upgrades[upgradeID].count + 1;
 
     let price =
-      this.state.upgrades[upgradeID].price *
+      this.state.upgrades[upgradeID].basePrice *
       Math.pow(1.15, this.state.upgrades[upgradeID].count);
 
     objUpgrades.price = price.toFixed(0);
@@ -228,6 +355,15 @@ class App extends Component {
               CookieClicker{" "}
             </Typography>
             <IconButton
+              href="https://github.com/ProPanek/CookieClicker"
+              target="_blank"
+              style={{ position: "absolute", right: 50 }}
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <GithubCircle />
+            </IconButton>
+            <IconButton
               onClick={this.handleReset}
               style={{ position: "absolute", right: 0 }}
               aria-haspopup="true"
@@ -242,6 +378,7 @@ class App extends Component {
           <CookieClick onIncrement={this.handleIncrementTotalCookies} />
           <CookieUpgrades
             upgrades={this.state.upgrades}
+            level={this.state.cookieClicker.playerLevel}
             onUpgrade={this.handleUpgrade}
           />
         </Grid>

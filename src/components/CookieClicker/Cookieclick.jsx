@@ -20,9 +20,9 @@ class CookieClick extends Component {
 
     // console.log(rand.toString());
     const component = document.getElementById("Cookieclick");
-    let compWidth = component.offsetWidth - 50;
+    let compWidth = component.offsetWidth - 36;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
-    let compHeight = component.offsetWidth - 50;
+    let compHeight = component.offsetWidth - 100;
     let rangeHeight = Math.floor(Math.random() * (compHeight - 100 + 1)) + 0;
     let randomDeg = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
 

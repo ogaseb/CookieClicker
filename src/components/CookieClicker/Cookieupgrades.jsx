@@ -26,22 +26,27 @@ class CookieUpgrades extends Component {
           maxHeight: this.windowHeight()
         }}
       >
-        {/* {this} */}
-        {this.props.upgrades.map((content, index) => (
-          <Paper key={index}>
-            <Typography variant="display2" align="center">
-              {" "}
-              {content.upgrade}{" "}
-            </Typography>
-            <Typography>Ilość posiadanych: {content.count} </Typography>
-            <Typography>Mnożnik: {content.multiplier} </Typography>
-            <Typography>Koszt: {content.price} </Typography>
-            <Button color="primary" onClick={() => this.props.onUpgrade(index)}>
-              {" "}
-              Kupuj{" "}
-            </Button>
-          </Paper>
-        ))}
+        {this.props.upgrades
+          .slice(0, this.props.level)
+          .map((content, index) => (
+            <Paper key={index}>
+              <Typography variant="display2" align="center">
+                {" "}
+                {content.upgrade}{" "}
+              </Typography>
+              <Typography>Ilość posiadanych: {content.count} </Typography>
+              <Typography>Mnożnik: {content.multiplier} </Typography>
+              <Typography>Koszt: {content.price} </Typography>
+
+              <Button
+                color="primary"
+                onClick={() => this.props.onUpgrade(index)}
+              >
+                {" "}
+                Kupuj{" "}
+              </Button>
+            </Paper>
+          ))}
       </Grid>
     );
   }
