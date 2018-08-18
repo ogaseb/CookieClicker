@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Paper, Typography } from "../../../node_modules/@material-ui/core";
-import { relative } from "path";
-
 class CookeStatus extends Component {
   render() {
     return (

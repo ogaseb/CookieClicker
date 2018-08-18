@@ -43,8 +43,8 @@ class App extends Component {
     setInterval(this.saveProgressInLocalStorage, 5000);
 
     this.interval = setInterval(() => {
-      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond);
-    }, 1000);
+      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 10);
+    }, 100);
   }
 
   componentWillUnmount() {
@@ -83,6 +83,7 @@ class App extends Component {
   };
 
   handleIncrementTotalCookies = float => {
+    document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
     let status = Object.assign({}, this.state.status);
     let stats = Object.assign({}, this.state.statistics);
 
