@@ -23,7 +23,7 @@ class CookieUpgrades extends Component {
           marginTop: 5,
           overflowX: "hidden",
           overflowY: "scroll",
-          maxHeight: this.windowHeight()
+          height: "calc(100vh - 70px)"
         }}
       >
         {this.props.upgrades

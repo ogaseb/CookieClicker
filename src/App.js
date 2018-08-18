@@ -26,7 +26,12 @@ class App extends Component {
         playerToNextLevel: 10, //Nie jestem pewien czy powinienem trzymac takie dane w state
         cookiePerSecond: 0
       },
-      upgrades: []
+      upgrades: [],
+      achievements: [],
+      statistics: {
+        userClicks: 0,
+        userCookies: 0
+      }
     };
 
     this.handleReset.bind(this);
@@ -78,17 +83,22 @@ class App extends Component {
   };
 
   handleIncrementTotalCookies = float => {
-    let obj = Object.assign({}, this.state.status);
+    let status = Object.assign({}, this.state.status);
+    let stats = Object.assign({}, this.state.statistics);
 
-    obj.totalCookies = this.state.status.totalCookies + float;
+    status.totalCookies = this.state.status.totalCookies + float;
+    stats.userCookies = this.state.status.totalCookies + float;
+
     if (
       this.state.status.totalCookies >=
       this.state.status.playerToNextLevel - 1 //ponieważ chcemy zmiany poziomu po uzyskaniu określonej liczby, nie ciastko po
     ) {
-      obj.playerLevel = this.state.status.playerLevel + 1;
-      obj.playerToNextLevel = this.state.status.playerToNextLevel * 2;
+      status.playerLevel = this.state.status.playerLevel + 1;
+      status.playerToNextLevel = this.state.status.playerToNextLevel * 2;
     }
-    this.setState({ status: obj });
+    this.setState({ status: status });
+    this.setState({ statistics: stats });
+
     // this.placeCookie();
   };
 
@@ -96,29 +106,32 @@ class App extends Component {
     if (this.state.upgrades[upgradeID].price > this.state.status.totalCookies) {
       return;
     }
-    console.log("Upgrade!", upgradeID);
 
     let objStatus = Object.assign({}, this.state.status);
-    let objUpgrades = Object.assign({}, this.state.upgrades[upgradeID]);
+    let objUpgrades = Object.assign({}, this.state.upgrades);
 
-    objStatus.totalCookies = this.state.status.totalCookies - objUpgrades.price;
+    objStatus.totalCookies =
+      this.state.status.totalCookies - objUpgrades[upgradeID].price;
 
-    objUpgrades.count = this.state.upgrades[upgradeID].count + 1;
+    objUpgrades[upgradeID].count = this.state.upgrades[upgradeID].count + 1;
 
     let price =
       this.state.upgrades[upgradeID].basePrice *
       Math.pow(1.15, this.state.upgrades[upgradeID].count);
 
-    objUpgrades.price = price.toFixed(0);
+    objUpgrades[upgradeID].price = price.toFixed(0);
 
-    this.state.upgrades[upgradeID].count = objUpgrades.count;
-    this.state.upgrades[upgradeID].price = objUpgrades.price;
+    // this.state.upgrades[upgradeID].count = objUpgrades.count;
+    // this.state.upgrades[upgradeID].price = objUpgrades.price;
+
+    // this.setState({
+    //   upgrades: objUpgrades
+    // });
 
     let cookiePerSecondTemp = this.calculateMultiplier();
     objStatus.cookiePerSecond = cookiePerSecondTemp;
 
     this.setState({ status: objStatus });
-    this.forceUpdate();
   };
 
   calculateMultiplier() {
@@ -130,7 +143,6 @@ class App extends Component {
     return tempSum;
   }
 
-  testFunction() {}
   render() {
     return (
       <React.Fragment>

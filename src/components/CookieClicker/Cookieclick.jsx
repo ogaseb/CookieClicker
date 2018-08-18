@@ -19,11 +19,12 @@ class CookieClick extends Component {
     this.props.onIncrement(number);
 
     // console.log(rand.toString());
+
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 36;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
 
-    let compHeight = component.offsetHeight - 36;
+    let compHeight = component.offsetHeight - 40;
     let rangeHeight = Math.floor(Math.random() * (compHeight - 0 + 1)) + 0;
 
     let randomDeg = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
@@ -33,13 +34,14 @@ class CookieClick extends Component {
     cookie.style.position = "absolute";
     cookie.style.left = rangeWidth + "px";
     cookie.style.top = rangeHeight + "px";
-    cookie.style.zIndex = 0;
+    cookie.style.zIndex = -1;
     cookie.style.maxWidth = "36px";
     cookie.style.transform = "rotate(" + randomDeg + "deg)";
 
     component.appendChild(cookie);
 
-    if (component.childNodes.length > 100) { // Or just `if (element.childNodes.length)`
+    if (component.childNodes.length > 100) {
+      // Or just `if (element.childNodes.length)`
       component.removeChild(component.childNodes[1]);
     }
   };
@@ -51,7 +53,8 @@ class CookieClick extends Component {
           id="Cookieclick"
           style={{
             height: this.windowHeight(),
-            position: "relative"
+            position: "relative",
+            height: "calc(100vh - 64px)"
           }}
         >
           <Button
@@ -67,9 +70,7 @@ class CookieClick extends Component {
               height: "100%"
             }}
             onClick={() => this.placeCookie(1)}
-          >
-            Click me!
-          </Button>
+          />
         </div>
       </Grid>
     );

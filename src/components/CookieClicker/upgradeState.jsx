@@ -1,7 +1,7 @@
-let upgrades = [
+const upgrades = [
   {
     upgrade: "Cursor",
-    gfx: require("../../../src/gfx/upgrades/Cursor.png"),
+    gfx: require("../../gfx/upgrades/Cursor.png"),
     count: 0,
     multiplier: 0.1,
     basePrice: 15,
