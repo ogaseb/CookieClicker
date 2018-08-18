@@ -61,7 +61,7 @@ const achievements = [
     {
       name: "Affluent bakery",
       achieve: false,
-      criteria: 1000000,
+      criteria: 100000000,
       description: "Bake 100 million cookies in one ascension."
     },
     {
