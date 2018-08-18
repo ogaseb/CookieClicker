@@ -136,12 +136,12 @@ class App extends Component {
     this.setState({ statistics: statistics });
   };
 
-  handleUpgrade = (upgradeID, amount) => {
+  handleUpgrade = (index, amount) => {
     let price = 0;
     for (let i = 1; i <= amount; i++) {
       price +=
-        this.state.upgrades[upgradeID].basePrice *
-        Math.pow(1.15, this.state.upgrades[upgradeID].count + (i - 1));
+        this.state.upgrades[index].basePrice *
+        Math.pow(1.15, this.state.upgrades[index].count + (i - 1));
     }
 
     if (price > this.state.status.totalCookies) {
@@ -153,10 +153,33 @@ class App extends Component {
 
     objStatus.totalCookies = this.state.status.totalCookies - price;
 
-    objUpgrades[upgradeID].count =
-      this.state.upgrades[upgradeID].count + amount;
+    objUpgrades[index].count = this.state.upgrades[index].count + amount;
 
-    objUpgrades[upgradeID].price = price.toFixed(0);
+    objUpgrades[index].price = price.toFixed(0);
+
+    let cookiePerSecondTemp = this.calculateMultiplier();
+    objStatus.cookiePerSecond = cookiePerSecondTemp;
+
+    this.setState({ status: objStatus });
+  };
+
+  handleMultipierUpgrade = index => {
+    let objUpgrades = Object.assign({}, this.state.upgrades);
+    let objStatus = Object.assign({}, this.state.status);
+
+    if (objUpgrades[index].multiplierUpgrade > this.state.status.totalCookies) {
+      return;
+    }
+
+    objStatus.totalCookies =
+      this.state.status.totalCookies - objUpgrades[index].multiplierUpgrade;
+
+    objUpgrades[index].multiplierUpgrade =
+      this.state.upgrades[index].multiplierUpgrade * 10;
+    objUpgrades[index].multiplierUpgradeLevel =
+      this.state.upgrades[index].multiplierUpgradeLevel + 1;
+
+    objUpgrades[index].multiplier = this.state.upgrades[index].multiplier * 2;
 
     let cookiePerSecondTemp = this.calculateMultiplier();
     objStatus.cookiePerSecond = cookiePerSecondTemp;
@@ -237,6 +260,7 @@ class App extends Component {
             upgrades={this.state.upgrades}
             level={this.state.status.playerLevel}
             onUpgrade={this.handleUpgrade}
+            onMultiplierUpgrade={this.handleMultipierUpgrade}
           />
         </Grid>
       </React.Fragment>

@@ -3,12 +3,12 @@ import {
   Grid,
   Paper,
   Typography,
-  Button
+  Button,
+  Popover
 } from "../../../node_modules/@material-ui/core";
 
 import "./Cookieupgrades.css";
 class CookieUpgrades extends Component {
-  componentDidMount() {}
   windowHeight() {
     return document.documentElement.scrollHeight - 100;
   }
@@ -22,6 +22,65 @@ class CookieUpgrades extends Component {
     }
 
     return this.nFormatter(price.toFixed(0), 2);
+  };
+
+  buttonCheck = index => {
+    if (
+      this.props.upgrades[index].count >= 1 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 0
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 5 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 1
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 25 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 2
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 50 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 3
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 100 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 4
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 150 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 5
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 200 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 6
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 250 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 7
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 300 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 8
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 350 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 9
+    ) {
+      return false;
+    } else if (
+      this.props.upgrades[index].count >= 400 &&
+      this.props.upgrades[index].multiplierUpgradeLevel === 10
+    ) {
+      return false;
+    } else return true;
   };
 
   nFormatter(num, digits) {
@@ -48,7 +107,7 @@ class CookieUpgrades extends Component {
     }
     return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
   }
-
+  handlePopoverOpen = () => {};
   render() {
     // const { mouse, grandma } = this.props.upgrades;
     return (
@@ -76,7 +135,20 @@ class CookieUpgrades extends Component {
                 Ilość posiadanych: {content.count}
               </Typography>
               <Typography align="center">
-                Mnożnik: {content.multiplier}
+                Koszt ulepszenia mnożnika {content.multiplierUpgrade}
+              </Typography>
+              <Typography align="center">
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  onMouseOver={this.handlePopoverOpen}
+                  disabled={this.buttonCheck(index)}
+                  onClick={() => {
+                    this.props.onMultiplierUpgrade(index);
+                  }}
+                >
+                  Mnożnik: {content.multiplier}
+                </Button>
               </Typography>
               <Typography align="center" style={{ paddingBottom: "10px" }}>
                 Koszt
