@@ -9,6 +9,7 @@
 - zapisywanie/wczytywanie sesji w localstorage.
 - podstawowa funkcjonalność - Klikanie w przycisk (ciastko)!
 - upgrade'y! Zakup, interwał dodający ciastka w zależności od ilości ulepszeń. Rodzaj ulepszeń zależny od poziomu gracza.
+- wyświetlanie aktualnie posiadanych ciastek w nazwie karty.
 
 ## A co będzie?
 
