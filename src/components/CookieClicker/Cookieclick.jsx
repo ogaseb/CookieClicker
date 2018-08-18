@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Paper, Button } from "../../../node_modules/@material-ui/core";
+import { Grid, Button } from "../../../node_modules/@material-ui/core";
 class CookieClick extends Component {
   state = {
     timeouts: []
@@ -21,14 +21,14 @@ class CookieClick extends Component {
 
   placeCookie = number => {
     this.props.onIncrement(number);
-
+    this.props.countClicks();
     // console.log(rand.toString());
     let counter = 0;
     const component = document.getElementById("Cookieclick");
-    let compWidth = component.offsetWidth - 36;
+    let compWidth = component.offsetWidth - 70;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
 
-    let compHeight = component.offsetHeight - 40;
+    let compHeight = component.offsetHeight - 70;
     let rangeHeight = Math.floor(Math.random() * (compHeight - 0 + 1)) + 0;
 
     let randomDeg = Math.floor(Math.random() * (360 - 0 + 1)) + 0;
@@ -40,12 +40,12 @@ class CookieClick extends Component {
     cookie.style.left = rangeWidth + "px";
     cookie.style.top = rangeHeight + "px";
     cookie.style.zIndex = -1;
-    cookie.style.maxWidth = "36px";
+    cookie.style.maxWidth = "64px";
     cookie.style.transform = "rotate(" + randomDeg + "deg)";
 
     component.appendChild(cookie);
 
-    if (component.childNodes.length > 100) {
+    if (component.childNodes.length > 250) {
       // Or just `if (element.childNodes.length)`
       component.removeChild(component.childNodes[1]);
     }
@@ -57,7 +57,6 @@ class CookieClick extends Component {
         <div
           id="Cookieclick"
           style={{
-            height: this.windowHeight(),
             position: "relative",
             height: "calc(100vh - 64px)"
           }}

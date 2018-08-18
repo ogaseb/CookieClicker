@@ -9,12 +9,14 @@ import {
 import CookieClick from "./components/CookieClicker/Cookieclick";
 import CookieStatus from "./components/CookieClicker/Cookiestatus";
 import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
+import CookieAchievements from "./components/CookieClicker/Cookieachievements";
 
 import { Autorenew } from "@material-ui/icons";
 import { GithubCircle } from "mdi-material-ui";
 
 import "./App.css";
 import upgrades from "./components/CookieClicker/upgradeState";
+import achievements from "./components/CookieClicker/achievementsState";
 
 class App extends Component {
   constructor() {
@@ -27,7 +29,7 @@ class App extends Component {
         cookiePerSecond: 0
       },
       upgrades: [],
-      achievements: [],
+      achievements: {},
       statistics: {
         userClicks: 0,
         userCookies: 0
@@ -39,12 +41,17 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ upgrades: upgrades });
+    this.setState({ achievements: achievements });
+
     this.loadProgressFromLocalStorage();
     setInterval(this.saveProgressInLocalStorage, 5000);
 
     this.interval = setInterval(() => {
-      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 10);
-    }, 100);
+      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond);
+    }, 1000);
+    this.interval = setInterval(() => {
+      document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
+    }, 2000);
   }
 
   componentWillUnmount() {
@@ -58,10 +65,20 @@ class App extends Component {
       playerToNextLevel: 10,
       cookiePerSecond: 0
     };
+    const statistics = {
+      userClicks: 0,
+      userCookies: 0
+    };
 
     this.setState({ status: objStatus });
     this.setState({ upgrades: upgrades });
-    localStorage.removeItem("save");
+    this.setState({ achievements: achievements });
+    this.setState({ statistics: statistics });
+
+    localStorage.removeItem("save-status");
+    localStorage.removeItem("save-upgrades");
+    localStorage.removeItem("save-achievements");
+    localStorage.removeItem("save-statistics");
   };
 
   saveProgressInLocalStorage = () => {
@@ -69,6 +86,13 @@ class App extends Component {
     localStorage.setItem("save-status", JSON.stringify(toSaveStatus));
     const toSaveUpgrades = this.state.upgrades;
     localStorage.setItem("save-upgrades", JSON.stringify(toSaveUpgrades));
+    const toSaveAchievements = this.state.achievements;
+    localStorage.setItem(
+      "save-achievements",
+      JSON.stringify(toSaveAchievements)
+    );
+    const toSaveStatistics = this.state.statistics;
+    localStorage.setItem("save-statistics", JSON.stringify(toSaveStatistics));
   };
 
   loadProgressFromLocalStorage = () => {
@@ -80,15 +104,22 @@ class App extends Component {
       let obj = JSON.parse(localStorage.getItem("save-upgrades"));
       this.setState({ upgrades: obj });
     }
+    if (localStorage.getItem("save-achievements") !== null) {
+      let obj = JSON.parse(localStorage.getItem("save-achievements"));
+      this.setState({ achievements: obj });
+    }
+    if (localStorage.getItem("save-statistics") !== null) {
+      let obj = JSON.parse(localStorage.getItem("save-statistics"));
+      this.setState({ statistics: obj });
+    }
   };
 
   handleIncrementTotalCookies = float => {
-    document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
     let status = Object.assign({}, this.state.status);
-    let stats = Object.assign({}, this.state.statistics);
+    let statistics = Object.assign({}, this.state.statistics);
 
     status.totalCookies = this.state.status.totalCookies + float;
-    stats.userCookies = this.state.status.totalCookies + float;
+    statistics.userCookies = this.state.statistics.userCookies + float;
 
     if (
       this.state.status.totalCookies >=
@@ -98,9 +129,7 @@ class App extends Component {
       status.playerToNextLevel = this.state.status.playerToNextLevel * 2;
     }
     this.setState({ status: status });
-    this.setState({ statistics: stats });
-
-    // this.placeCookie();
+    this.setState({ statistics: statistics });
   };
 
   handleUpgrade = upgradeID => {
@@ -133,6 +162,18 @@ class App extends Component {
     objStatus.cookiePerSecond = cookiePerSecondTemp;
 
     this.setState({ status: objStatus });
+  };
+
+  handleAchievement = (name, id) => {
+    let achieve = Object.assign({}, this.state.achievements);
+    achieve[name][id].achieve = true;
+    console.log(achieve);
+  };
+
+  handleCountClicks = () => {
+    let stats = Object.assign({}, this.state.statistics);
+    stats.userClicks = this.state.statistics.userClicks + 1;
+    this.setState({ statistics: stats });
   };
 
   calculateMultiplier() {
@@ -173,8 +214,18 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         <CookieStatus cookies={this.state.status} />
+        <CookieAchievements
+          achievements={this.state.achievements}
+          statistics={this.state.statistics}
+          status={this.state.status}
+          onAchievement={this.handleAchievement}
+        />
+
         <Grid container>
-          <CookieClick onIncrement={this.handleIncrementTotalCookies} />
+          <CookieClick
+            onIncrement={this.handleIncrementTotalCookies}
+            countClicks={this.handleCountClicks}
+          />
           <CookieUpgrades
             upgrades={this.state.upgrades}
             level={this.state.status.playerLevel}

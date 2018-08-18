@@ -7,7 +7,7 @@ class CookeStatus extends Component {
         id="Cookiestatus"
         square={true}
         style={{
-          padding: "5px",
+          padding: "15px",
           position: "absolute",
           top: "50%",
           left: "25%",
