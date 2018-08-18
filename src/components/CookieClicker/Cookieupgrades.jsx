@@ -134,9 +134,12 @@ class CookieUpgrades extends Component {
               <Typography align="center">
                 Ilość posiadanych: {content.count}
               </Typography>
-              <Typography align="center">
-                Koszt ulepszenia mnożnika {content.multiplierUpgrade}
-              </Typography>
+              {this.buttonCheck(index) === false && (
+                <Typography align="center">
+                  Koszt ulepszenia mnożnika: {content.multiplierUpgrade}
+                </Typography>
+              )}
+
               <Typography align="center">
                 <Button
                   variant="contained"
