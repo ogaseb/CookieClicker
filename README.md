@@ -11,11 +11,11 @@
 - upgrade'y! Zakup, interwał dodający ciastka w zależności od ilości ulepszeń. Rodzaj ulepszeń zależny od poziomu gracza.
 - wyświetlanie aktualnie posiadanych ciastek w nazwie karty.
 - Osiągnięcia (niewielka część) oraz niewielki bonus za ich posiadanie do klikania w ciastko.
+- Ulepszenia globalne! To znaczy ulepszenia mnożników dla każdego ulepszenia z osobna.
 
 ## A co będzie?
 
-- Ulepszenia globalne?
-- Cokolwiek co mnie zainspiruje.
+- Cokolwiek co mnie jeszcze zainspiruje.
 
 ## Linki
 
