@@ -170,7 +170,6 @@ class App extends Component {
   };
 
   handleAchievementBonus = float => {
-    console.log(float);
     let status = Object.assign({}, this.state.status);
     status.quantityPerClick = float;
     this.setState({ status: status });

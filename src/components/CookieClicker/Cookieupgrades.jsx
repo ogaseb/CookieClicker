@@ -8,9 +8,7 @@ import {
 
 import "./Cookieupgrades.css";
 class CookieUpgrades extends Component {
-  componentDidMount() {
-    console.log(this.props.upgrades);
-  }
+  componentDidMount() {}
   windowHeight() {
     return document.documentElement.scrollHeight - 100;
   }
@@ -23,7 +21,7 @@ class CookieUpgrades extends Component {
         Math.pow(1.15, this.props.upgrades[index].count + (i - 1));
     }
 
-    return this.nFormatter(price.toFixed(0), 3);
+    return this.nFormatter(price.toFixed(0), 2);
   };
 
   nFormatter(num, digits) {

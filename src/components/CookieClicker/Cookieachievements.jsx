@@ -47,7 +47,6 @@ class CookieAchievements extends Component {
             this.props.achievements[i][j].criteria &&
           !this.props.achievements[i][j].achieve
         ) {
-          console.log(i, j);
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
           dialog.title = this.props.achievements[i][j].name;
@@ -61,8 +60,6 @@ class CookieAchievements extends Component {
             this.props.achievements[i][j].criteria &&
           !this.props.achievements[i][j].achieve
         ) {
-          console.log(i, j);
-
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
           dialog.title = this.props.achievements[i][j].name;
@@ -76,8 +73,6 @@ class CookieAchievements extends Component {
             this.props.achievements[i][j].criteria &&
           !this.props.achievements[i][j].achieve
         ) {
-          console.log(i, j);
-
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
           dialog.title = this.props.achievements[i][j].name;
@@ -91,8 +86,6 @@ class CookieAchievements extends Component {
             this.props.achievements[i][j].criteria &&
           !this.props.achievements[i][j].achieve
         ) {
-          console.log(i, j);
-
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
           dialog.title = this.props.achievements[i][j].name;
