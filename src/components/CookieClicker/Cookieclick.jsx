@@ -73,7 +73,7 @@ class CookieClick extends Component {
               width: "100%",
               height: "100%"
             }}
-            onClick={() => this.placeCookie(1)}
+            onClick={() => this.placeCookie(this.props.quantityPerClick)}
           />
         </div>
       </Grid>

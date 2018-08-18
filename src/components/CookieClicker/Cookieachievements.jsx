@@ -23,7 +23,22 @@ class CookieAchievements extends Component {
     }, 1000);
   }
 
+  countAchievements = () => {
+    let counter = 0;
+    let howMuchAchieve = 0;
+    for (let i = 0; i < this.props.achievements.length; i++) {
+      for (let j = 0; j < this.props.achievements[i].length; j++) {
+        counter++;
+        if (this.props.achievements[i][j].achieve) {
+          howMuchAchieve++;
+        }
+      }
+    }
+    return (howMuchAchieve / counter) * 10;
+  };
   checkAchievements = () => {
+    this.props.onAchievementBonus(this.countAchievements());
+
     for (let i = 0; i < this.props.achievements.length; i++) {
       for (let j = 0; j < this.props.achievements[i].length; j++) {
         if (

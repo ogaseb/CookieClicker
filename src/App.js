@@ -26,7 +26,8 @@ class App extends Component {
         totalCookies: 0,
         playerLevel: 1,
         playerToNextLevel: 10, //Nie jestem pewien czy powinienem trzymac takie dane w state
-        cookiePerSecond: 0
+        cookiePerSecond: 0,
+        quantityPerClick: 1
       },
       upgrades: [],
       achievements: {},
@@ -63,7 +64,8 @@ class App extends Component {
       totalCookies: 0,
       playerLevel: 1,
       playerToNextLevel: 10,
-      cookiePerSecond: 0
+      cookiePerSecond: 0,
+      quantityPerClick: 1
     };
     const statistics = {
       userClicks: 0,
@@ -154,18 +156,7 @@ class App extends Component {
     objUpgrades[upgradeID].count =
       this.state.upgrades[upgradeID].count + amount;
 
-    // let price =
-    //   this.state.upgrades[upgradeID].basePrice *
-    //   Math.pow(1.15, this.state.upgrades[upgradeID].count);
-
     objUpgrades[upgradeID].price = price.toFixed(0);
-
-    // this.state.upgrades[upgradeID].count = objUpgrades.count;
-    // this.state.upgrades[upgradeID].price = objUpgrades.price;
-
-    // this.setState({
-    //   upgrades: objUpgrades
-    // });
 
     let cookiePerSecondTemp = this.calculateMultiplier();
     objStatus.cookiePerSecond = cookiePerSecondTemp;
@@ -176,7 +167,13 @@ class App extends Component {
   handleAchievement = (name, id) => {
     let achieve = Object.assign({}, this.state.achievements);
     achieve[name][id].achieve = true;
-    console.log(achieve);
+  };
+
+  handleAchievementBonus = float => {
+    console.log(float);
+    let status = Object.assign({}, this.state.status);
+    status.quantityPerClick = float;
+    this.setState({ status: status });
   };
 
   handleCountClicks = () => {
@@ -228,10 +225,12 @@ class App extends Component {
           statistics={this.state.statistics}
           status={this.state.status}
           onAchievement={this.handleAchievement}
+          onAchievementBonus={this.handleAchievementBonus}
         />
 
         <Grid container>
           <CookieClick
+            quantityPerClick={this.state.status.quantityPerClick}
             onIncrement={this.handleIncrementTotalCookies}
             countClicks={this.handleCountClicks}
           />
