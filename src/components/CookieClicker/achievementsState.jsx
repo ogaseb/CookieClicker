@@ -63,6 +63,24 @@ const achievements = [
       achieve: false,
       criteria: 1000000,
       description: "Bake 100 million cookies in one ascension."
+    },
+    {
+      name: "World-famous bakery",
+      achieve: false,
+      criteria: 1000000000,
+      description: "Bake 1 billion cookies in one ascension.	"
+    },
+    {
+      name: "Cosmic bakery",
+      achieve: false,
+      criteria: 100000000000,
+      description: "Bake 100 billion cookies in one ascension.	"
+    },
+    {
+      name: "Galactic bakery",
+      achieve: false,
+      criteria: 1000000000000,
+      description: "Bake 1 trillion cookies in one ascension."
     }
   ],
   [
@@ -102,6 +120,24 @@ const achievements = [
       achieve: false,
       criteria: 1000000,
       description: "Bake 1 million cookies per second."
+    },
+    {
+      name: "Cookie pulsar",
+      achieve: false,
+      criteria: 10000000,
+      description: "Bake 10 million cookies per second."
+    },
+    {
+      name: "Cookie quasar",
+      achieve: false,
+      criteria: 100000000,
+      description: "Bake 100 million cookies per second."
+    },
+    {
+      name: "Oh hey, you're still here",
+      achieve: false,
+      criteria: 1000000000,
+      description: "Bake 1 billion cookies per second."
     }
   ],
   [
@@ -149,51 +185,45 @@ const achievements = [
       description: "You can buy Temples!"
     },
     {
-      name: "Bank!",
-      achieve: false,
-      criteria: 8,
-      description: "You can buy Banks!"
-    },
-    {
       name: "Wizard Tower!",
       achieve: false,
-      criteria: 9,
+      criteria: 8,
       description: "You can buy Wizard Towers!"
     },
     {
       name: "Shipment!",
       achieve: false,
-      criteria: 10,
+      criteria: 9,
       description: "You can buy Shipments!"
     },
     {
       name: "Alchemy Lab!",
       achieve: false,
-      criteria: 11,
+      criteria: 10,
       description: "You can buy Alchemy Labs!"
     },
     {
       name: "Portal!",
       achieve: false,
-      criteria: 12,
+      criteria: 11,
       description: "You can buy Portals!"
     },
     {
       name: "Time Machine!",
       achieve: false,
-      criteria: 13,
+      criteria: 12,
       description: "You can buy Time Machines!"
     },
     {
       name: "Antimatter Condenser!",
       achieve: false,
-      criteria: 14,
+      criteria: 13,
       description: "You can buy Antimatter Condensers!"
     },
     {
       name: "Prism!",
       achieve: false,
-      criteria: 15,
+      criteria: 14,
       description: "You can buy Prisms!"
     },
     {
