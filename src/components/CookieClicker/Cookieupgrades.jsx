@@ -23,7 +23,7 @@ class CookieUpgrades extends Component {
         Math.pow(1.15, this.props.upgrades[index].count + (i - 1));
     }
 
-    return this.nFormatter(price.toFixed(0), 1);
+    return this.nFormatter(price.toFixed(0), 3);
   };
 
   nFormatter(num, digits) {
@@ -31,11 +31,15 @@ class CookieUpgrades extends Component {
     var si = [
       { value: 1, symbol: "" },
       { value: 1e3, symbol: "k" },
-      { value: 1e6, symbol: "M" },
-      { value: 1e9, symbol: "G" },
-      { value: 1e12, symbol: "T" },
-      { value: 1e15, symbol: "P" },
-      { value: 1e18, symbol: "E" }
+      { value: 1e6, symbol: "Mil" },
+      { value: 1e9, symbol: "Bil" },
+      { value: 1e12, symbol: "Tri" },
+      { value: 1e15, symbol: "Quad" },
+      { value: 1e18, symbol: "Quin" },
+      { value: 1e21, symbol: "Sext" },
+      { value: 1e24, symbol: "Sept" },
+      { value: 1e27, symbol: "Oct" },
+      { value: 1e30, symbol: "Non" }
     ];
     var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
     var i;
