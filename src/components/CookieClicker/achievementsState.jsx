@@ -88,8 +88,8 @@ const achievements = [
       // cookies per second
       name: "Casual baking",
       achieve: false,
-      criteria: 1,
-      description: "Bake 1 cookie per second."
+      criteria: 5,
+      description: "Bake 5 cookie per second."
     },
     {
       name: "Hardcore baking",

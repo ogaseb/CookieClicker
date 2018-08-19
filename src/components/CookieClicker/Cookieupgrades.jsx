@@ -3,11 +3,9 @@ import {
   Grid,
   Paper,
   Typography,
-  Button,
-  Popover
+  Button
 } from "../../../node_modules/@material-ui/core";
 
-import "./Cookieupgrades.css";
 class CookieUpgrades extends Component {
   windowHeight() {
     return document.documentElement.scrollHeight - 100;
@@ -107,7 +105,7 @@ class CookieUpgrades extends Component {
     }
     return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
   }
-  handlePopoverOpen = () => {};
+
   render() {
     // const { mouse, grandma } = this.props.upgrades;
     return (
@@ -136,7 +134,8 @@ class CookieUpgrades extends Component {
               </Typography>
               {this.buttonCheck(index) === false && (
                 <Typography align="center">
-                  Koszt ulepszenia mnożnika: {content.multiplierUpgrade}
+                  Koszt ulepszenia mnożnika:{" "}
+                  {this.nFormatter(content.multiplierUpgrade, 3)}
                 </Typography>
               )}
 

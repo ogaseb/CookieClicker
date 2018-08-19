@@ -97,7 +97,9 @@ class CookieAchievements extends Component {
     }
   };
   handleClose = () => {
-    this.setState({ dialog: { show: false } });
+    let dialog = Object.assign({}, this.state.dialog);
+    dialog.show = false;
+    this.setState({ dialog: dialog });
   };
   render() {
     return (
@@ -110,8 +112,11 @@ class CookieAchievements extends Component {
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"
         >
-          <DialogTitle id="alert-dialog-slide-title">
-            {this.state.dialog.title}
+          <DialogTitle
+            id="alert-dialog-slide-title"
+            children={this.state.dialog.title}
+          >
+            {/* {this.state.dialog.title} */}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
