@@ -45,8 +45,6 @@ class CookieClick extends Component {
   canvasMilkWave = () => {
     //https://codepen.io/jackrugile/pen/BvLHg
     const component = document.getElementById("Cookieclick");
-    // ctx.fillStyle = "#e5c49b";
-    // strokeColor: "#daab71",
     var c = document.getElementById("canvas"),
       ctx = c.getContext("2d"),
       cw = (c.width = window.innerWidth),
