@@ -235,18 +235,95 @@ const achievements = [
   ],
   [
     {
-      // Cursors amount
-      name: "Cursors!",
+      // upgrades amount
+      name: "more Cursors!",
       criteria: 1,
       level: 0,
       description: "Have 1 cursor!"
     },
     {
-      // Grandma amount
-      name: "Grandma!",
+      name: "more Grandmas!",
       criteria: 1,
       level: 0,
       description: "Have 1 grandma!"
+    },
+    {
+      name: "more Farms!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Farm!"
+    },
+    {
+      name: "more Mines!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Mine!"
+    },
+    {
+      name: "more Factories!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Factory!"
+    },
+    {
+      name: "more Banks!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Bank!"
+    },
+    {
+      name: "more Temples!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Temple!"
+    },
+    {
+      name: "more Wizard Towers!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Wizard Tower!"
+    },
+    {
+      name: "more Shipments!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Shipment!"
+    },
+    {
+      name: "more Alchemy Labs!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Alchemy Lab!"
+    },
+    {
+      name: "more Portals!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Portal!"
+    },
+    {
+      name: "more Time Machines!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Time Machine!"
+    },
+    {
+      name: "more Antimatter Condensers!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Antimatter Condenser!"
+    },
+    {
+      name: "more Prisms!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Prism!"
+    },
+    {
+      name: "more Chancemakers!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 Chancemaker!"
     }
   ]
 ];

@@ -125,32 +125,6 @@ class CookieAchievements extends Component {
           this.setState({ dialog: dialog });
         }
       }
-      // if (
-      //   this.props.achievements[4][i].level === 1 &&
-      //   this.props.upgrades[i].count === this.props.achievements[4][i].criteria
-      // ) {
-      //   let dialog = Object.assign({}, this.state.dialog);
-      //   dialog.show = true;
-      //   dialog.title = this.props.achievements[4][i].name;
-      //   dialog.description = this.props.achievements[4][i].description;
-      //   this.props.onAchievement(4, i, 48);
-      //   this.setState({ dialog: dialog });
-      // }
-
-      // if (
-      //   this.props.achievements[4][i].level === 2 &&
-      //   this.props.upgrades[i].count === this.props.achievements[4][i].criteria
-      // ) {
-      //   let dialog = Object.assign({}, this.state.dialog);
-      //   dialog.show = true;
-      //   dialog.title = this.props.achievements[4][i].name;
-      //   dialog.description = this.props.achievements[4][i].description;
-      //   this.props.onAchievement(4, i, 50);
-      //   this.setState({ dialog: dialog });
-      // }
-
-      // console.log(i, j);
-      // }
     }
   };
   handleClose = () => {

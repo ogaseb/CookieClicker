@@ -194,7 +194,7 @@ class App extends Component {
       achieve[4][id].level = this.state.achievements[4][id].level + 1;
       achieve[4][id].description =
         "Have " +
-        this.state.upgrades[id].count +
+        (this.state.upgrades[id].count + 1) +
         " " +
         this.state.achievements[4][id].name;
 
@@ -208,7 +208,7 @@ class App extends Component {
   handleAchievementBonus = float => {
     let status = Object.assign({}, this.state.status);
     status.quantityPerClick = float + 1;
-    // console.log(status.quantityPerClick);
+    console.log(status.quantityPerClick);
 
     this.setState({ status: status });
   };
