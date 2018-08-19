@@ -38,7 +38,7 @@ class CookieClick extends Component {
     component.appendChild(cookie);
 
     if (component.childNodes.length > 100) {
-      component.removeChild(component.childNodes[1]);
+      component.removeChild(component.childNodes[2]);
     }
   };
 
@@ -52,10 +52,10 @@ class CookieClick extends Component {
       points = [],
       tick = 0,
       opt = {
-        count: 5,
+        count: 7,
         range: {
           x: 20,
-          y: 40
+          y: 30
         },
         duration: {
           min: 20,
@@ -63,8 +63,8 @@ class CookieClick extends Component {
         },
         thickness: 20,
         strokeColor: "#daab71",
-        level: 0.25,
-        curved: false
+        level: 0.2,
+        curved: true
       },
       rand = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
