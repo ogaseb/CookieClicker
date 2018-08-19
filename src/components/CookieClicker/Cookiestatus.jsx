@@ -9,7 +9,7 @@ class CookeStatus extends Component {
         style={{
           padding: "15px",
           position: "absolute",
-          top: "50%",
+          top: "25%",
           left: "25%",
           transform: "translate(-50%, -50%)"
           // backgroundColor: "#1769aa"

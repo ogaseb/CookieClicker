@@ -190,6 +190,9 @@ class CookieClick extends Component {
     loop();
   };
 
+  animateCookie = () => {
+    console.log("animate");
+  };
   render() {
     return (
       <Grid item xs={6}>
@@ -200,6 +203,19 @@ class CookieClick extends Component {
             height: "calc(100vh - 64px)"
           }}
         >
+          <img
+            src={require("../../gfx/cookies/PerfectCookie.png")}
+            alt="PerfectCookie"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 1,
+              maxWidth: "40%"
+              // animation: "mainCookie 1s forwards linear"
+            }}
+          />
           <Button
             color="primary"
             children=""
