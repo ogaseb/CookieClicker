@@ -243,11 +243,15 @@ class App extends Component {
       speed.divider = 100;
     }
     if (this.state.speed.level === 3) {
+      speed.level = 4;
+      speed.interval = 1;
+      speed.divider = 1000;
+    }
+    if (this.state.speed.level === 4) {
       speed.level = 1;
       speed.interval = 1000;
       speed.divider = 1;
     }
-    console.log("działaj");
     this.setState({ speed: speed });
   };
 
