@@ -45,27 +45,28 @@ class CookieClick extends Component {
   canvasMilkWave = () => {
     //https://codepen.io/jackrugile/pen/BvLHg
     const component = document.getElementById("Cookieclick");
-
+    // ctx.fillStyle = "#e5c49b";
+    // strokeColor: "#daab71",
     var c = document.getElementById("canvas"),
       ctx = c.getContext("2d"),
-      cw = (c.width = component.offsetWidth - 5),
-      ch = (c.height = component.offsetHeight - 5),
+      cw = (c.width = window.innerWidth),
+      ch = (c.height = window.innerHeight),
       points = [],
       tick = 0,
       opt = {
         count: 5,
         range: {
           x: 20,
-          y: 30
+          y: 40
         },
         duration: {
           min: 20,
           max: 40
         },
-        thickness: 10,
+        thickness: 20,
         strokeColor: "#daab71",
-        level: 0.15,
-        curved: true
+        level: 0.25,
+        curved: false
       },
       rand = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -161,6 +162,7 @@ class CookieClick extends Component {
       clear();
       updatePoints();
       renderShape();
+      //renderPoints();
     };
 
     var i = opt.count + 2;
@@ -180,7 +182,10 @@ class CookieClick extends Component {
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame
+        window.msRequestAnimationFrame ||
+        function(a) {
+          window.setTimeout(a, 1e3 / 60);
+        }
       );
     })();
 
@@ -213,7 +218,19 @@ class CookieClick extends Component {
             onClick={() => this.placeCookie(this.props.quantityPerClick)}
           />
 
-          <canvas id="canvas" style={{ position: "relative", zIndex: 0 }} />
+          <canvas
+            id="canvas"
+            style={{
+              position: "relative",
+              zIndex: 0,
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "100%",
+              height: "100%"
+            }}
+          />
         </div>
       </Grid>
     );

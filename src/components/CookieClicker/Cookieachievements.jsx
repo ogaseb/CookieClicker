@@ -115,9 +115,7 @@ class CookieAchievements extends Component {
           <DialogTitle
             id="alert-dialog-slide-title"
             children={this.state.dialog.title}
-          >
-            {/* {this.state.dialog.title} */}
-          </DialogTitle>
+          />
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
               {this.state.dialog.description}
@@ -129,7 +127,7 @@ class CookieAchievements extends Component {
               onClick={this.handleClose}
               color="primary"
             >
-              Łał!
+              Woah!
             </Button>
           </DialogActions>
         </Dialog>
