@@ -52,8 +52,8 @@ class CookieClick extends Component {
 
     var c = document.getElementById("canvas"),
       ctx = c.getContext("2d"),
-      cw = (c.width = component.offsetWidth - 10),
-      ch = (c.height = component.offsetHeight),
+      cw = (c.width = component.offsetWidth - 5),
+      ch = (c.height = component.offsetHeight - 5),
       points = [],
       tick = 0,
       opt = {
