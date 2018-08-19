@@ -6,10 +6,6 @@ class CookieClick extends Component {
     this.canvasMilkWave();
   }
 
-  cookieMilk = () => {};
-  windowHeight() {
-    return document.documentElement.scrollHeight - 100;
-  }
   chooseRandomCookie() {
     const cookieArray = [
       require("../../gfx/cookies/cookie.png"),

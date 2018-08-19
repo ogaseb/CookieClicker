@@ -206,14 +206,14 @@ class App extends Component {
     this.setState({ statistics: stats });
   };
 
-  calculateMultiplier() {
+  calculateMultiplier = () => {
     let tempSum = 0;
     for (let i = 0; i < this.state.upgrades.length; i++) {
       tempSum +=
         this.state.upgrades[i].count * this.state.upgrades[i].multiplier;
     }
     return tempSum;
-  }
+  };
 
   render() {
     return (

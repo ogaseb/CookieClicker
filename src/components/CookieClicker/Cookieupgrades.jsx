@@ -7,9 +7,6 @@ import {
 } from "../../../node_modules/@material-ui/core";
 
 class CookieUpgrades extends Component {
-  windowHeight() {
-    return document.documentElement.scrollHeight - 100;
-  }
   countPrice = (index, amount) => {
     let price = 0;
 
