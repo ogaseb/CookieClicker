@@ -69,7 +69,7 @@ class CookieAchievements extends Component {
         }
         if (
           i === 2 &&
-          this.props.status.cookiePerSecond.toFixed(0) >=
+          this.props.status.cookiePerSecond >=
             this.props.achievements[i][j].criteria &&
           !this.props.achievements[i][j].achieve
         ) {

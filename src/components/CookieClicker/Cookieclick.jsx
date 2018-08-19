@@ -52,8 +52,8 @@ class CookieClick extends Component {
 
     var c = document.getElementById("canvas"),
       ctx = c.getContext("2d"),
-      cw = (c.width = component.offsetWidth),
-      ch = (c.height = component.offsetHeight - 10),
+      cw = (c.width = component.offsetWidth - 10),
+      ch = (c.height = component.offsetHeight),
       points = [],
       tick = 0,
       opt = {
@@ -68,7 +68,7 @@ class CookieClick extends Component {
         },
         thickness: 10,
         strokeColor: "#daab71",
-        level: 0.35,
+        level: 0.15,
         curved: true
       },
       rand = function(min, max) {
@@ -184,10 +184,7 @@ class CookieClick extends Component {
         window.webkitRequestAnimationFrame ||
         window.mozRequestAnimationFrame ||
         window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function(a) {
-          window.setTimeout(a, 1e3 / 60);
-        }
+        window.msRequestAnimationFrame
       );
     })();
 
