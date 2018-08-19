@@ -96,19 +96,7 @@ class CookieAchievements extends Component {
       }
     }
 
-    const upgradesAmount = [
-      1,
-      48,
-      50,
-      100,
-      100,
-      100,
-      100,
-      100,
-      1e18,
-      1e21,
-      1e24
-    ];
+    const upgradesAmount = [49, 50, 100, 100, 100, 100, 100];
 
     for (let i = 0; i < this.props.achievements[4].length; i++) {
       for (let j = 0; j < upgradesAmount.length; j++) {
