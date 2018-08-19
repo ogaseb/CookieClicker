@@ -271,7 +271,7 @@ class App extends Component {
             </Typography>
             <Typography
               color="inherit"
-              style={{ position: "absolute", right: 110 }}
+              style={{ position: "absolute", right: 100 }}
             >
               {this.state.speed.level}
             </Typography>
