@@ -39,61 +39,118 @@ class CookieAchievements extends Component {
   checkAchievements = () => {
     this.props.onAchievementBonus(this.countAchievements());
 
-    for (let i = 0; i < this.props.achievements.length; i++) {
-      for (let j = 0; j < this.props.achievements[i].length; j++) {
+    for (let i = 0; i < this.props.achievements[0].length; i++) {
+      if (
+        this.props.statistics.userClicks >=
+          this.props.achievements[0][i].criteria &&
+        !this.props.achievements[0][i].achieve
+      ) {
+        let dialog = Object.assign({}, this.state.dialog);
+        dialog.show = true;
+        dialog.title = this.props.achievements[0][i].name;
+        dialog.description = this.props.achievements[0][i].description;
+        this.props.onAchievement(0, i);
+        this.setState({ dialog: dialog });
+      }
+    }
+    for (let i = 0; i < this.props.achievements[1].length; i++) {
+      if (
+        this.props.status.totalCookies >=
+          this.props.achievements[1][i].criteria &&
+        !this.props.achievements[1][i].achieve
+      ) {
+        let dialog = Object.assign({}, this.state.dialog);
+        dialog.show = true;
+        dialog.title = this.props.achievements[1][i].name;
+        dialog.description = this.props.achievements[1][i].description;
+        this.props.onAchievement(1, i);
+        this.setState({ dialog: dialog });
+      }
+    }
+    for (let i = 0; i < this.props.achievements[2].length; i++) {
+      if (
+        this.props.status.cookiePerSecond >=
+          this.props.achievements[2][i].criteria &&
+        !this.props.achievements[2][i].achieve
+      ) {
+        let dialog = Object.assign({}, this.state.dialog);
+        dialog.show = true;
+        dialog.title = this.props.achievements[2][i].name;
+        dialog.description = this.props.achievements[2][i].description;
+        this.props.onAchievement(2, i);
+        this.setState({ dialog: dialog });
+      }
+    }
+    for (let i = 0; i < this.props.achievements[3].length; i++) {
+      if (
+        this.props.status.playerLevel >=
+          this.props.achievements[3][i].criteria &&
+        !this.props.achievements[3][i].achieve
+      ) {
+        let dialog = Object.assign({}, this.state.dialog);
+        dialog.show = true;
+        dialog.title = this.props.achievements[3][i].name;
+        dialog.description = this.props.achievements[3][i].description;
+        this.props.onAchievement(3, i);
+        this.setState({ dialog: dialog });
+      }
+    }
+
+    const upgradesAmount = [
+      1,
+      48,
+      50,
+      100,
+      100,
+      100,
+      100,
+      100,
+      1e18,
+      1e21,
+      1e24
+    ];
+
+    for (let i = 0; i < this.props.achievements[4].length; i++) {
+      for (let j = 0; j < upgradesAmount.length; j++) {
         if (
-          i === 0 &&
-          this.props.statistics.userClicks >=
-            this.props.achievements[i][j].criteria &&
-          !this.props.achievements[i][j].achieve
+          this.props.achievements[4][i].level === j &&
+          this.props.upgrades[i].count ===
+            this.props.achievements[4][i].criteria
         ) {
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
-          dialog.title = this.props.achievements[i][j].name;
-          dialog.description = this.props.achievements[i][j].description;
-          this.props.onAchievement(i, j);
-          this.setState({ dialog: dialog });
-        }
-        if (
-          i === 1 &&
-          this.props.status.totalCookies >=
-            this.props.achievements[i][j].criteria &&
-          !this.props.achievements[i][j].achieve
-        ) {
-          let dialog = Object.assign({}, this.state.dialog);
-          dialog.show = true;
-          dialog.title = this.props.achievements[i][j].name;
-          dialog.description = this.props.achievements[i][j].description;
-          this.props.onAchievement(i, j);
-          this.setState({ dialog: dialog });
-        }
-        if (
-          i === 2 &&
-          this.props.status.cookiePerSecond >=
-            this.props.achievements[i][j].criteria &&
-          !this.props.achievements[i][j].achieve
-        ) {
-          let dialog = Object.assign({}, this.state.dialog);
-          dialog.show = true;
-          dialog.title = this.props.achievements[i][j].name;
-          dialog.description = this.props.achievements[i][j].description;
-          this.props.onAchievement(i, j);
-          this.setState({ dialog: dialog });
-        }
-        if (
-          i === 3 &&
-          this.props.status.playerLevel >=
-            this.props.achievements[i][j].criteria &&
-          !this.props.achievements[i][j].achieve
-        ) {
-          let dialog = Object.assign({}, this.state.dialog);
-          dialog.show = true;
-          dialog.title = this.props.achievements[i][j].name;
-          dialog.description = this.props.achievements[i][j].description;
-          this.props.onAchievement(i, j);
+          dialog.title = this.props.achievements[4][i].name;
+          dialog.description = this.props.achievements[4][i].description;
+          this.props.onAchievement(4, i, upgradesAmount[j]);
           this.setState({ dialog: dialog });
         }
       }
+      // if (
+      //   this.props.achievements[4][i].level === 1 &&
+      //   this.props.upgrades[i].count === this.props.achievements[4][i].criteria
+      // ) {
+      //   let dialog = Object.assign({}, this.state.dialog);
+      //   dialog.show = true;
+      //   dialog.title = this.props.achievements[4][i].name;
+      //   dialog.description = this.props.achievements[4][i].description;
+      //   this.props.onAchievement(4, i, 48);
+      //   this.setState({ dialog: dialog });
+      // }
+
+      // if (
+      //   this.props.achievements[4][i].level === 2 &&
+      //   this.props.upgrades[i].count === this.props.achievements[4][i].criteria
+      // ) {
+      //   let dialog = Object.assign({}, this.state.dialog);
+      //   dialog.show = true;
+      //   dialog.title = this.props.achievements[4][i].name;
+      //   dialog.description = this.props.achievements[4][i].description;
+      //   this.props.onAchievement(4, i, 50);
+      //   this.setState({ dialog: dialog });
+      // }
+
+      // console.log(i, j);
+      // }
     }
   };
   handleClose = () => {

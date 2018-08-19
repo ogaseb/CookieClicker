@@ -187,9 +187,22 @@ class App extends Component {
     this.setState({ status: objStatus });
   };
 
-  handleAchievement = (name, id) => {
+  handleAchievement = (name, id, amount) => {
     let achieve = Object.assign({}, this.state.achievements);
-    achieve[name][id].achieve = true;
+
+    if (name === 4) {
+      achieve[4][id].level = this.state.achievements[4][id].level + 1;
+      achieve[4][id].description =
+        "Have " +
+        this.state.upgrades[id].count +
+        " " +
+        this.state.achievements[4][id].name;
+
+      achieve[4][id].criteria =
+        this.state.achievements[4][id].criteria + amount;
+    } else {
+      achieve[name][id].achieve = true;
+    }
   };
 
   handleAchievementBonus = float => {
@@ -248,6 +261,7 @@ class App extends Component {
           achievements={this.state.achievements}
           statistics={this.state.statistics}
           status={this.state.status}
+          upgrades={this.state.upgrades}
           onAchievement={this.handleAchievement}
           onAchievementBonus={this.handleAchievementBonus}
         />

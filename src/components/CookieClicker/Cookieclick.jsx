@@ -24,6 +24,7 @@ class CookieClick extends Component {
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 80;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
+    let randomTime = Math.floor(Math.random() * (10 - 2 + 1) + 2);
 
     let cookie = document.createElement("IMG");
     cookie.src = this.chooseRandomCookie();
@@ -33,7 +34,7 @@ class CookieClick extends Component {
     cookie.style.top = "0px";
     cookie.style.zIndex = -1;
     cookie.style.maxWidth = "64px";
-    cookie.style.animation = "cookieRandom 10s forwards linear";
+    cookie.style.animation = "cookieRandom " + randomTime + "s forwards linear";
 
     component.appendChild(cookie);
 
@@ -44,7 +45,6 @@ class CookieClick extends Component {
 
   canvasMilkWave = () => {
     //https://codepen.io/jackrugile/pen/BvLHg
-    const component = document.getElementById("Cookieclick");
     var c = document.getElementById("canvas"),
       ctx = c.getContext("2d"),
       cw = (c.width = window.innerWidth),
@@ -219,7 +219,6 @@ class CookieClick extends Component {
           <canvas
             id="canvas"
             style={{
-              position: "relative",
               zIndex: 0,
               position: "absolute",
               top: "50%",

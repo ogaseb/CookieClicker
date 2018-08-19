@@ -142,7 +142,7 @@ const achievements = [
   ],
   [
     {
-      // cookies per second
+      // levels
       name: "Cursor!",
       achieve: false,
       criteria: 1,
@@ -231,6 +231,22 @@ const achievements = [
       achieve: false,
       criteria: 15,
       description: "You can buy Chancemakers!"
+    }
+  ],
+  [
+    {
+      // Cursors amount
+      name: "Cursors!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 cursor!"
+    },
+    {
+      // Grandma amount
+      name: "Grandma!",
+      criteria: 1,
+      level: 0,
+      description: "Have 1 grandma!"
     }
   ]
 ];
