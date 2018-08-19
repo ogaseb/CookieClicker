@@ -14,7 +14,10 @@ class CookieAchievements extends Component {
       show: false,
       title: "",
       number: 0,
-      description: ""
+      description: "",
+      index: 0,
+      id: 0,
+      upgradeAmount: null
     }
   };
   componentDidMount() {
@@ -49,7 +52,9 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[0][i].name;
         dialog.description = this.props.achievements[0][i].description;
-        this.props.onAchievement(0, i);
+        dialog.id = 0;
+        dialog.index = i;
+        dialog.upgradeAmount = null;
         this.setState({ dialog: dialog });
       }
     }
@@ -63,7 +68,9 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[1][i].name;
         dialog.description = this.props.achievements[1][i].description;
-        this.props.onAchievement(1, i);
+        dialog.id = 1;
+        dialog.index = i;
+        dialog.upgradeAmount = null;
         this.setState({ dialog: dialog });
       }
     }
@@ -77,7 +84,9 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[2][i].name;
         dialog.description = this.props.achievements[2][i].description;
-        this.props.onAchievement(2, i);
+        dialog.id = 2;
+        dialog.index = i;
+        dialog.upgradeAmount = null;
         this.setState({ dialog: dialog });
       }
     }
@@ -91,7 +100,9 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[3][i].name;
         dialog.description = this.props.achievements[3][i].description;
-        this.props.onAchievement(3, i);
+        dialog.id = 3;
+        dialog.index = i;
+        dialog.upgradeAmount = null;
         this.setState({ dialog: dialog });
       }
     }
@@ -109,13 +120,20 @@ class CookieAchievements extends Component {
           dialog.show = true;
           dialog.title = this.props.achievements[4][i].name;
           dialog.description = this.props.achievements[4][i].description;
-          this.props.onAchievement(4, i, upgradesAmount[j]);
+          dialog.id = 4;
+          dialog.index = i;
+          dialog.upgradeAmount = upgradesAmount[j];
           this.setState({ dialog: dialog });
         }
       }
     }
   };
   handleClose = () => {
+    this.props.onAchievement(
+      this.state.dialog.id,
+      this.state.dialog.index,
+      this.state.dialog.upgradeAmount
+    );
     let dialog = Object.assign({}, this.state.dialog);
     dialog.show = false;
     this.setState({ dialog: dialog });
