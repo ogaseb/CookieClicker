@@ -48,8 +48,8 @@ class App extends Component {
     setInterval(this.saveProgressInLocalStorage, 5000);
 
     this.interval = setInterval(() => {
-      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond);
-    }, 1000);
+      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 10);
+    }, 100);
     this.interval = setInterval(() => {
       document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
     }, 2000);
