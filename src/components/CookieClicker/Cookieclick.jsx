@@ -39,7 +39,7 @@ class CookieClick extends Component {
     component.appendChild(cookie);
 
     if (component.childNodes.length > 100) {
-      component.removeChild(component.childNodes[2]);
+      component.removeChild(component.childNodes[3]);
     }
   };
 
