@@ -6,6 +6,7 @@ import {
   Typography,
   IconButton
 } from "@material-ui/core";
+import LoadingScreen from "react-loading-screen";
 import CookieClick from "./components/CookieClicker/Cookieclick";
 import CookieStatus from "./components/CookieClicker/Cookiestatus";
 import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
@@ -39,7 +40,8 @@ class App extends Component {
         level: 1,
         interval: 1000,
         divider: 1
-      }
+      },
+      isLoading: true
     };
 
     this.handleReset.bind(this);
@@ -50,6 +52,7 @@ class App extends Component {
     this.setState({ achievements: achievements });
 
     this.loadProgressFromLocalStorage();
+
     setInterval(this.saveProgressInLocalStorage, 5000);
 
     // this.interval = setInterval(() => {}, this.state.speed.interval);
@@ -65,6 +68,7 @@ class App extends Component {
     this.interval = setInterval(() => {
       document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
     }, 2000);
+    this.setState({ isLoading: false });
   }
 
   componentWillUnmount() {
@@ -267,68 +271,77 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <AppBar position="static" style={{ backgroundColor: "#1769aa" }}>
-          <Toolbar>
-            <Typography variant="headline" color="inherit">
-              {" "}
-              CookieClicker{" "}
-            </Typography>
-            <Typography
-              color="inherit"
-              style={{ position: "absolute", right: 100 }}
-            >
-              {this.state.speed.level}
-            </Typography>
-            <IconButton
-              onClick={this.handleSpeed}
-              style={{ position: "absolute", right: 100 }}
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <Speedometer />
-            </IconButton>
-            <IconButton
-              href="https://github.com/ProPanek/CookieClicker"
-              target="_blank"
-              style={{ position: "absolute", right: 50 }}
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <GithubCircle />
-            </IconButton>
-            <IconButton
-              onClick={this.handleReset}
-              style={{ position: "absolute", right: 0 }}
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <Autorenew />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <CookieStatus cookies={this.state.status} />
-        <CookieAchievements
-          achievements={this.state.achievements}
-          statistics={this.state.statistics}
-          status={this.state.status}
-          upgrades={this.state.upgrades}
-          onAchievement={this.handleAchievement}
-          onAchievementBonus={this.handleAchievementBonus}
-        />
-
-        <Grid container>
-          <CookieClick
-            quantityPerClick={this.state.status.quantityPerClick}
-            onIncrement={this.handleIncrementTotalCookies}
-            countClicks={this.handleCountClicks}
-          />
-          <CookieUpgrades
+        <LoadingScreen
+          loading={this.state.isLoading}
+          bgColor="#1769aa"
+          spinnerColor="#ffffff"
+          textColor="#ffffff"
+          logoSrc={require("./gfx/cookies/PerfectCookie.png")}
+          text="CookieClicker"
+        >
+          <AppBar position="static" style={{ backgroundColor: "#1769aa" }}>
+            <Toolbar>
+              <Typography variant="headline" color="inherit">
+                {" "}
+                CookieClicker{" "}
+              </Typography>
+              <Typography
+                color="inherit"
+                style={{ position: "absolute", right: 100 }}
+              >
+                {this.state.speed.level}
+              </Typography>
+              <IconButton
+                onClick={this.handleSpeed}
+                style={{ position: "absolute", right: 100 }}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <Speedometer />
+              </IconButton>
+              <IconButton
+                href="https://github.com/ProPanek/CookieClicker"
+                target="_blank"
+                style={{ position: "absolute", right: 50 }}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <GithubCircle />
+              </IconButton>
+              <IconButton
+                onClick={this.handleReset}
+                style={{ position: "absolute", right: 0 }}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <Autorenew />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+          <CookieStatus cookies={this.state.status} />
+          <CookieAchievements
+            achievements={this.state.achievements}
+            statistics={this.state.statistics}
+            status={this.state.status}
             upgrades={this.state.upgrades}
-            level={this.state.status.playerLevel}
-            onUpgrade={this.handleUpgrade}
-            onMultiplierUpgrade={this.handleMultipierUpgrade}
+            onAchievement={this.handleAchievement}
+            onAchievementBonus={this.handleAchievementBonus}
           />
-        </Grid>
+
+          <Grid container>
+            <CookieClick
+              quantityPerClick={this.state.status.quantityPerClick}
+              onIncrement={this.handleIncrementTotalCookies}
+              countClicks={this.handleCountClicks}
+            />
+            <CookieUpgrades
+              upgrades={this.state.upgrades}
+              level={this.state.status.playerLevel}
+              onUpgrade={this.handleUpgrade}
+              onMultiplierUpgrade={this.handleMultipierUpgrade}
+            />
+          </Grid>
+        </LoadingScreen>
       </React.Fragment>
     );
   }
