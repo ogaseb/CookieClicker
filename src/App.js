@@ -12,7 +12,7 @@ import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
 import CookieAchievements from "./components/CookieClicker/Cookieachievements";
 
 import { Autorenew } from "@material-ui/icons";
-import { GithubCircle } from "mdi-material-ui";
+import { GithubCircle, Speedometer } from "mdi-material-ui";
 
 import "./App.css";
 import upgrades from "./components/CookieClicker/upgradeState";
@@ -34,6 +34,11 @@ class App extends Component {
       statistics: {
         userClicks: 0,
         userCookies: 0
+      },
+      speed: {
+        level: 1,
+        interval: 1000,
+        divider: 1
       }
     };
 
@@ -47,9 +52,16 @@ class App extends Component {
     this.loadProgressFromLocalStorage();
     setInterval(this.saveProgressInLocalStorage, 5000);
 
-    this.interval = setInterval(() => {
-      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 10);
-    }, 100);
+    // this.interval = setInterval(() => {}, this.state.speed.interval);
+
+    let interval = () => {
+      this.handleIncrementTotalCookies(
+        this.state.status.cookiePerSecond / this.state.speed.divider
+      );
+      setTimeout(interval, this.state.speed.interval);
+    };
+    setTimeout(interval, this.state.speed.interval);
+
     this.interval = setInterval(() => {
       document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
     }, 2000);
@@ -218,6 +230,27 @@ class App extends Component {
     this.setState({ statistics: stats });
   };
 
+  handleSpeed = () => {
+    let speed = Object.assign({}, this.state.speed);
+    if (this.state.speed.level === 1) {
+      speed.level = 2;
+      speed.interval = 100;
+      speed.divider = 10;
+    }
+    if (this.state.speed.level === 2) {
+      speed.level = 3;
+      speed.interval = 10;
+      speed.divider = 100;
+    }
+    if (this.state.speed.level === 3) {
+      speed.level = 1;
+      speed.interval = 1000;
+      speed.divider = 1;
+    }
+    console.log("działaj");
+    this.setState({ speed: speed });
+  };
+
   calculateMultiplier = () => {
     let tempSum = 0;
     for (let i = 0; i < this.state.upgrades.length; i++) {
@@ -236,6 +269,20 @@ class App extends Component {
               {" "}
               CookieClicker{" "}
             </Typography>
+            <Typography
+              color="inherit"
+              style={{ position: "absolute", right: 110 }}
+            >
+              {this.state.speed.level}
+            </Typography>
+            <IconButton
+              onClick={this.handleSpeed}
+              style={{ position: "absolute", right: 100 }}
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <Speedometer />
+            </IconButton>
             <IconButton
               href="https://github.com/ProPanek/CookieClicker"
               target="_blank"
