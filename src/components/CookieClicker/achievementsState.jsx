@@ -3,72 +3,84 @@ const achievements = [
     {
       // Cookies made per hand
       name: "Clicktastic",
+      gfx: require("../../gfx/achievements/clicking/1.png"),
       achieve: false,
       criteria: 1000,
       description: "Make 1,000 cookies from clicking."
     },
     {
       name: "Clickathlon",
+      gfx: require("../../gfx/achievements/clicking/2.png"),
       achieve: false,
       criteria: 100000,
       description: "Make 100,000 cookies from clicking."
     },
     {
       name: "Clickolympics",
+      gfx: require("../../gfx/achievements/clicking/3.png"),
       achieve: false,
       criteria: 10e6,
       description: "Make 10 million cookies from clicking."
     },
     {
       name: "Clickorama",
+      gfx: require("../../gfx/achievements/clicking/4.png"),
       achieve: false,
       criteria: 1e9,
       description: "Make 1 billion cookies from clicking."
     },
     {
       name: "Clickasmic",
+      gfx: require("../../gfx/achievements/clicking/5.png"),
       achieve: false,
       criteria: 100e9,
       description: "Make 100 billion cookies from clicking."
     },
     {
       name: "Clickageddon",
+      gfx: require("../../gfx/achievements/clicking/6.png"),
       achieve: false,
       criteria: 10e12,
       description: "Make 10 trillion cookies from clicking."
     },
     {
       name: "Clicknarok",
+      gfx: require("../../gfx/achievements/clicking/7.png"),
       achieve: false,
       criteria: 1e15,
       description: "Make 1 quadrillion cookies from clicking."
     },
     {
       name: "Clickastrophe",
+      gfx: require("../../gfx/achievements/clicking/8.png"),
       achieve: false,
       criteria: 100e15,
       description: "Make 100 quadrillion cookies from clicking."
     },
     {
       name: "Clickataclysm",
+      gfx: require("../../gfx/achievements/clicking/9.png"),
       achieve: false,
       criteria: 10e18,
       description: "Make 10 quintillion cookies from clicking."
     },
     {
       name: "The ultimate clickdown",
+      gfx: require("../../gfx/achievements/clicking/10.png"),
       achieve: false,
       criteria: 1e21,
       description: "Make 1 sextillion cookies from clicking."
     },
     {
       name: "All the other kids with the pumped up clicks",
+      gfx: require("../../gfx/achievements/clicking/11.png"),
       achieve: false,
       criteria: 100e21,
       description: "Make 100 sextillion cookies from clicking.	"
     },
     {
       name: "One...more...click...",
+      gfx: require("../../gfx/achievements/clicking/12.png"),
       achieve: false,
       criteria: 100e21,
       description: "Make 10 septillion cookies from clicking."
@@ -78,114 +90,133 @@ const achievements = [
     {
       //alltime cookies
       name: "Wake and bake",
+      gfx: require("../../gfx/achievements/allTimeCookies/1.png"),
       achieve: false,
       criteria: 1,
       description: "Bake 1 cookie in one ascension."
     },
     {
       name: "Making some dough",
+      gfx: require("../../gfx/achievements/allTimeCookies/2.png"),
       achieve: false,
       criteria: 1000,
       description: "Bake 1,000 cookies in one ascension."
     },
     {
       name: "So baked right now",
+      gfx: require("../../gfx/achievements/allTimeCookies/3.png"),
       achieve: false,
       criteria: 100000,
       description: "Bake 100,000 cookies in one ascension."
     },
     {
       name: "Fledgling bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/4.png"),
       achieve: false,
       criteria: 1e6,
       description: "Bake 1 million cookies in one ascension."
     },
     {
       name: "Affluent bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/5.png"),
       achieve: false,
       criteria: 100e6,
       description: "Bake 100 million cookies in one ascension."
     },
     {
       name: "World-famous bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/6.png"),
       achieve: false,
       criteria: 1e9,
       description: "Bake 1 billion cookies in one ascension.	"
     },
     {
       name: "Cosmic bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/7.png"),
       achieve: false,
       criteria: 100e9,
       description: "Bake 100 billion cookies in one ascension.	"
     },
     {
       name: "Galactic bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/8.png"),
       achieve: false,
       criteria: 1e12,
       description: "Bake 1 trillion cookies in one ascension."
     },
     {
       name: "Universal bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/9.png"),
       achieve: false,
       criteria: 100e12,
       description: "Bake 100 trillion cookies in one ascension."
     },
     {
       name: "Timeless bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/10.png"),
       achieve: false,
       criteria: 1e15,
       description: "Bake 1 quadrillion cookies in one ascension."
     },
     {
       name: "Infinite bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/11.png"),
       achieve: false,
       criteria: 100e15,
       description: "Bake 100 quadrillion cookies in one ascension.	"
     },
     {
       name: "Immortal bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/12.png"),
       achieve: false,
       criteria: 1e18,
       description: "Bake 1 quintillion cookies in one ascension."
     },
     {
       name: "Don't stop me now",
+      gfx: require("../../gfx/achievements/allTimeCookies/13.png"),
       achieve: false,
       criteria: 100e18,
       description: "Bake 100 quintillion cookies in one ascension."
     },
     {
       name: "You can stop now	",
+      gfx: require("../../gfx/achievements/allTimeCookies/14.png"),
       achieve: false,
       criteria: 1e21,
       description: "Bake 1 sextillion cookies in one ascension.	"
     },
     {
       name: "Cookies all the way down",
+      gfx: require("../../gfx/achievements/allTimeCookies/15.png"),
       achieve: false,
       criteria: 100e21,
       description: "Bake 100 sextillion cookies in one ascension."
     },
     {
       name: "Overdose",
+      gfx: require("../../gfx/achievements/allTimeCookies/16.png"),
       achieve: false,
       criteria: 1e24,
       description: "Bake 1 septillion cookies in one ascension.	"
     },
     {
       name: "How?",
+      gfx: require("../../gfx/achievements/allTimeCookies/17.png"),
       achieve: false,
       criteria: 100e24,
       description: "Bake 100 septillion cookies in one ascension."
     },
     {
       name: "The land of milk and cookies",
+      gfx: require("../../gfx/achievements/allTimeCookies/18.png"),
       achieve: false,
       criteria: 1e27,
       description: "Bake 1 octillion cookies in one ascension."
     },
     {
       name: "He who controls the cookies controls the universe",
+      gfx: require("../../gfx/achievements/allTimeCookies/19.png"),
       achieve: false,
       criteria: 100e27,
       description:
@@ -193,78 +224,91 @@ const achievements = [
     },
     {
       name: "Tonight on Hoarders",
+      gfx: require("../../gfx/achievements/allTimeCookies/20.png"),
       achieve: false,
       criteria: 1e30,
       description: "Bake 1 nonillion cookies in one ascension."
     },
     {
       name: "Are you gonna eat all that?	",
+      gfx: require("../../gfx/achievements/allTimeCookies/21.png"),
       achieve: false,
       criteria: 100e30,
       description: "Bake 100 nonillion cookies in one ascension."
     },
     {
       name: "We're gonna need a bigger bakery",
+      gfx: require("../../gfx/achievements/allTimeCookies/22.png"),
       achieve: false,
       criteria: 1e33,
       description: "Bake 1 decillion cookies in one ascension."
     },
     {
       name: "In the mouth of madness	",
+      gfx: require("../../gfx/achievements/allTimeCookies/23.png"),
       achieve: false,
       criteria: 100e33,
       description: "Bake 100 decillion cookies in one ascension."
     },
     {
       name: "Brought to you by the letter",
+      gfx: require("../../gfx/achievements/allTimeCookies/24.png"),
       achieve: false,
       criteria: 1e36,
       description: "Bake 1 undecillion cookies in one ascension."
     },
     {
       name: "The dreams in which I'm baking are the best I've ever had",
+      gfx: require("../../gfx/achievements/allTimeCookies/25.png"),
       achieve: false,
       criteria: 100e36,
       description: "Bake 100 undecillion cookies in one ascension."
     },
     {
       name: "Set for life",
+      gfx: require("../../gfx/achievements/allTimeCookies/26.png"),
       achieve: false,
       criteria: 1e39,
       description: "Bake 1 duodecillion cookies in one ascension."
     },
     {
       name: "Panic! at Nabisco",
+      gfx: require("../../gfx/achievements/allTimeCookies/27.png"),
       achieve: false,
       criteria: 100e39,
       description: "Bake 100 duodecillion cookies in one ascension."
     },
     {
       name: "Bursting at the seams",
+      gfx: require("../../gfx/achievements/allTimeCookies/28.png"),
       achieve: false,
       criteria: 1e42,
       description: "Bake 1 tredecillion cookies in one ascension."
     },
     {
       name: "Just about full",
+      gfx: require("../../gfx/achievements/allTimeCookies/29.png"),
       achieve: false,
       criteria: 100e42,
       description: "Bake 100 tredecillion cookies in one ascension.	"
     },
     {
       name: "Hungry for more",
+      gfx: require("../../gfx/achievements/allTimeCookies/30.png"),
       achieve: false,
       criteria: 1e45,
       description: "Bake 1 quattuordecillion cookies in one ascension."
     },
     {
       name: "Feed me, ProPanek",
+      gfx: require("../../gfx/achievements/allTimeCookies/31.png"),
       achieve: false,
       criteria: 100e45,
       description: "Bake 100 quattuordecillion cookies in one ascension."
     },
     {
       name: "And then what?",
+      gfx: require("../../gfx/achievements/allTimeCookies/32.png"),
       achieve: false,
       criteria: 1e48,
       description: "Bake 1 quindecillion cookies in one ascension."
@@ -475,90 +519,105 @@ const achievements = [
     {
       // levels
       name: "Cursor!",
+      gfx: require("../../gfx/upgrades/Cursor.png"),
       achieve: false,
       criteria: 1,
       description: "You can buy Cursors!"
     },
     {
       name: "Grandma!",
+      gfx: require("../../gfx/upgrades/Grandmas.gif"),
       achieve: false,
       criteria: 2,
       description: "You can buy Grandmas!"
     },
     {
       name: "Farm!",
+      gfx: require("../../gfx/upgrades/Farm.png"),
       achieve: false,
       criteria: 3,
       description: "You can buy Farms!"
     },
     {
       name: "Mine!",
+      gfx: require("../../gfx/upgrades/Mine.png"),
       achieve: false,
       criteria: 4,
       description: "You can buy Mines!"
     },
     {
       name: "Factory!",
+      gfx: require("../../gfx/upgrades/Factory.png"),
       achieve: false,
       criteria: 5,
       description: "You can buy Factories!"
     },
     {
       name: "Bank!",
+      gfx: require("../../gfx/upgrades/Bank.png"),
       achieve: false,
       criteria: 6,
       description: "You can buy Banks!"
     },
     {
       name: "Temple!",
+      gfx: require("../../gfx/upgrades/Temple.png"),
       achieve: false,
       criteria: 7,
       description: "You can buy Temples!"
     },
     {
       name: "Wizard Tower!",
+      gfx: require("../../gfx/upgrades/Wizardtower.png"),
       achieve: false,
       criteria: 8,
       description: "You can buy Wizard Towers!"
     },
     {
       name: "Shipment!",
+      gfx: require("../../gfx/upgrades/Shipment.png"),
       achieve: false,
       criteria: 9,
       description: "You can buy Shipments!"
     },
     {
       name: "Alchemy Lab!",
+      gfx: require("../../gfx/upgrades/Alchemylab.png"),
       achieve: false,
       criteria: 10,
       description: "You can buy Alchemy Labs!"
     },
     {
       name: "Portal!",
+      gfx: require("../../gfx/upgrades/Portal.png"),
       achieve: false,
       criteria: 11,
       description: "You can buy Portals!"
     },
     {
       name: "Time Machine!",
+      gfx: require("../../gfx/upgrades/Timemachine.png"),
       achieve: false,
       criteria: 12,
       description: "You can buy Time Machines!"
     },
     {
       name: "Antimatter Condenser!",
+      gfx: require("../../gfx/upgrades/Antim.png"),
       achieve: false,
       criteria: 13,
       description: "You can buy Antimatter Condensers!"
     },
     {
       name: "Prism!",
+      gfx: require("../../gfx/upgrades/Prism.png"),
       achieve: false,
       criteria: 14,
       description: "You can buy Prisms!"
     },
     {
       name: "Chancemaker!",
+      gfx: require("../../gfx/upgrades/Chancemaker.png"),
       achieve: false,
       criteria: 15,
       description: "You can buy Chancemakers!"

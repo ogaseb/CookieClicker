@@ -5,7 +5,8 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  Button
+  Button,
+  Typography
 } from "@material-ui/core";
 
 class CookieAchievements extends Component {
@@ -13,6 +14,7 @@ class CookieAchievements extends Component {
     dialog: {
       show: false,
       title: "",
+      gfx: "",
       number: 0,
       description: "",
       index: 0,
@@ -52,6 +54,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[0][i].name;
         dialog.description = this.props.achievements[0][i].description;
+        dialog.gfx = this.props.achievements[0][i].gfx;
         dialog.id = 0;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -68,6 +71,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[1][i].name;
         dialog.description = this.props.achievements[1][i].description;
+        dialog.gfx = this.props.achievements[1][i].gfx;
         dialog.id = 1;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -84,6 +88,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[2][i].name;
         dialog.description = this.props.achievements[2][i].description;
+        dialog.gfx = this.props.achievements[1][i].gfx;
         dialog.id = 2;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -100,6 +105,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[3][i].name;
         dialog.description = this.props.achievements[3][i].description;
+        dialog.gfx = this.props.achievements[3][i].gfx;
         dialog.id = 3;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -120,6 +126,7 @@ class CookieAchievements extends Component {
           dialog.show = true;
           dialog.title = this.props.achievements[4][i].name;
           dialog.description = this.props.achievements[4][i].description;
+          dialog.gfx = this.props.achievements[3][i].gfx;
           dialog.id = 4;
           dialog.index = i;
           dialog.upgradeAmount = upgradesAmount[j];
@@ -152,9 +159,20 @@ class CookieAchievements extends Component {
           <DialogTitle
             id="alert-dialog-slide-title"
             children={this.state.dialog.title}
+            align="center"
           />
           <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
+            <Typography align="center">
+              <img
+                src={this.state.dialog.gfx}
+                alt="achievement image"
+                style={{ minHeight: 60, minWidth: "auto" }}
+              />
+            </Typography>
+            <DialogContentText
+              id="alert-dialog-slide-description"
+              align="center"
+            >
               {this.state.dialog.description}
             </DialogContentText>
           </DialogContent>
