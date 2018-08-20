@@ -136,14 +136,13 @@ class App extends Component {
 
   handleIncrementTotalCookies = float => {
     let status = Object.assign({}, this.state.status);
-    let statistics = Object.assign({}, this.state.statistics);
+    // let statistics = Object.assign({}, this.state.statistics);
 
     status.totalCookies = this.state.status.totalCookies + float;
     // statistics.userCookies = this.state.statistics.userCookies + float;
 
     if (
-      this.state.status.totalCookies >=
-      this.state.status.playerToNextLevel - 1 //ponieważ chcemy zmiany poziomu po uzyskaniu określonej liczby, nie ciastko po
+      this.state.statistics.userClicks >= this.state.status.playerToNextLevel
     ) {
       status.playerLevel = this.state.status.playerLevel + 1;
       status.playerToNextLevel = this.state.status.playerToNextLevel * 2;

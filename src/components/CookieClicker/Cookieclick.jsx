@@ -190,9 +190,6 @@ class CookieClick extends Component {
     loop();
   };
 
-  animateCookie = () => {
-    console.log("animate");
-  };
   render() {
     return (
       <Grid item xs={6}>
