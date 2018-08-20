@@ -236,17 +236,26 @@ class App extends Component {
 
   handleSpeed = () => {
     let speed = Object.assign({}, this.state.speed);
-    if (this.state.speed.level === 1) {
+    if (
+      this.state.speed.level === 1 &&
+      this.state.status.cookiePerSecond > 10
+    ) {
       speed.level = 2;
       speed.interval = 100;
       speed.divider = 10;
     }
-    if (this.state.speed.level === 2) {
+    if (
+      this.state.speed.level === 2 &&
+      this.state.status.cookiePerSecond > 100
+    ) {
       speed.level = 3;
       speed.interval = 10;
       speed.divider = 100;
     }
-    if (this.state.speed.level === 3) {
+    if (
+      this.state.speed.level === 3 &&
+      this.state.status.cookiePerSecond > 1000
+    ) {
       speed.level = 4;
       speed.interval = 1;
       speed.divider = 1000;
@@ -287,7 +296,7 @@ class App extends Component {
               </Typography>
               <Typography
                 color="inherit"
-                style={{ position: "absolute", right: 100 }}
+                style={{ position: "absolute", right: 121, bottom: 0 }}
               >
                 {this.state.speed.level}
               </Typography>
