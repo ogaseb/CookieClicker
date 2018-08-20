@@ -20,7 +20,7 @@ class CookieClick extends Component {
 
   placeCookie = number => {
     this.props.onIncrement(number);
-    this.props.countClicks();
+    this.props.countClicks(number);
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 80;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;

@@ -44,7 +44,7 @@ class CookieAchievements extends Component {
 
     for (let i = 0; i < this.props.achievements[0].length; i++) {
       if (
-        this.props.statistics.userClicks >=
+        this.props.statistics.userCookies >=
           this.props.achievements[0][i].criteria &&
         !this.props.achievements[0][i].achieve
       ) {

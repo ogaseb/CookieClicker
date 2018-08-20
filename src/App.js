@@ -139,7 +139,7 @@ class App extends Component {
     let statistics = Object.assign({}, this.state.statistics);
 
     status.totalCookies = this.state.status.totalCookies + float;
-    statistics.userCookies = this.state.statistics.userCookies + float;
+    // statistics.userCookies = this.state.statistics.userCookies + float;
 
     if (
       this.state.status.totalCookies >=
@@ -149,7 +149,7 @@ class App extends Component {
       status.playerToNextLevel = this.state.status.playerToNextLevel * 2;
     }
     this.setState({ status: status });
-    this.setState({ statistics: statistics });
+    // this.setState({ statistics: statistics });
   };
 
   handleUpgrade = (index, amount) => {
@@ -228,9 +228,11 @@ class App extends Component {
     this.setState({ status: status });
   };
 
-  handleCountClicks = () => {
+  handleCountClicks = number => {
     let stats = Object.assign({}, this.state.statistics);
     stats.userClicks = this.state.statistics.userClicks + 1;
+    stats.userCookies = this.state.statistics.userCookies + number;
+
     this.setState({ statistics: stats });
   };
 
