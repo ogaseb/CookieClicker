@@ -210,7 +210,9 @@ class App extends Component {
     if (name === 4) {
       achieve[4][id].level = this.state.achievements[4][id].level + 1;
       achieve[4][id].description =
-        "Have " + (this.state.upgrades[id].count + 1) + " of them!";
+        "Have " +
+        (this.state.achievements[4][id].criteria + amount) +
+        " of them!";
 
       achieve[4][id].criteria =
         this.state.achievements[4][id].criteria + amount;
