@@ -113,7 +113,7 @@ class CookieAchievements extends Component {
       }
     }
 
-    const upgradesAmount = [49, 50, 100, 100, 100, 100, 100];
+    const upgradesAmount = [49, 50, 50, 50, 50, 50, 50, 50, 50, 50];
 
     for (let i = 0; i < this.props.achievements[4].length; i++) {
       for (let j = 0; j < upgradesAmount.length; j++) {
@@ -124,7 +124,7 @@ class CookieAchievements extends Component {
         ) {
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
-          dialog.title = this.props.achievements[4][i].name;
+          dialog.title = this.props.achievements[4][i].name[i];
           dialog.description = this.props.achievements[4][i].description;
           dialog.gfx = this.props.achievements[3][i].gfx;
           dialog.id = 4;

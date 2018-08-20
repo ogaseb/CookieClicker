@@ -17,14 +17,14 @@ class CookeStatus extends Component {
         color="inherit"
       >
         <Typography align="center" color="inherit">
-          Ilość ciasteczek: {this.props.cookies.totalCookies.toFixed(0)}
+          Cookies: {this.props.cookies.totalCookies.toFixed(0)}
         </Typography>
         <Typography align="center" color="inherit">
-          Twój poziom: {this.props.cookies.playerLevel} |{" "}
+          Level: {this.props.cookies.playerLevel} | to next:{" "}
           {this.props.statistics.userClickToNextLevel}
         </Typography>
         <Typography align="center" color="inherit">
-          cps: {this.props.cookies.cookiePerSecond.toFixed(1)}
+          CPS: {this.props.cookies.cookiePerSecond.toFixed(1)}
         </Typography>
       </Paper>
     );

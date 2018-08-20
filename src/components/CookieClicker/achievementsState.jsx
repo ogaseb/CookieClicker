@@ -626,91 +626,272 @@ const achievements = [
   [
     {
       // upgrades amount
-      name: "more Cursors!",
+      // name: "more Cursors!",
+      name: [
+        "Click",
+        "Double-click",
+        "Mouse wheel",
+        "Of Mice and Men",
+        "The Digital",
+        "Extreme polydactyly",
+        "Dr. T",
+        "Thumbs, phalanges, metacarpals",
+        "With her finger and her thumb",
+        "Click delegator",
+        "Finger clickin' good"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 cursor!"
     },
     {
-      name: "more Grandmas!",
+      name: [
+        "Grandma's cookies",
+        "Sloppy kisses",
+        "Retirement home",
+        "Friend of the ancients",
+        "Ruler of the ancients",
+        "The old never bothered me anyway",
+        "The agemaster",
+        "To oldly go",
+        "Aged well",
+        "101st birthday",
+        "Defense of the ancients"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 grandma!"
     },
     {
-      name: "more Farms!",
+      name: [
+        "My first farm",
+        "Reap what you sow",
+        "Farm ill",
+        "Perfected agriculture",
+        "Homegrown",
+        "Gardener extraordinaire",
+        "Seedy business",
+        " You and the beanstalk",
+        "Harvest moon",
+        "Make like a tree",
+        "Sharpest tool in the shed"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Farm!"
     },
     {
-      name: "more Mines!",
+      name: [
+        "You know the drill",
+        "Excavation site",
+        "Hollow the planet",
+        "Can you dig it",
+        "Center of the Earth",
+        "Tectonic ambassador",
+        "Freak fracking",
+        "Romancing the stone",
+        "Mine?",
+        "Cave story",
+        "Hey now, you're a rock"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Mine!"
     },
     {
-      name: "more Factories!",
+      name: [
+        "Production chain",
+        "Industrial revolution",
+        "Global warming",
+        "Ultimate automation",
+        "Technocracy",
+        "Rise of the machines",
+        "Modern times",
+        "Ex machina",
+        "In full gear",
+        "In-cog-neato",
+        "Break the mold"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Factory!"
     },
     {
-      name: "more Banks!",
+      name: [
+        "Pretty penny",
+        "Fit the bill",
+        "A loan in the dark",
+        "Need for greed",
+        "It's the economy, stupid",
+        "Acquire currency",
+        "The nerve of war",
+        "And I need it now",
+        "Treacle tart economics",
+        "Save your breath because that's all you've got left",
+        "Get the show on, get paid"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Bank!"
     },
     {
-      name: "more Temples!",
+      name: [
+        "Your time to shrine",
+        "Shady sect",
+        "New-age cult",
+        "Organized religion",
+        "Fanaticism",
+        "Zealotry",
+        "Wololo",
+        "Pray on the weak",
+        "Holy cookies, grandma!",
+        "Vengeful and almighty",
+        "My world's on fire, how about yours"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Temple!"
     },
     {
-      name: "more Wizard Towers!",
+      name: [
+        "Bewitched",
+        "The sorcerer's apprentice",
+        "Charms and enchantments",
+        "Curses and maledictions",
+        "Magic kingdom",
+        "The wizarding world",
+        "And now for my next trick, I'll need a volunteer from the audience",
+        "It's a kind of magic",
+        "The Prestige",
+        "Spell it out for you",
+        "The meteor men beg to differ"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Wizard Tower!"
     },
     {
-      name: "more Shipments!",
+      name: [
+        "Expedition",
+        "Galactic highway",
+        "Far far away",
+        "Type II civilization",
+        "We come in peace",
+        "Parsec-masher",
+        "It's not delivery",
+        "Make it so",
+        "That's just peanuts to space",
+        "Space space space space space",
+        "Only shooting stars"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Shipment!"
     },
     {
-      name: "more Alchemy Labs!",
+      name: [
+        "Transmutation",
+        "Transmogrification",
+        "Gold member",
+        "Gild wars",
+        "The secrets of the universe",
+        "The work of a lifetime",
+        "Gold, Jerry! Gold!",
+        "All that glitters is gold",
+        "Worth its weight in lead",
+        "Don't get used to yourself, you're gonna have to change",
+        "We could all use a little change"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Alchemy Lab!"
     },
     {
-      name: "more Portals!",
+      name: [
+        "A whole new world",
+        "Now you're thinking",
+        "Dimensional shift",
+        "Brain-split",
+        "Realm of the Mad God",
+        "A place lost in time",
+        "Forbidden zone",
+        "H̸̷͓̳̳̯̟͕̟͍͍̣͡ḛ̢̦̰̺̮̝͖͖̘̪͉͘͡ ̠̦͕̤̪̝̥̰̠̫̖̣͙̬͘ͅC̨̦̺̩̲̥͉̭͚̜̻̝̣̼͙̮̯̪o̴̡͇̘͎̞̲͇̦̲͞͡m̸̩̺̝̣̹̱͚̬̥̫̳̼̞̘̯͘ͅẹ͇̺̜́̕͢s̶̙̟̱̥̮̯̰̦͓͇͖͖̝͘͘͞",
+        "What happens in the vortex stays in the vortex",
+        "Objects in the mirror dimension are closer than they appear",
+        "Your brain gets smart but your head gets dumb"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Portal!"
     },
     {
-      name: "more Time Machines!",
+      name: [
+        "Time warp",
+        "Alternate timeline",
+        "Rewriting history",
+        "Time duke",
+        "Forever and ever",
+        "Heat death",
+        "cookie clicker forever and forever a hundred years cookie clicker, all day long forever, forever a hundred    times, over and over cookie clicker adventures dot com",
+        "Way back then",
+        "Invited to yesterday's party",
+        "Groundhog day",
+        "The years start coming"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Time Machine!"
     },
     {
-      name: "more Antimatter Condensers!",
+      name: [
+        "Antibatter",
+        "Quirky quarks",
+        "It does matter!",
+        "Molecular maestro",
+        "Walk the planck",
+        "Microcosm",
+        "Scientists baffled everywhere",
+        "Exotic matter",
+        "Downsizing",
+        "A matter of perspective",
+        "What a concept"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Antimatter Condenser!"
     },
     {
-      name: "more Prisms!",
+      name: [
+        "Lone photon",
+        "Dazzling glimmer",
+        "Blinding flash",
+        "Unending glow",
+        "Rise and shine",
+        "Bright future",
+        "Harmony of the spheres",
+        "At the end of the tunnel",
+        "My eyes",
+        "Optical illusion",
+        "You'll never shine if you don't glow"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Prism!"
     },
     {
-      name: "more Chancemakers!",
+      name: [
+        "Lucked out",
+        "What are the odds",
+        "Grandma needs a new pair of shoes",
+        "Million to one shot, doc",
+        "As luck would have it",
+        "Ever in your favor",
+        "Be a lady",
+        "Dicey business",
+        "Maybe a chance in hell, actually",
+        "Jackpot",
+        "You'll never know if you don't go"
+      ],
       criteria: 1,
       level: 0,
       description: "Have 1 Chancemaker!"

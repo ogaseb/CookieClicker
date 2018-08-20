@@ -126,12 +126,10 @@ class CookieUpgrades extends Component {
               <Typography variant="display1" align="center">
                 {content.upgrade}
               </Typography>
-              <Typography align="center">
-                Ilość posiadanych: {content.count}
-              </Typography>
+              <Typography align="center">Count: {content.count}</Typography>
               {this.buttonCheck(index) === false && (
                 <Typography align="center">
-                  Koszt ulepszenia mnożnika:{" "}
+                  Price of mutliplier upgrade:{" "}
                   {this.nFormatter(content.multiplierUpgrade, 3)}
                 </Typography>
               )}
@@ -146,11 +144,11 @@ class CookieUpgrades extends Component {
                     this.props.onMultiplierUpgrade(index);
                   }}
                 >
-                  Mnożnik: {content.multiplier}
+                  Multiplier: {content.multiplier}
                 </Button>
               </Typography>
               <Typography align="center" style={{ paddingBottom: "10px" }}>
-                Koszt
+                Price
               </Typography>
               <Paper
                 square={true}
@@ -187,7 +185,7 @@ class CookieUpgrades extends Component {
                   style={{ flex: "1" }}
                   onClick={() => this.props.onUpgrade(index, 1)}
                 >
-                  Kup
+                  Buy
                 </Button>
                 <Button
                   variant="contained"
