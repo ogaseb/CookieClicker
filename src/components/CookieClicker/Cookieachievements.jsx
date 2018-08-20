@@ -25,7 +25,7 @@ class CookieAchievements extends Component {
   componentDidMount() {
     this.interval = setInterval(() => {
       this.checkAchievements();
-    }, 1000);
+    }, 500);
   }
 
   countAchievements = () => {
@@ -165,7 +165,7 @@ class CookieAchievements extends Component {
             <Typography align="center">
               <img
                 src={this.state.dialog.gfx}
-                alt="achievement image"
+                alt="achievement"
                 style={{ minHeight: 60, minWidth: "auto" }}
               />
             </Typography>

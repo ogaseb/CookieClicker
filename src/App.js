@@ -236,10 +236,6 @@ class App extends Component {
     stats.userClickToNextLevel = Math.floor(
       this.state.status.playerToNextLevel - this.state.statistics.userClicks
     );
-    // if (stats.userClickToNextLevel === -1) {
-    //   continue;
-    // }
-
     this.setState({ statistics: stats });
   };
 
