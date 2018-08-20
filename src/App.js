@@ -34,7 +34,8 @@ class App extends Component {
       achievements: {},
       statistics: {
         userClicks: 0,
-        userCookies: 0
+        userCookies: 0,
+        userClickToNextLevel: 0
       },
       speed: {
         level: 1,
@@ -85,7 +86,8 @@ class App extends Component {
     };
     const statistics = {
       userClicks: 0,
-      userCookies: 0
+      userCookies: 0,
+      userClickToNextLevel: 0
     };
 
     this.setState({ status: objStatus });
@@ -231,6 +233,12 @@ class App extends Component {
     let stats = Object.assign({}, this.state.statistics);
     stats.userClicks = this.state.statistics.userClicks + 1;
     stats.userCookies = this.state.statistics.userCookies + number;
+    stats.userClickToNextLevel = Math.floor(
+      this.state.status.playerToNextLevel - this.state.statistics.userClicks
+    );
+    // if (stats.userClickToNextLevel === -1) {
+    //   continue;
+    // }
 
     this.setState({ statistics: stats });
   };
@@ -324,7 +332,10 @@ class App extends Component {
               </IconButton>
             </Toolbar>
           </AppBar>
-          <CookieStatus cookies={this.state.status} />
+          <CookieStatus
+            cookies={this.state.status}
+            statistics={this.state.statistics}
+          />
           <CookieAchievements
             achievements={this.state.achievements}
             statistics={this.state.statistics}

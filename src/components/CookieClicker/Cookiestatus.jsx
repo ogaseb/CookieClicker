@@ -20,7 +20,8 @@ class CookeStatus extends Component {
           Ilość ciasteczek: {this.props.cookies.totalCookies.toFixed(0)}
         </Typography>
         <Typography align="center" color="inherit">
-          Twój poziom: {this.props.cookies.playerLevel}
+          Twój poziom: {this.props.cookies.playerLevel} |{" "}
+          {this.props.statistics.userClickToNextLevel}
         </Typography>
         <Typography align="center" color="inherit">
           cps: {this.props.cookies.cookiePerSecond.toFixed(1)}
