@@ -32,17 +32,25 @@ class CookieAchievements extends Component {
   }
 
   countAchievements = () => {
-    let counter = 0;
-    let howMuchAchieve = 0;
+    let allAchievements =
+      achievementsStaticData.nameLevel.length +
+      achievementsStaticData.nameAllTimeCookies.length +
+      achievementsStaticData.nameCPS.length +
+      achievementsStaticData.nameClicking.length +
+      achievementsStaticData.upgrades.length * 11;
+
+    let allLevel = 0;
+
     for (let i = 0; i < this.props.achievements.length; i++) {
-      for (let j = 0; j < this.props.achievements[i].length; j++) {
-        counter++;
-        if (this.props.achievements[i][j].achieve) {
-          howMuchAchieve++;
+      allLevel += this.props.achievements[i][0].level;
+      if (i === 5) {
+        for (let j = 0; j < this.props.achievements[5].length; j++) {
+          allLevel += this.props.achievements[5][j].level;
         }
       }
     }
-    return (howMuchAchieve / counter) * 10;
+
+    return (allLevel / allAchievements) * 100;
   };
   checkAchievements = () => {
     this.props.onAchievementBonus(this.countAchievements());
