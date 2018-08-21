@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../node_modules/hacktimer/HackTimer";
 import {
   Grid,
   AppBar,
@@ -64,6 +65,17 @@ class App extends Component {
       setTimeout(interval, this.state.speed.interval);
     };
     setTimeout(interval, this.state.speed.interval);
+
+    // let request;
+
+    // const performAnimation = () => {
+    //   request = requestAnimationFrame(performAnimation);
+
+    //   //animate something
+    //   this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 100);
+    // };
+
+    // requestAnimationFrame(performAnimation);
 
     this.interval = setInterval(() => {
       document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
