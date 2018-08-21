@@ -12,7 +12,6 @@
 - wyświetlanie aktualnie posiadanych ciastek w nazwie karty.
 - Osiągnięcia (znaczna część) oraz niewielki bonus za ich posiadanie do klikania w ciastko.
 - Ulepszenia globalne! To znaczy ulepszenia mnożników dla każdego ulepszenia z osobna.
-- Zmiana prędkości aktualizacji ciastek, dostępny w menu na górze po prawej stronie.
 
 ## A co będzie?
 

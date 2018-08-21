@@ -152,6 +152,7 @@ class CookieAchievements extends Component {
           open={this.state.dialog.show}
           keepMounted
           onClose={this.handleClose}
+          onKeyPress={this.handleClose}
           disableBackdropClick={true}
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"

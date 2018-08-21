@@ -18,6 +18,7 @@ import { GithubCircle, Speedometer } from "mdi-material-ui";
 import "./App.css";
 import upgrades from "./components/CookieClicker/upgradeState";
 import achievements from "./components/CookieClicker/achievementsState";
+var requestInterval = require("request-interval");
 
 class App extends Component {
   constructor() {
@@ -56,8 +57,6 @@ class App extends Component {
 
     setInterval(this.saveProgressInLocalStorage, 5000);
 
-    // this.interval = setInterval(() => {}, this.state.speed.interval);
-
     let interval = () => {
       this.handleIncrementTotalCookies(
         this.state.status.cookiePerSecond / this.state.speed.divider
@@ -68,7 +67,7 @@ class App extends Component {
 
     this.interval = setInterval(() => {
       document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
-    }, 2000);
+    }, 1000);
     this.setState({ isLoading: false });
   }
 
@@ -256,10 +255,7 @@ class App extends Component {
       speed.interval = 10;
       speed.divider = 100;
     }
-    if (
-      this.state.speed.level === 3 &&
-      this.state.status.cookiePerSecond > 1000
-    ) {
+    if (this.state.speed.level === 3 && this.state.status.cookiePerSecond > 1) {
       speed.level = 1;
       speed.interval = 1000;
       speed.divider = 1;
@@ -294,7 +290,7 @@ class App extends Component {
                 {" "}
                 CookieClicker{" "}
               </Typography>
-              <Typography
+              {/* <Typography
                 color="inherit"
                 style={{ position: "absolute", right: 121, bottom: 0 }}
               >
@@ -307,7 +303,7 @@ class App extends Component {
                 color="inherit"
               >
                 <Speedometer />
-              </IconButton>
+              </IconButton> */}
               <IconButton
                 href="https://github.com/ProPanek/CookieClicker"
                 target="_blank"
