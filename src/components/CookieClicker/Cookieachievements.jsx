@@ -28,7 +28,6 @@ class CookieAchievements extends Component {
     this.interval = setInterval(() => {
       this.checkAchievements();
     }, 500);
-    console.log(achievementsStaticData);
   }
 
   countAchievements = () => {
