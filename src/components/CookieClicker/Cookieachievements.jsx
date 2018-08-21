@@ -9,12 +9,14 @@ import {
   Typography
 } from "@material-ui/core";
 
+import achievementsStaticData from "../../data/achievementsStaticData.json";
+
 class CookieAchievements extends Component {
   state = {
     dialog: {
       show: false,
       title: "",
-      gfx: "",
+      img: "",
       number: 0,
       description: "",
       index: 0,
@@ -26,6 +28,7 @@ class CookieAchievements extends Component {
     this.interval = setInterval(() => {
       this.checkAchievements();
     }, 500);
+    console.log(achievementsStaticData);
   }
 
   countAchievements = () => {
@@ -54,7 +57,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[0][i].name;
         dialog.description = this.props.achievements[0][i].description;
-        dialog.gfx = this.props.achievements[0][i].gfx;
+        dialog.img = this.props.achievements[0][i].gfx;
         dialog.id = 0;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -69,9 +72,11 @@ class CookieAchievements extends Component {
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-        dialog.title = this.props.achievements[1][i].name;
-        dialog.description = this.props.achievements[1][i].description;
-        dialog.gfx = this.props.achievements[1][i].gfx;
+        // dialog.title = this.props.achievements[1][i].name;
+        dialog.title = achievementsStaticData.nameAllTimeCookies[i];
+        dialog.description =
+          achievementsStaticData.descriptionAllTimeCookies[i];
+        dialog.img = achievementsStaticData.imgATCandCPS[i];
         dialog.id = 1;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -86,9 +91,10 @@ class CookieAchievements extends Component {
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-        dialog.title = this.props.achievements[2][i].name;
-        dialog.description = this.props.achievements[2][i].description;
-        dialog.gfx = this.props.achievements[1][i].gfx;
+        dialog.title = achievementsStaticData.nameCPS[i];
+        dialog.description = achievementsStaticData.descriptionCPS[i];
+        dialog.img = achievementsStaticData.imgATCandCPS[i];
+
         dialog.id = 2;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -105,7 +111,7 @@ class CookieAchievements extends Component {
         dialog.show = true;
         dialog.title = this.props.achievements[3][i].name;
         dialog.description = this.props.achievements[3][i].description;
-        dialog.gfx = this.props.achievements[3][i].gfx;
+        dialog.img = this.props.achievements[3][i].gfx;
         dialog.id = 3;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -119,14 +125,18 @@ class CookieAchievements extends Component {
       for (let j = 0; j < upgradesAmount.length; j++) {
         if (
           this.props.achievements[4][i].level === j &&
-          this.props.upgrades[i].count ===
-            this.props.achievements[4][i].criteria
+          this.props.upgrades[i].count >= this.props.achievements[4][i].criteria
         ) {
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
-          dialog.title = this.props.achievements[4][i].name[i];
-          dialog.description = this.props.achievements[4][i].description;
-          dialog.gfx = this.props.achievements[3][i].gfx;
+
+          dialog.title = achievementsStaticData.upgrades[i][0][j];
+          dialog.description = achievementsStaticData.upgrades[i][1][j];
+          dialog.img = achievementsStaticData.upgrades[i][2][j];
+
+          // dialog.title = this.props.achievements[4][i].name[i];
+          // dialog.description = this.props.achievements[4][i].description;
+          // dialog.gfx = this.props.achievements[3][i].gfx;
           dialog.id = 4;
           dialog.index = i;
           dialog.upgradeAmount = upgradesAmount[j];
@@ -165,7 +175,7 @@ class CookieAchievements extends Component {
           <DialogContent>
             <Typography align="center">
               <img
-                src={this.state.dialog.gfx}
+                src={this.state.dialog.img}
                 alt="achievement"
                 style={{ minHeight: 60, minWidth: "auto" }}
               />

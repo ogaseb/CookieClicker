@@ -9,12 +9,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-
-            var l0 = $('#i td:nth-child(2)').map(function () {
+            var l0 = $('.wikitable td:nth-child(2)').slice(0, 11).map(function () {
                 return $(this).text();
             }).get();
             console.log(JSON.stringify(l0))
-            var l1 = $('#i td:nth-child(1)').map(function () {
+
+            var l2 = $('.wikitable td:nth-child(3)').slice(0, 11).map(function () {
+                return $(this).text();
+            }).get();
+            console.log(JSON.stringify(l2))
+
+
+            var l1 = $('.wikitable td:nth-child(1)').slice(0, 11).map(function () {
                 return $(this).text();
             }).get();
             l1 = JSON.stringify(l1)
@@ -24,330 +30,18 @@
             var matches = l1.match(expression);
             console.log(JSON.stringify(matches))
 
-            var l2 = $('#i td:nth-child(3)').map(function () {
-                return $(this).text();
-            }).get();
-            console.log(JSON.stringify(l2))
+
+
+
+
+
         })
     </script>
 </head>
 
 <body>
-    <table id='i' class="wikitable mw-collapsible sortable mw-made-collapsible jquery-tablesorter" style="text-align:center; width:100%;">
 
-        <thead>
-            <tr>
-                <th scope="col" style="width:8%;" class="headerSort" title="Sort ascending">Icon
-                    <div>
-                        <span class="chevron"></span>
-                        <span class="chevron"></span>
-                    </div>
-                </th>
-                <th scope="col" style="width:42%;" class="headerSort" title="Sort ascending">Name
-                    <div>
-                        <span class="chevron"></span>
-                        <span class="chevron"></span>
-                    </div>
-                </th>
-                <th scope="col" style="width:42%;" class="headerSort" title="Sort ascending">Description
-                    <div>
-                        <span class="chevron"></span>
-                        <span class="chevron"></span>
-                    </div>
-                </th>
-                <th scope="col" style="width:8%;" class="headerSort" title="Sort ascending">
-                    <span class="mw-collapsible-toggle">&nbsp;[
-                        <a href="#">Collapse</a>]&nbsp;</span>ID&nbsp;
-                    <div>
-                        <span class="chevron"></span>
-                        <span class="chevron"></span>
-                    </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id="Clicktastic">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/6/60/Arrow_Plain_v15.png/revision/latest?cb=20160226195031"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/6/60/Arrow_Plain_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195031"
-                            alt="Arrow Plain v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Plain_v15.png" data-image-name="Arrow Plain v15.png"
-                            data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/6/60/Arrow_Plain_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195031"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/6/60/Arrow_Plain_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195031"
-                                alt="Arrow Plain v15" class="" data-image-key="Arrow_Plain_v15.png" data-image-name="Arrow Plain v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clicktastic
-                </td>
-                <td>Make
-                    <b>1,000</b> cookies from
-                    <a href="/wiki/Big_Cookie" title="Big Cookie">clicking</a>.
-                </td>
-                <td>30
-                </td>
-            </tr>
-            <tr id="Clickathlon">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/d/da/Arrow_Berrylium_v15.png/revision/latest?cb=20160226195053"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/d/da/Arrow_Berrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195053"
-                            alt="Arrow Berrylium v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Berrylium_v15.png"
-                            data-image-name="Arrow Berrylium v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/d/da/Arrow_Berrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195053"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/d/da/Arrow_Berrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195053"
-                                alt="Arrow Berrylium v15" class="" data-image-key="Arrow_Berrylium_v15.png" data-image-name="Arrow Berrylium v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickathlon
-                </td>
-                <td>Make
-                    <b>100,000</b> cookies from clicking.
-                </td>
-                <td>31
-                </td>
-            </tr>
-            <tr id="Clickolympics">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/9/94/Arrow_Blueberrylium_v15.png/revision/latest?cb=20160226195111"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/9/94/Arrow_Blueberrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195111"
-                            alt="Arrow Blueberrylium v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Blueberrylium_v15.png"
-                            data-image-name="Arrow Blueberrylium v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/9/94/Arrow_Blueberrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195111"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/9/94/Arrow_Blueberrylium_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195111"
-                                alt="Arrow Blueberrylium v15" class="" data-image-key="Arrow_Blueberrylium_v15.png" data-image-name="Arrow Blueberrylium v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickolympics
-                </td>
-                <td>Make
-                    <b>10 million</b>&nbsp;cookies from clicking.
-                </td>
-                <td>32
-                </td>
-            </tr>
-            <tr id="Clickorama">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/3/38/Arrow_Chalcedhoney_v15.png/revision/latest?cb=20160226195128"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/3/38/Arrow_Chalcedhoney_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195128"
-                            alt="Arrow Chalcedhoney v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Chalcedhoney_v15.png"
-                            data-image-name="Arrow Chalcedhoney v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/3/38/Arrow_Chalcedhoney_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195128"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/3/38/Arrow_Chalcedhoney_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195128"
-                                alt="Arrow Chalcedhoney v15" class="" data-image-key="Arrow_Chalcedhoney_v15.png" data-image-name="Arrow Chalcedhoney v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickorama
-                </td>
-                <td>Make
-                    <b>1 billion</b>&nbsp;cookies from clicking.
-                </td>
-                <td>33
-                </td>
-            </tr>
-            <tr id="Clickasmic">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/0/07/Arrow_Buttergold_v15.png/revision/latest?cb=20160226195144"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/0/07/Arrow_Buttergold_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195144"
-                            alt="Arrow Buttergold v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Buttergold_v15.png"
-                            data-image-name="Arrow Buttergold v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/0/07/Arrow_Buttergold_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195144"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/0/07/Arrow_Buttergold_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195144"
-                                alt="Arrow Buttergold v15" class="" data-image-key="Arrow_Buttergold_v15.png" data-image-name="Arrow Buttergold v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickasmic
-                </td>
-                <td>Make
-                    <b>100 billion</b>&nbsp;cookies from clicking.
-                </td>
-                <td>100
-                </td>
-            </tr>
-            <tr id="Clickageddon">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/f/f0/Arrow_Sugarmuck_v15.png/revision/latest?cb=20160226195202"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/f/f0/Arrow_Sugarmuck_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195202"
-                            alt="Arrow Sugarmuck v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Sugarmuck_v15.png"
-                            data-image-name="Arrow Sugarmuck v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/f/f0/Arrow_Sugarmuck_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195202"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/f/f0/Arrow_Sugarmuck_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195202"
-                                alt="Arrow Sugarmuck v15" class="" data-image-key="Arrow_Sugarmuck_v15.png" data-image-name="Arrow Sugarmuck v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickageddon
-                </td>
-                <td>Make&nbsp;
-                    <b>10 trillion</b>&nbsp;cookies from clicking.
-                </td>
-                <td>145
-                </td>
-            </tr>
-            <tr id="Clicknarok">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/1/14/Arrow_Jetmint_v15.png/revision/latest?cb=20160226195223"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/14/Arrow_Jetmint_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195223"
-                            alt="Arrow Jetmint v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Jetmint_v15.png"
-                            data-image-name="Arrow Jetmint v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/14/Arrow_Jetmint_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195223"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/14/Arrow_Jetmint_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195223"
-                                alt="Arrow Jetmint v15" class="" data-image-key="Arrow_Jetmint_v15.png" data-image-name="Arrow Jetmint v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clicknarok
-                </td>
-                <td>Make&nbsp;
-                    <b>1 quadrillion</b>&nbsp;cookies from clicking.
-                </td>
-                <td>146
-                </td>
-            </tr>
-            <tr id="Clickastrophe">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/e/e6/Arrow_Cherrysilver_v15.png/revision/latest?cb=20160226195237"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/e/e6/Arrow_Cherrysilver_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195237"
-                            alt="Arrow Cherrysilver v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Cherrysilver_v15.png"
-                            data-image-name="Arrow Cherrysilver v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/e/e6/Arrow_Cherrysilver_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195237"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/e/e6/Arrow_Cherrysilver_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195237"
-                                alt="Arrow Cherrysilver v15" class="" data-image-key="Arrow_Cherrysilver_v15.png" data-image-name="Arrow Cherrysilver v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickastrophe
-                </td>
-                <td>Make
-                    <b>100 quadrillion</b> cookies from clicking.
-                </td>
-                <td>244
-                </td>
-            </tr>
-            <tr id="Clickataclysm">
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/1/17/Arrow_Hazelrald_v15.png/revision/latest?cb=20160226195306"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/17/Arrow_Hazelrald_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195306"
-                            alt="Arrow Hazelrald v15" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Arrow_Hazelrald_v15.png"
-                            data-image-name="Arrow Hazelrald v15.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/17/Arrow_Hazelrald_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195306"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/1/17/Arrow_Hazelrald_v15.png/revision/latest/scale-to-width-down/30?cb=20160226195306"
-                                alt="Arrow Hazelrald v15" class="" data-image-key="Arrow_Hazelrald_v15.png" data-image-name="Arrow Hazelrald v15.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>Clickataclysm
-                </td>
-                <td>Make
-                    <b>10 quintillion</b> cookies from clicking.
-                </td>
-                <td>245
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/5/52/Armythril_mouse.png/revision/latest?cb=20170814234521"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/52/Armythril_mouse.png/revision/latest/scale-to-width-down/30?cb=20170814234521"
-                            alt="Armythril mouse" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Armythril_mouse.png" data-image-name="Armythril mouse.png"
-                            data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/52/Armythril_mouse.png/revision/latest/scale-to-width-down/30?cb=20170814234521"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/52/Armythril_mouse.png/revision/latest/scale-to-width-down/30?cb=20170814234521"
-                                alt="Armythril mouse" class="" data-image-key="Armythril_mouse.png" data-image-name="Armythril mouse.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>The ultimate clickdown
-                </td>
-                <td>Make
-                    <b>1 sextillion </b>cookies from clicking.
-                    <br>
-                    <i>"(of ultimate destiny.)"</i>
-                </td>
-                <td>337
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/5/56/Technobsidian_mouse.png/revision/latest?cb=20180510074813"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/56/Technobsidian_mouse.png/revision/latest/scale-to-width-down/30?cb=20180510074813"
-                            alt="Technobsidian mouse" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Technobsidian_mouse.png"
-                            data-image-name="Technobsidian mouse.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/56/Technobsidian_mouse.png/revision/latest/scale-to-width-down/30?cb=20180510074813"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/5/56/Technobsidian_mouse.png/revision/latest/scale-to-width-down/30?cb=20180510074813"
-                                alt="Technobsidian mouse" class="" data-image-key="Technobsidian_mouse.png" data-image-name="Technobsidian mouse.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>All the other kids with the pumped up clicks
-                </td>
-                <td>Make
-                    <b>100 sextillion</b> cookies from clicking.
-                </td>
-                <td>376
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://vignette.wikia.nocookie.net/cookieclicker/images/2/2a/Alabascream_mouse.png/revision/latest?cb=20180801004851"
-                        class="image image-thumbnail">
-                        <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/2/2a/Alabascream_mouse.png/revision/latest/scale-to-width-down/30?cb=20180801004851"
-                            alt="Alabascream mouse" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Alabascream_mouse.png"
-                            data-image-name="Alabascream mouse.png" data-src="https://vignette.wikia.nocookie.net/cookieclicker/images/2/2a/Alabascream_mouse.png/revision/latest/scale-to-width-down/30?cb=20180801004851"
-                            width="30" height="30" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
-                        <noscript>
-                            <img src="https://vignette.wikia.nocookie.net/cookieclicker/images/2/2a/Alabascream_mouse.png/revision/latest/scale-to-width-down/30?cb=20180801004851"
-                                alt="Alabascream mouse" class="" data-image-key="Alabascream_mouse.png" data-image-name="Alabascream mouse.png"
-                                width="30" height="30">
-                        </noscript>
-                    </a>
-                </td>
-                <td>One...more...click...
-                </td>
-                <td>Make
-                    <b>10 septillion</b> cookies from clicking.
-                </td>
-                <td>377
-                </td>
-            </tr>
-        </tbody>
-        <tfoot></tfoot>
-    </table>
+
 </body>
 
 </html>

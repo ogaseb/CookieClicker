@@ -13,12 +13,12 @@ import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
 import CookieAchievements from "./components/CookieClicker/Cookieachievements";
 
 import { Autorenew } from "@material-ui/icons";
-import { GithubCircle, Speedometer } from "mdi-material-ui";
+// import { GithubCircle, Speedometer } from "mdi-material-ui";
+import { GithubCircle } from "mdi-material-ui";
 
 import "./App.css";
 import upgrades from "./components/CookieClicker/upgradeState";
 import achievements from "./components/CookieClicker/achievementsState";
-var requestInterval = require("request-interval");
 
 class App extends Component {
   constructor() {
@@ -208,11 +208,6 @@ class App extends Component {
 
     if (name === 4) {
       achieve[4][id].level = this.state.achievements[4][id].level + 1;
-      achieve[4][id].description =
-        "Have " +
-        (this.state.achievements[4][id].criteria + amount) +
-        " of them!";
-
       achieve[4][id].criteria =
         this.state.achievements[4][id].criteria + amount;
     } else {
