@@ -2,6 +2,7 @@
 
 ## Uwagi.
 
+- Nie planuje póki co dalszych aktualizacji, dlatego gdy coś nie działa patrz punkt 2. sekcji "Uwagi".
 - Po każdej aktualizacji gh-pages trzeba niestety zresetować swój progres, służy do tego przycisk w prawym górnym rogu aplikacji.
 
 ## Co już jest.
