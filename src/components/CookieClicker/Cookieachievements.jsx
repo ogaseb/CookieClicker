@@ -47,11 +47,11 @@ class CookieAchievements extends Component {
   checkAchievements = () => {
     this.props.onAchievementBonus(this.countAchievements());
 
-    for (let i = 0; i < this.props.achievements[0].length; i++) {
+    for (let i = 0; i < achievementsStaticData.nameClicking.length; i++) {
       if (
         this.props.statistics.userCookies >=
           achievementsStaticData.criteriaClicking[i] &&
-        !this.props.achievements[0][i].achieve
+        this.props.achievements[0][0].level === i
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
@@ -66,7 +66,7 @@ class CookieAchievements extends Component {
         this.setState({ dialog: dialog });
       }
     }
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < achievementsStaticData.nameAllTimeCookies.length; i++) {
       if (
         this.props.status.totalCookies >=
           this.props.achievements[1][0].criteria &&
@@ -85,11 +85,11 @@ class CookieAchievements extends Component {
         this.setState({ dialog: dialog });
       }
     }
-    for (let i = 0; i < this.props.achievements[2].length; i++) {
+    for (let i = 0; i < achievementsStaticData.nameCPS.length; i++) {
       if (
         this.props.status.cookiePerSecond >=
           achievementsStaticData.criteriaCPS[i] &&
-        !this.props.achievements[2][i].achieve
+        this.props.achievements[2][0].level === i
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
@@ -103,11 +103,11 @@ class CookieAchievements extends Component {
         this.setState({ dialog: dialog });
       }
     }
-    for (let i = 0; i < this.props.achievements[3].length; i++) {
+    for (let i = 0; i < achievementsStaticData.nameLevel.length; i++) {
       if (
         this.props.status.playerLevel >=
-          this.props.achievements[3][i].criteria &&
-        !this.props.achievements[3][i].achieve
+          this.props.achievements[3][0].criteria &&
+        this.props.achievements[3][0].level === i
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
