@@ -6,11 +6,15 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  Typography
+  Typography,
+  Slide
 } from "@material-ui/core";
 
 import achievementsStaticData from "../../data/achievementsStaticData.json";
 
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
+}
 class CookieAchievements extends Component {
   state = {
     dialog: {
@@ -170,6 +174,7 @@ class CookieAchievements extends Component {
       <div>
         <Dialog
           open={this.state.dialog.show}
+          TransitionComponent={Transition}
           keepMounted
           onClose={this.handleClose}
           onKeyPress={this.handleClose}
