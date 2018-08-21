@@ -50,25 +50,27 @@ class CookieAchievements extends Component {
     for (let i = 0; i < this.props.achievements[0].length; i++) {
       if (
         this.props.statistics.userCookies >=
-          this.props.achievements[0][i].criteria &&
+          achievementsStaticData.criteriaClicking[i] &&
         !this.props.achievements[0][i].achieve
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-        dialog.title = this.props.achievements[0][i].name;
-        dialog.description = this.props.achievements[0][i].description;
-        dialog.img = this.props.achievements[0][i].gfx;
+
+        dialog.title = achievementsStaticData.nameClicking[i];
+        dialog.description = achievementsStaticData.descriptionClicking[i];
+        dialog.img = achievementsStaticData.imgClicking[i];
+
         dialog.id = 0;
         dialog.index = i;
         dialog.upgradeAmount = null;
         this.setState({ dialog: dialog });
       }
     }
-    for (let i = 0; i < this.props.achievements[1].length; i++) {
+    for (let i = 0; i < 32; i++) {
       if (
         this.props.status.totalCookies >=
-          this.props.achievements[1][i].criteria &&
-        !this.props.achievements[1][i].achieve
+          this.props.achievements[1][0].criteria &&
+        this.props.achievements[1][0].level === i
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
@@ -86,7 +88,7 @@ class CookieAchievements extends Component {
     for (let i = 0; i < this.props.achievements[2].length; i++) {
       if (
         this.props.status.cookiePerSecond >=
-          this.props.achievements[2][i].criteria &&
+          achievementsStaticData.criteriaCPS[i] &&
         !this.props.achievements[2][i].achieve
       ) {
         let dialog = Object.assign({}, this.state.dialog);

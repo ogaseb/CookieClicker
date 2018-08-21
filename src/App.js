@@ -205,7 +205,12 @@ class App extends Component {
 
   handleAchievement = (name, id, amount) => {
     let achieve = Object.assign({}, this.state.achievements);
-
+    if (name === 1) {
+      achieve[1][0].level = this.state.achievements[1][0].level + 1;
+      achieve[1][0].criteria = this.state.achievements[1][0].criteria * 10;
+    } else {
+      achieve[name][id].achieve = true;
+    }
     if (name === 4) {
       achieve[4][id].level = this.state.achievements[4][id].level + 1;
       achieve[4][id].criteria =

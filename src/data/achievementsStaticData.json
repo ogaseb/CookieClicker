@@ -34,7 +34,7 @@
     "And then what?"
   ],
   "descriptionAllTimeCookies": [
-    "Bake 1 cookie in one ascension.",
+    "Bake 10 cookie in one ascension.",
     "Bake 1,000 cookies in one ascension.",
     "Bake 100,000 cookies in one ascension.",
     "Bake 1 million cookies in one ascension.",
@@ -67,6 +67,7 @@
     "Bake 100 quattuordecillion cookies in one ascension.",
     "Bake 1 quindecillion cookies in one ascension."
   ],
+
   "nameCPS": [
     "Casual baking",
     "Hardcore baking",
@@ -100,6 +101,9 @@
     "Green cookies sleep furiously",
     "Leisurely pace",
     "Hypersonic"
+  ],
+  "criteriaCPS": [
+    "1", "10", "100", "1e3", "10e3", "1e6", "10e6", "100e6", "1e9", "10e9", "1e12", "10e12", "100e12", "1e15", "10e15", "1e18", "10e18", "100e18", "1e21", "10e21", "1e24", "10e24", "100e24", "1e27", "10e27", "1e30", "10e30", "100e30", "1e33", "10e33", "1e36", "10e36"
   ],
   "descriptionCPS": [
     "Bake 1 cookie per second.",
@@ -229,6 +233,20 @@
     "The ultimate clickdown",
     "All the other kids with the pumped up clicks",
     "One...more...click..."
+  ],
+  "criteriaClicking": [
+    "1e3",
+    "100e3",
+    "10e6",
+    "1e9",
+    "100e9",
+    "10e12",
+    "1e15",
+    "100e15",
+    "10e18",
+    "1e21",
+    "100e21",
+    "10e21"
   ],
   "descriptionClicking": [
     "Make 1,000 cookies from clicking.",
