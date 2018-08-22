@@ -6,6 +6,37 @@ import { makeWave } from "./utils.js";
 class CookieClick extends Component {
   componentDidMount() {
     this.canvasMilkWave();
+
+    let interval = () => {
+      var time;
+      if (this.props.cps > 100) {
+        this.fallingCookie();
+        time = 1000;
+      }
+      if (this.props.cps > 10000) {
+        this.fallingCookie();
+        time = 800;
+      }
+      if (this.props.cps > 1000000) {
+        this.fallingCookie();
+        time = 600;
+      }
+      if (this.props.cps > 100000000) {
+        this.fallingCookie();
+        time = 400;
+      }
+      if (this.props.cps > 10000000000) {
+        this.fallingCookie();
+        time = 200;
+      }
+      if (this.props.cps > 1000000000000) {
+        this.fallingCookie();
+        time = 100;
+      }
+
+      setTimeout(interval, time);
+    };
+    setTimeout(interval, 1000);
   }
 
   chooseRandomCookie() {
@@ -20,9 +51,7 @@ class CookieClick extends Component {
     return cookie;
   }
 
-  placeCookie = number => {
-    this.props.onIncrement(number);
-    this.props.countClicks(number);
+  fallingCookie = () => {
     const component = document.getElementById("Cookieclick");
     let compWidth = component.offsetWidth - 80;
     let rangeWidth = Math.floor(Math.random() * (compWidth - 0 + 1)) + 0;
@@ -40,9 +69,14 @@ class CookieClick extends Component {
 
     component.appendChild(cookie);
 
-    if (component.childNodes.length > 100) {
+    if (component.childNodes.length > 150) {
       component.removeChild(component.childNodes[3]);
     }
+  };
+  onClick = number => {
+    this.props.onIncrement(number);
+    this.props.countClicks(number);
+    this.fallingCookie();
   };
 
   canvasMilkWave = () => {
@@ -85,7 +119,7 @@ class CookieClick extends Component {
               width: "100%",
               height: "100%"
             }}
-            onClick={() => this.placeCookie(this.props.quantityPerClick)}
+            onClick={() => this.onClick(this.props.quantityPerClick)}
           />
 
           <canvas

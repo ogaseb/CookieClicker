@@ -264,6 +264,7 @@ class App extends Component {
 
         <Grid container>
           <CookieClick
+            cps={this.state.status.cookiePerSecond}
             quantityPerClick={this.state.status.quantityPerClick}
             onIncrement={this.handleIncrementTotalCookies}
             countClicks={this.handleCountClicks}
