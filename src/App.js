@@ -51,7 +51,9 @@ class App extends Component {
     setTimeout(interval, 1000);
 
     this.interval = setInterval(() => {
-      document.title = Math.floor(this.state.status.totalCookies) + " Cookies";
+      document.title =
+        Math.floor(this.state.status.totalCookies).toLocaleString("de-DE") +
+        " Cookies";
     }, 2000);
     this.setState({ isLoading: false });
   }
