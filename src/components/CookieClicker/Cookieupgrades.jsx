@@ -15,11 +15,18 @@ class CookieUpgrades extends Component {
         this.props.upgrades[index].basePrice *
         Math.pow(1.15, this.props.upgrades[index].count + (i - 1));
     }
-
-    return this.nFormatter(price.toFixed(0), 2);
+    // this.nFormatter(price.toFixed(0), 2);
+    return price;
   };
-
-  buttonCheck = index => {
+  upgradeButtonCheck = (index, amount) => {
+    let price = this.countPrice(index, amount);
+    if (this.props.cookies < price) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  multiplierButtonCheck = index => {
     if (
       this.props.upgrades[index].count >= 1 &&
       this.props.upgrades[index].multiplierUpgradeLevel === 0
@@ -127,7 +134,7 @@ class CookieUpgrades extends Component {
                 {content.upgrade}
               </Typography>
               <Typography align="center">Count: {content.count}</Typography>
-              {this.buttonCheck(index) === false && (
+              {this.multiplierButtonCheck(index) === false && (
                 <Typography align="center">
                   Price of mutliplier upgrade:{" "}
                   {this.nFormatter(content.multiplierUpgrade, 3)}
@@ -139,7 +146,7 @@ class CookieUpgrades extends Component {
                   variant="contained"
                   color="inherit"
                   onMouseOver={this.handlePopoverOpen}
-                  disabled={this.buttonCheck(index)}
+                  disabled={this.multiplierButtonCheck(index)}
                   onClick={() => {
                     this.props.onMultiplierUpgrade(index);
                   }}
@@ -162,13 +169,13 @@ class CookieUpgrades extends Component {
                 }}
               >
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.countPrice(index, 1)}{" "}
+                  {this.nFormatter(Math.floor(this.countPrice(index, 1)), 2)}{" "}
                 </Typography>{" "}
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.countPrice(index, 10)}{" "}
+                  {this.nFormatter(Math.floor(this.countPrice(index, 10)), 2)}{" "}
                 </Typography>{" "}
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.countPrice(index, 100)}{" "}
+                  {this.nFormatter(Math.floor(this.countPrice(index, 100)), 2)}{" "}
                 </Typography>
               </Paper>
               <Paper
@@ -180,6 +187,7 @@ class CookieUpgrades extends Component {
                 style={{ width: "100%", display: "flex", flexDirection: "row" }}
               >
                 <Button
+                  disabled={this.upgradeButtonCheck(index, 1)}
                   variant="contained"
                   color="primary"
                   style={{ flex: "1" }}
@@ -188,17 +196,19 @@ class CookieUpgrades extends Component {
                   Buy
                 </Button>
                 <Button
+                  disabled={this.upgradeButtonCheck(index, 10)}
                   variant="contained"
                   style={{ flex: "1" }}
-                  color="inherit"
+                  color="default"
                   onClick={() => this.props.onUpgrade(index, 10)}
                 >
                   x10
                 </Button>
                 <Button
+                  disabled={this.upgradeButtonCheck(index, 100)}
                   variant="contained"
                   style={{ flex: "1" }}
-                  color="inherit"
+                  color="default"
                   onClick={() => this.props.onUpgrade(index, 100)}
                 >
                   x100

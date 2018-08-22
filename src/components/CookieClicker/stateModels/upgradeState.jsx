@@ -1,7 +1,7 @@
 const upgrades = [
   {
     upgrade: "Cursor",
-    gfx: require("../../gfx/upgrades/Cursor.png"),
+    gfx: require("../../../gfx/upgrades/Cursor.png"),
     count: 0,
     multiplier: 0.1,
     multiplierUpgrade: 50,
@@ -11,7 +11,7 @@ const upgrades = [
   },
   {
     upgrade: "Grandma",
-    gfx: require("../../gfx/upgrades/Grandmas.gif"),
+    gfx: require("../../../gfx/upgrades/Grandmas.gif"),
     count: 0,
     multiplier: 1,
     multiplierUpgrade: 500,
@@ -21,7 +21,7 @@ const upgrades = [
   },
   {
     upgrade: "Farm",
-    gfx: require("../../gfx/upgrades/Farm.png"),
+    gfx: require("../../../gfx/upgrades/Farm.png"),
     count: 0,
     multiplier: 8,
     multiplierUpgrade: 5500,
@@ -31,7 +31,7 @@ const upgrades = [
   },
   {
     upgrade: "Mine",
-    gfx: require("../../gfx/upgrades/Mine.png"),
+    gfx: require("../../../gfx/upgrades/Mine.png"),
     count: 0,
     multiplier: 47,
     multiplierUpgrade: 60000,
@@ -41,7 +41,7 @@ const upgrades = [
   },
   {
     upgrade: "Factory",
-    gfx: require("../../gfx/upgrades/Factory.png"),
+    gfx: require("../../../gfx/upgrades/Factory.png"),
     count: 0,
     multiplier: 260,
     multiplierUpgrade: 650000,
@@ -51,7 +51,7 @@ const upgrades = [
   },
   {
     upgrade: "Bank",
-    gfx: require("../../gfx/upgrades/Bank.png"),
+    gfx: require("../../../gfx/upgrades/Bank.png"),
     count: 0,
     multiplier: 1400,
     multiplierUpgrade: 7000000,
@@ -61,7 +61,7 @@ const upgrades = [
   },
   {
     upgrade: "Temple",
-    gfx: require("../../gfx/upgrades/Temple.png"),
+    gfx: require("../../../gfx/upgrades/Temple.png"),
     count: 0,
     multiplier: 7800,
     multiplierUpgrade: 10000000,
@@ -71,7 +71,7 @@ const upgrades = [
   },
   {
     upgrade: "Wizard Tower",
-    gfx: require("../../gfx/upgrades/Wizardtower.png"),
+    gfx: require("../../../gfx/upgrades/Wizardtower.png"),
     count: 0,
     multiplier: 44000,
     multiplierUpgrade: 650000000,
@@ -81,7 +81,7 @@ const upgrades = [
   },
   {
     upgrade: "Shipment",
-    gfx: require("../../gfx/upgrades/Shipment.png"),
+    gfx: require("../../../gfx/upgrades/Shipment.png"),
     count: 0,
     multiplier: 260000,
     multiplierUpgrade: 2250000000,
@@ -91,7 +91,7 @@ const upgrades = [
   },
   {
     upgrade: "Alchemy Lab",
-    gfx: require("../../gfx/upgrades/Alchemylab.png"),
+    gfx: require("../../../gfx/upgrades/Alchemylab.png"),
     count: 0,
     multiplier: 1600000,
     multiplierUpgrade: 37500000000,
@@ -101,7 +101,7 @@ const upgrades = [
   },
   {
     upgrade: "Portal",
-    gfx: require("../../gfx/upgrades/Portal.png"),
+    gfx: require("../../../gfx/upgrades/Portal.png"),
     count: 0,
     multiplier: 10000000,
     multiplierUpgrade: 500000000000,
@@ -111,7 +111,7 @@ const upgrades = [
   },
   {
     upgrade: "Time Machine",
-    gfx: require("../../gfx/upgrades/Timemachine.png"),
+    gfx: require("../../../gfx/upgrades/Timemachine.png"),
     count: 0,
     multiplier: 65000000,
     multiplierUpgrade: 7000000000000,
@@ -121,7 +121,7 @@ const upgrades = [
   },
   {
     upgrade: "Antimater Condenser",
-    gfx: require("../../gfx/upgrades/Antim.png"),
+    gfx: require("../../../gfx/upgrades/Antim.png"),
     count: 0,
     multiplier: 430000000,
     multiplierUpgrade: 85000000000000,
@@ -131,7 +131,7 @@ const upgrades = [
   },
   {
     upgrade: "Prism",
-    gfx: require("../../gfx/upgrades/Prism.png"),
+    gfx: require("../../../gfx/upgrades/Prism.png"),
     count: 0,
     multiplier: 2900000000,
     multiplierUpgrade: 105000000000000,
@@ -141,7 +141,7 @@ const upgrades = [
   },
   {
     upgrade: "Chancemaker",
-    gfx: require("../../gfx/upgrades/Chancemaker.png"),
+    gfx: require("../../../gfx/upgrades/Chancemaker.png"),
     count: 0,
     multiplier: 21000000000,
     multiplierUpgrade: 1300000000000000,

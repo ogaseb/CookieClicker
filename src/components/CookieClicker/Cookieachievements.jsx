@@ -66,11 +66,9 @@ class CookieAchievements extends Component {
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-
         dialog.title = achievementsStaticData.nameClicking[i];
         dialog.description = achievementsStaticData.descriptionClicking[i];
         dialog.img = achievementsStaticData.imgClicking[i];
-
         dialog.id = 0;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -85,7 +83,6 @@ class CookieAchievements extends Component {
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-        // dialog.title = this.props.achievements[1][i].name;
         dialog.title = achievementsStaticData.nameAllTimeCookies[i];
         dialog.description =
           achievementsStaticData.descriptionAllTimeCookies[i];
@@ -107,7 +104,6 @@ class CookieAchievements extends Component {
         dialog.title = achievementsStaticData.nameCPS[i];
         dialog.description = achievementsStaticData.descriptionCPS[i];
         dialog.img = achievementsStaticData.imgATCandCPS[i];
-
         dialog.id = 2;
         dialog.index = i;
         dialog.upgradeAmount = null;
@@ -122,7 +118,6 @@ class CookieAchievements extends Component {
       ) {
         let dialog = Object.assign({}, this.state.dialog);
         dialog.show = true;
-
         dialog.title = achievementsStaticData.nameLevel[i];
         dialog.description = achievementsStaticData.descriptionLevel[i];
         dialog.img = achievementsStaticData.imgLevel[i];
@@ -143,14 +138,9 @@ class CookieAchievements extends Component {
         ) {
           let dialog = Object.assign({}, this.state.dialog);
           dialog.show = true;
-
           dialog.title = achievementsStaticData.upgrades[i][0][j];
           dialog.description = achievementsStaticData.upgrades[i][1][j];
           dialog.img = achievementsStaticData.upgrades[i][2][j];
-
-          // dialog.title = this.props.achievements[4][i].name[i];
-          // dialog.description = this.props.achievements[4][i].description;
-          // dialog.gfx = this.props.achievements[3][i].gfx;
           dialog.id = 4;
           dialog.index = i;
           dialog.upgradeAmount = upgradesAmount[j];

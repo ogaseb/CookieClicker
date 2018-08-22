@@ -17,7 +17,7 @@ class CookeStatus extends Component {
         color="inherit"
       >
         <Typography align="center" color="inherit">
-          Cookies: {this.props.cookies.totalCookies.toFixed(0)}
+          Cookies: {Math.floor(this.props.cookies.totalCookies)}
         </Typography>
         <Typography align="center" color="inherit">
           Level: {this.props.cookies.playerLevel} | to next:{" "}

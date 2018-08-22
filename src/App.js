@@ -7,79 +7,52 @@ import {
   Typography,
   IconButton
 } from "@material-ui/core";
-import LoadingScreen from "react-loading-screen";
 import CookieClick from "./components/CookieClicker/Cookieclick";
 import CookieStatus from "./components/CookieClicker/Cookiestatus";
 import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
 import CookieAchievements from "./components/CookieClicker/Cookieachievements";
 
 import { Autorenew } from "@material-ui/icons";
-// import { GithubCircle, Speedometer } from "mdi-material-ui";
 import { GithubCircle } from "mdi-material-ui";
 
 import "./App.css";
-import upgrades from "./components/CookieClicker/upgradeState";
-import achievements from "./components/CookieClicker/achievementsState";
+import status from "./components/CookieClicker/stateModels/statusState";
+import statistics from "./components/CookieClicker/stateModels/statisticsState";
+import upgrades from "./components/CookieClicker/stateModels/upgradeState";
+import achievements from "./components/CookieClicker/stateModels/achievementsState";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      status: {
-        totalCookies: 0,
-        playerLevel: 1,
-        playerToNextLevel: 10, //Nie jestem pewien czy powinienem trzymac takie dane w state
-        cookiePerSecond: 0,
-        quantityPerClick: 1
-      },
+      status: {},
       upgrades: [],
       achievements: {},
-      statistics: {
-        userClicks: 0,
-        userCookies: 0,
-        userClickToNextLevel: 0
-      },
-      speed: {
-        level: 1,
-        interval: 1000,
-        divider: 1
-      },
-      isLoading: true
+      statistics: {}
     };
-
-    this.handleReset.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    //najpierw stwórz "model" state z domyślnych wartości
+    this.setState({ status: status });
     this.setState({ upgrades: upgrades });
     this.setState({ achievements: achievements });
+    this.setState({ statistics: statistics });
 
+    //a następnie nadpisz je zapisaem z Local Storage
     this.loadProgressFromLocalStorage();
 
     setInterval(this.saveProgressInLocalStorage, 5000);
 
     let interval = () => {
-      this.handleIncrementTotalCookies(
-        this.state.status.cookiePerSecond / this.state.speed.divider
-      );
-      setTimeout(interval, this.state.speed.interval);
+      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond);
+      setTimeout(interval, 1000);
     };
-    setTimeout(interval, this.state.speed.interval);
-
-    // let request;
-
-    // const performAnimation = () => {
-    //   request = requestAnimationFrame(performAnimation);
-
-    //   //animate something
-    //   this.handleIncrementTotalCookies(this.state.status.cookiePerSecond / 100);
-    // };
-
-    // requestAnimationFrame(performAnimation);
+    setTimeout(interval, 1000);
 
     this.interval = setInterval(() => {
-      document.title = this.state.status.totalCookies.toFixed(0) + " Cookies";
-    }, 1000);
+      document.title = Math.floor(this.state.status.totalCookies) + " Cookies";
+    }, 2000);
     this.setState({ isLoading: false });
   }
 
@@ -88,20 +61,7 @@ class App extends Component {
   }
 
   handleReset = () => {
-    const objStatus = {
-      totalCookies: 0,
-      playerLevel: 1,
-      playerToNextLevel: 10,
-      cookiePerSecond: 0,
-      quantityPerClick: 1
-    };
-    const statistics = {
-      userClicks: 0,
-      userCookies: 0,
-      userClickToNextLevel: 0
-    };
-
-    this.setState({ status: objStatus });
+    this.setState({ status: status });
     this.setState({ upgrades: upgrades });
     this.setState({ achievements: achievements });
     this.setState({ statistics: statistics });
@@ -149,10 +109,8 @@ class App extends Component {
 
   handleIncrementTotalCookies = float => {
     let status = Object.assign({}, this.state.status);
-    // let statistics = Object.assign({}, this.state.statistics);
 
     status.totalCookies = this.state.status.totalCookies + float;
-    // statistics.userCookies = this.state.statistics.userCookies + float;
 
     if (
       this.state.statistics.userClicks >= this.state.status.playerToNextLevel
@@ -160,8 +118,18 @@ class App extends Component {
       status.playerLevel = this.state.status.playerLevel + 1;
       status.playerToNextLevel = this.state.status.playerToNextLevel * 2;
     }
+
     this.setState({ status: status });
-    // this.setState({ statistics: statistics });
+  };
+
+  handleCountClicks = number => {
+    let stats = Object.assign({}, this.state.statistics);
+    stats.userClicks = this.state.statistics.userClicks + 1;
+    stats.userCookies = this.state.statistics.userCookies + number;
+    stats.userClickToNextLevel = Math.floor(
+      this.state.status.playerToNextLevel - this.state.statistics.userClicks
+    );
+    this.setState({ statistics: stats });
   };
 
   handleUpgrade = (index, amount) => {
@@ -242,43 +210,6 @@ class App extends Component {
     this.setState({ status: status });
   };
 
-  handleCountClicks = number => {
-    let stats = Object.assign({}, this.state.statistics);
-    stats.userClicks = this.state.statistics.userClicks + 1;
-    stats.userCookies = this.state.statistics.userCookies + number;
-    stats.userClickToNextLevel = Math.floor(
-      this.state.status.playerToNextLevel - this.state.statistics.userClicks
-    );
-    this.setState({ statistics: stats });
-  };
-
-  handleSpeed = () => {
-    let speed = Object.assign({}, this.state.speed);
-    if (
-      this.state.speed.level === 1 &&
-      this.state.status.cookiePerSecond > 10
-    ) {
-      speed.level = 2;
-      speed.interval = 100;
-      speed.divider = 10;
-    }
-    if (
-      this.state.speed.level === 2 &&
-      this.state.status.cookiePerSecond > 100
-    ) {
-      speed.level = 3;
-      speed.interval = 10;
-      speed.divider = 100;
-    }
-    if (this.state.speed.level === 3 && this.state.status.cookiePerSecond > 1) {
-      speed.level = 1;
-      speed.interval = 1000;
-      speed.divider = 1;
-    }
-
-    this.setState({ speed: speed });
-  };
-
   calculateMultiplier = () => {
     let tempSum = 0;
     for (let i = 0; i < this.state.upgrades.length; i++) {
@@ -291,80 +222,58 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <LoadingScreen
-          loading={this.state.isLoading}
-          bgColor="#1769aa"
-          spinnerColor="#ffffff"
-          textColor="#ffffff"
-          logoSrc={require("./gfx/cookies/PerfectCookie.png")}
-          text="CookieClicker"
-        >
-          <AppBar position="static" style={{ backgroundColor: "#1769aa" }}>
-            <Toolbar>
-              <Typography variant="headline" color="inherit">
-                {" "}
-                CookieClicker{" "}
-              </Typography>
-              {/* <Typography
-                color="inherit"
-                style={{ position: "absolute", right: 121, bottom: 0 }}
-              >
-                {this.state.speed.level}
-              </Typography>
-              <IconButton
-                onClick={this.handleSpeed}
-                style={{ position: "absolute", right: 100 }}
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <Speedometer />
-              </IconButton> */}
-              <IconButton
-                href="https://github.com/ProPanek/CookieClicker"
-                target="_blank"
-                style={{ position: "absolute", right: 50 }}
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <GithubCircle />
-              </IconButton>
-              <IconButton
-                onClick={this.handleReset}
-                style={{ position: "absolute", right: 0 }}
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <Autorenew />
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          <CookieStatus
-            cookies={this.state.status}
-            statistics={this.state.statistics}
-          />
-          <CookieAchievements
-            achievements={this.state.achievements}
-            statistics={this.state.statistics}
-            status={this.state.status}
-            upgrades={this.state.upgrades}
-            onAchievement={this.handleAchievement}
-            onAchievementBonus={this.handleAchievementBonus}
-          />
+        <AppBar position="static" style={{ backgroundColor: "#1769aa" }}>
+          <Toolbar>
+            <Typography variant="headline" color="inherit">
+              {" "}
+              CookieClicker{" "}
+            </Typography>
+            <IconButton
+              href="https://github.com/ProPanek/CookieClicker"
+              target="_blank"
+              style={{ position: "absolute", right: 50 }}
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <GithubCircle />
+            </IconButton>
+            <IconButton
+              onClick={this.handleReset}
+              style={{ position: "absolute", right: 0 }}
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <Autorenew />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <CookieStatus
+          cookies={this.state.status}
+          statistics={this.state.statistics}
+        />
+        <CookieAchievements
+          achievements={this.state.achievements}
+          statistics={this.state.statistics}
+          status={this.state.status}
+          upgrades={this.state.upgrades}
+          onAchievement={this.handleAchievement}
+          onAchievementBonus={this.handleAchievementBonus}
+        />
 
-          <Grid container>
-            <CookieClick
-              quantityPerClick={this.state.status.quantityPerClick}
-              onIncrement={this.handleIncrementTotalCookies}
-              countClicks={this.handleCountClicks}
-            />
-            <CookieUpgrades
-              upgrades={this.state.upgrades}
-              level={this.state.status.playerLevel}
-              onUpgrade={this.handleUpgrade}
-              onMultiplierUpgrade={this.handleMultipierUpgrade}
-            />
-          </Grid>
-        </LoadingScreen>
+        <Grid container>
+          <CookieClick
+            quantityPerClick={this.state.status.quantityPerClick}
+            onIncrement={this.handleIncrementTotalCookies}
+            countClicks={this.handleCountClicks}
+          />
+          <CookieUpgrades
+            upgrades={this.state.upgrades}
+            cookies={this.state.status.totalCookies}
+            level={this.state.status.playerLevel}
+            onUpgrade={this.handleUpgrade}
+            onMultiplierUpgrade={this.handleMultipierUpgrade}
+          />
+        </Grid>
       </React.Fragment>
     );
   }
