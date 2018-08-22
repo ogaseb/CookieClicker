@@ -6,6 +6,8 @@ import {
   Button
 } from "../../../node_modules/@material-ui/core";
 
+import { nFormatter } from "./utils.js";
+
 class CookieUpgrades extends Component {
   countPrice = (index, amount) => {
     let price = 0;
@@ -85,31 +87,6 @@ class CookieUpgrades extends Component {
     } else return true;
   };
 
-  nFormatter(num, digits) {
-    //https://stackoverflow.com/questions/9461621/how-to-format-a-number-as-2-5k-if-a-thousand-or-more-otherwise-900-in-javascrip
-    var si = [
-      { value: 1, symbol: "" },
-      { value: 1e3, symbol: "k" },
-      { value: 1e6, symbol: "Mil" },
-      { value: 1e9, symbol: "Bil" },
-      { value: 1e12, symbol: "Tri" },
-      { value: 1e15, symbol: "Quad" },
-      { value: 1e18, symbol: "Quin" },
-      { value: 1e21, symbol: "Sext" },
-      { value: 1e24, symbol: "Sept" },
-      { value: 1e27, symbol: "Oct" },
-      { value: 1e30, symbol: "Non" }
-    ];
-    var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    var i;
-    for (i = si.length - 1; i > 0; i--) {
-      if (num >= si[i].value) {
-        break;
-      }
-    }
-    return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-  }
-
   render() {
     // const { mouse, grandma } = this.props.upgrades;
     return (
@@ -137,7 +114,7 @@ class CookieUpgrades extends Component {
               {this.multiplierButtonCheck(index) === false && (
                 <Typography align="center">
                   Price of mutliplier upgrade:{" "}
-                  {this.nFormatter(content.multiplierUpgrade, 3)}
+                  {nFormatter(content.multiplierUpgrade, 3)}
                 </Typography>
               )}
 
@@ -169,13 +146,13 @@ class CookieUpgrades extends Component {
                 }}
               >
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.nFormatter(Math.floor(this.countPrice(index, 1)), 2)}{" "}
+                  {nFormatter(Math.floor(this.countPrice(index, 1)), 2)}{" "}
                 </Typography>{" "}
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.nFormatter(Math.floor(this.countPrice(index, 10)), 2)}{" "}
+                  {nFormatter(Math.floor(this.countPrice(index, 10)), 2)}{" "}
                 </Typography>{" "}
                 <Typography style={{ flex: "1", fontSize: "12px" }}>
-                  {this.nFormatter(Math.floor(this.countPrice(index, 100)), 2)}{" "}
+                  {nFormatter(Math.floor(this.countPrice(index, 100)), 2)}{" "}
                 </Typography>
               </Paper>
               <Paper
