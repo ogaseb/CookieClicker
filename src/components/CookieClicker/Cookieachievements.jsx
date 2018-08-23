@@ -64,7 +64,7 @@ class CookieAchievements extends Component {
           achievementsStaticData.criteriaClicking[i] &&
         this.props.achievements[0][0].level === i
       ) {
-        let dialog = Object.assign({}, this.state.dialog);
+        let dialog = { ...this.state.dialog };
         dialog.show = true;
         dialog.title = achievementsStaticData.nameClicking[i];
         dialog.description = achievementsStaticData.descriptionClicking[i];
@@ -81,7 +81,7 @@ class CookieAchievements extends Component {
           this.props.achievements[1][0].criteria &&
         this.props.achievements[1][0].level === i
       ) {
-        let dialog = Object.assign({}, this.state.dialog);
+        let dialog = { ...this.state.dialog };
         dialog.show = true;
         dialog.title = achievementsStaticData.nameAllTimeCookies[i];
         dialog.description =
@@ -99,7 +99,7 @@ class CookieAchievements extends Component {
           achievementsStaticData.criteriaCPS[i] &&
         this.props.achievements[2][0].level === i
       ) {
-        let dialog = Object.assign({}, this.state.dialog);
+        let dialog = { ...this.state.dialog };
         dialog.show = true;
         dialog.title = achievementsStaticData.nameCPS[i];
         dialog.description = achievementsStaticData.descriptionCPS[i];
@@ -116,7 +116,7 @@ class CookieAchievements extends Component {
           this.props.achievements[3][0].criteria &&
         this.props.achievements[3][0].level === i
       ) {
-        let dialog = Object.assign({}, this.state.dialog);
+        let dialog = { ...this.state.dialog };
         dialog.show = true;
         dialog.title = achievementsStaticData.nameLevel[i];
         dialog.description = achievementsStaticData.descriptionLevel[i];
@@ -136,7 +136,7 @@ class CookieAchievements extends Component {
           this.props.achievements[4][i].level === j &&
           this.props.upgrades[i].count >= this.props.achievements[4][i].criteria
         ) {
-          let dialog = Object.assign({}, this.state.dialog);
+          let dialog = { ...this.state.dialog };
           dialog.show = true;
           dialog.title = achievementsStaticData.upgrades[i][0][j];
           dialog.description = achievementsStaticData.upgrades[i][1][j];
@@ -155,7 +155,7 @@ class CookieAchievements extends Component {
       this.state.dialog.index,
       this.state.dialog.upgradeAmount
     );
-    let dialog = Object.assign({}, this.state.dialog);
+    let dialog = { ...this.state.dialog };
     dialog.show = false;
     this.setState({ dialog: dialog });
   };
