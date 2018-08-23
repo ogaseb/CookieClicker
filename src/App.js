@@ -110,7 +110,8 @@ class App extends Component {
   };
 
   handleIncrementTotalCookies = float => {
-    let status = Object.assign({}, this.state.status);
+    // let status = Object.assign({}, this.state.status);
+    let status = { ...this.state.status };
 
     status.totalCookies = this.state.status.totalCookies + float;
 
@@ -125,7 +126,7 @@ class App extends Component {
   };
 
   handleCountClicks = number => {
-    let stats = Object.assign({}, this.state.statistics);
+    let stats = { ...this.state.statistics };
     stats.userClicks = this.state.statistics.userClicks + 1;
     stats.userCookies = this.state.statistics.userCookies + number;
     stats.userClickToNextLevel = Math.floor(
@@ -146,8 +147,8 @@ class App extends Component {
       return;
     }
 
-    let objStatus = Object.assign({}, this.state.status);
-    let objUpgrades = Object.assign({}, this.state.upgrades);
+    let objStatus = { ...this.state.status };
+    let objUpgrades = { ...this.state.upgrades };
 
     objStatus.totalCookies = this.state.status.totalCookies - price;
 
@@ -162,31 +163,32 @@ class App extends Component {
   };
 
   handleMultipierUpgrade = index => {
-    let objUpgrades = Object.assign({}, this.state.upgrades);
-    let objStatus = Object.assign({}, this.state.status);
+    let status = { ...this.state.status };
+    let upgrades = { ...this.state.upgrades };
 
-    if (objUpgrades[index].multiplierUpgrade > this.state.status.totalCookies) {
+    if (upgrades[index].multiplierUpgrade > this.state.status.totalCookies) {
       return;
     }
 
-    objStatus.totalCookies =
-      this.state.status.totalCookies - objUpgrades[index].multiplierUpgrade;
+    status.totalCookies =
+      this.state.status.totalCookies - upgrades[index].multiplierUpgrade;
 
-    objUpgrades[index].multiplierUpgrade =
+    upgrades[index].multiplierUpgrade =
       this.state.upgrades[index].multiplierUpgrade * 10;
-    objUpgrades[index].multiplierUpgradeLevel =
+    upgrades[index].multiplierUpgradeLevel =
       this.state.upgrades[index].multiplierUpgradeLevel + 1;
 
-    objUpgrades[index].multiplier = this.state.upgrades[index].multiplier * 2;
+    upgrades[index].multiplier = this.state.upgrades[index].multiplier * 2;
 
     let cookiePerSecondTemp = this.calculateMultiplier();
-    objStatus.cookiePerSecond = cookiePerSecondTemp;
+    status.cookiePerSecond = cookiePerSecondTemp;
 
-    this.setState({ status: objStatus });
+    this.setState({ status: status });
   };
 
   handleAchievement = (name, id, amount) => {
-    let achieve = Object.assign({}, this.state.achievements);
+    let achieve = { ...this.state.achievements };
+
     if (name === 0) {
       achieve[0][0].level = this.state.achievements[0][0].level + 1;
     } else if (name === 1) {
@@ -207,7 +209,8 @@ class App extends Component {
   };
 
   handleAchievementBonus = float => {
-    let status = Object.assign({}, this.state.status);
+    let status = { ...this.state.status };
+
     status.quantityPerClick = float + 1;
     this.setState({ status: status });
   };
