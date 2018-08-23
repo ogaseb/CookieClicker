@@ -45,15 +45,16 @@ class CookieAchievements extends Component {
     let allLevel = 0;
 
     for (let i = 0; i < this.props.achievements.length; i++) {
-      allLevel += this.props.achievements[i][0].level;
-      if (i === 5) {
-        for (let j = 0; j < this.props.achievements[5].length; j++) {
-          allLevel += this.props.achievements[5][j].level;
+      if (i < 4) {
+        allLevel += this.props.achievements[i].level;
+      } else {
+        for (let j = 0; j < this.props.achievements[4].length; j++) {
+          allLevel += this.props.achievements[4][j].level;
         }
       }
     }
-
-    return (allLevel / allAchievements) * 100;
+    console.log(allLevel);
+    return (allLevel / allAchievements) * 100 || 0;
   };
   checkAchievements = () => {
     this.props.onAchievementBonus(this.countAchievements());
@@ -62,7 +63,7 @@ class CookieAchievements extends Component {
       if (
         this.props.statistics.userCookies >=
           achievementsStaticData.criteriaClicking[i] &&
-        this.props.achievements[0][0].level === i
+        this.props.achievements[0].level === i
       ) {
         let dialog = { ...this.state.dialog };
         dialog.show = true;
@@ -77,9 +78,8 @@ class CookieAchievements extends Component {
     }
     for (let i = 0; i < achievementsStaticData.nameAllTimeCookies.length; i++) {
       if (
-        this.props.status.totalCookies >=
-          this.props.achievements[1][0].criteria &&
-        this.props.achievements[1][0].level === i
+        this.props.status.totalCookies >= this.props.achievements[1].criteria &&
+        this.props.achievements[1].level === i
       ) {
         let dialog = { ...this.state.dialog };
         dialog.show = true;
@@ -97,7 +97,7 @@ class CookieAchievements extends Component {
       if (
         this.props.status.cookiePerSecond >=
           achievementsStaticData.criteriaCPS[i] &&
-        this.props.achievements[2][0].level === i
+        this.props.achievements[2].level === i
       ) {
         let dialog = { ...this.state.dialog };
         dialog.show = true;
@@ -112,9 +112,8 @@ class CookieAchievements extends Component {
     }
     for (let i = 0; i < achievementsStaticData.nameLevel.length; i++) {
       if (
-        this.props.status.playerLevel >=
-          this.props.achievements[3][0].criteria &&
-        this.props.achievements[3][0].level === i
+        this.props.status.playerLevel >= this.props.achievements[3].criteria &&
+        this.props.achievements[3].level === i
       ) {
         let dialog = { ...this.state.dialog };
         dialog.show = true;
@@ -182,7 +181,7 @@ class CookieAchievements extends Component {
               <img
                 src={this.state.dialog.img}
                 alt="achievement"
-                style={{ minHeight: 60, minWidth: "auto" }}
+                style={{ minHeight: 60, minWidth: "auto", maxHeight: 60 }}
               />
             </Typography>
             <DialogContentText

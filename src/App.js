@@ -190,15 +190,15 @@ class App extends Component {
     let achieve = { ...this.state.achievements };
 
     if (name === 0) {
-      achieve[0][0].level = this.state.achievements[0][0].level + 1;
+      achieve[0].level = this.state.achievements[0].level + 1;
     } else if (name === 1) {
-      achieve[1][0].level = this.state.achievements[1][0].level + 1;
-      achieve[1][0].criteria = this.state.achievements[1][0].criteria * 100;
+      achieve[1].level = this.state.achievements[1].level + 1;
+      achieve[1].criteria = this.state.achievements[1].criteria * 100;
     } else if (name === 2) {
-      achieve[2][0].level = this.state.achievements[2][0].level + 1;
+      achieve[2].level = this.state.achievements[2].level + 1;
     } else if (name === 3) {
-      achieve[3][0].level = this.state.achievements[3][0].level + 1;
-      achieve[3][0].criteria = this.state.achievements[3][0].criteria + 1;
+      achieve[3].level = this.state.achievements[3].level + 1;
+      achieve[3].criteria = this.state.achievements[3].criteria + 1;
     } else if (name === 4) {
       achieve[4][id].level = this.state.achievements[4][id].level + 1;
       achieve[4][id].criteria =

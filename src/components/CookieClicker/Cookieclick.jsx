@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Button } from "../../../node_modules/@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import "./Cookieclick.css";
 
 import { makeWave } from "./utils.js";

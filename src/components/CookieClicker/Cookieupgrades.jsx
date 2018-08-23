@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  Grid,
-  Paper,
-  Typography,
-  Button
-} from "../../../node_modules/@material-ui/core";
+import { Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import { nFormatter } from "./utils.js";
 
@@ -22,12 +17,9 @@ class CookieUpgrades extends Component {
   };
   upgradeButtonCheck = (index, amount) => {
     let price = this.countPrice(index, amount);
-    if (this.props.cookies < price) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.props.cookies < price;
   };
+
   multiplierButtonCheck = index => {
     let obj = {
       count: [1, 5, 25, 50, 100, 150, 200, 250, 300, 350, 400],
@@ -40,10 +32,9 @@ class CookieUpgrades extends Component {
           obj.multiplierUpgradeLevel[i]
       ) {
         return false;
-      } else {
-        return true;
       }
     }
+    return true;
   };
 
   render() {
