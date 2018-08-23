@@ -17,12 +17,9 @@ class CookieUpgrades extends Component {
   };
   upgradeButtonCheck = (index, amount) => {
     let price = this.countPrice(index, amount);
-    if (this.props.cookies < price) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.props.cookies < price;
   };
+
   multiplierButtonCheck = index => {
     let obj = {
       count: [1, 5, 25, 50, 100, 150, 200, 250, 300, 350, 400],
