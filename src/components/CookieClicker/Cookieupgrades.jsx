@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  Grid,
-  Paper,
-  Typography,
-  Button
-} from "../../../node_modules/@material-ui/core";
+import { Grid, Paper, Typography, Button } from "@material-ui/core";
 
 import { nFormatter } from "./utils.js";
 
@@ -40,10 +35,9 @@ class CookieUpgrades extends Component {
           obj.multiplierUpgradeLevel[i]
       ) {
         return false;
-      } else {
-        return true;
       }
     }
+    return true;
   };
 
   render() {
