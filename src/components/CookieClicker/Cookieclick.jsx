@@ -9,34 +9,21 @@ class CookieClick extends Component {
 
     let interval = () => {
       var time;
-      if (this.props.cps > 100) {
-        this.fallingCookie();
-        time = 1000;
-      }
-      if (this.props.cps > 10000) {
-        this.fallingCookie();
-        time = 800;
-      }
-      if (this.props.cps > 1000000) {
-        this.fallingCookie();
-        time = 600;
-      }
-      if (this.props.cps > 100000000) {
-        this.fallingCookie();
-        time = 400;
-      }
-      if (this.props.cps > 10000000000) {
-        this.fallingCookie();
-        time = 200;
-      }
-      if (this.props.cps > 1000000000000) {
-        this.fallingCookie();
-        time = 100;
+      let obj = {
+        cps: [100, 10000, 1e6, 100e6, 1e9, 1e12, 1e18],
+        time: [1000, 800, 600, 400, 200, 100, 50]
+      };
+
+      for (let i = 0; i < obj.cps.length; i++) {
+        if (this.props.cps > obj.cps[i]) {
+          this.fallingCookie();
+          time = obj.time[i];
+        }
       }
 
       setTimeout(interval, time);
     };
-    setTimeout(interval, 1000);
+    setTimeout(interval, 1);
   }
 
   chooseRandomCookie() {
