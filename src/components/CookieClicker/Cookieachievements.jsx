@@ -181,7 +181,7 @@ class CookieAchievements extends Component {
               <img
                 src={this.state.dialog.img}
                 alt="achievement"
-                style={{ minHeight: 60, minWidth: "auto" }}
+                style={{ minHeight: 60, minWidth: "auto", maxHeight: 60 }}
               />
             </Typography>
             <DialogContentText
