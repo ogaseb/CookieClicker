@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Button } from "@material-ui/core";
 import "./Cookieclick.css";
+import propTypes from "prop-types";
 
 import { makeWave } from "./utils.js";
 class CookieClick extends Component {
@@ -95,7 +96,6 @@ class CookieClick extends Component {
           />
           <Button
             color="primary"
-            children=""
             disableRipple={true}
             style={{
               position: "absolute",
@@ -107,7 +107,9 @@ class CookieClick extends Component {
               height: "100%"
             }}
             onClick={() => this.onClick(this.props.quantityPerClick)}
-          />
+          >
+            {" "}
+          </Button>
 
           <canvas
             id="canvas"
@@ -127,4 +129,9 @@ class CookieClick extends Component {
   }
 }
 
+CookieClick.propTypes = {
+  quantityPerClick: propTypes.number.isRequired,
+  onIncrement: propTypes.func.isRequired,
+  countClicks: propTypes.func.isRequired
+};
 export default CookieClick;

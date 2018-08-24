@@ -9,6 +9,7 @@ import {
   Typography,
   Slide
 } from "@material-ui/core";
+import propTypes from "prop-types";
 
 import achievementsStaticData from "../../data/achievementsStaticData.json";
 
@@ -206,4 +207,12 @@ class CookieAchievements extends Component {
   }
 }
 
+CookieAchievements.propTypes = {
+  achievements: propTypes.object.isRequired,
+  statistics: propTypes.object.isRequired,
+  status: propTypes.object.isRequired,
+  upgrades: propTypes.array.isRequired,
+  onAchievement: propTypes.func.isRequired,
+  onAchievementBonus: propTypes.func.isRequired
+};
 export default CookieAchievements;

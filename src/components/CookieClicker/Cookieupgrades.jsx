@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Paper, Typography, Button } from "@material-ui/core";
 
+import propTypes from "prop-types";
 import { nFormatter } from "./utils.js";
 
 class CookieUpgrades extends Component {
@@ -148,4 +149,11 @@ class CookieUpgrades extends Component {
   }
 }
 
+CookieUpgrades.propTypes = {
+  upgrades: propTypes.array.isRequired,
+  cookies: propTypes.number,
+  level: propTypes.number,
+  onUpgrade: propTypes.func,
+  onMultiplierUpgrade: propTypes.func
+};
 export default CookieUpgrades;

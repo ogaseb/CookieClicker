@@ -32,7 +32,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     //najpierw stwórz "model" state z domyślnych wartości
     this.setState({ status: status });
     this.setState({ upgrades: upgrades });

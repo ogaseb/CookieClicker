@@ -9,6 +9,7 @@
     "gh-pages": "^1.2.0",
     "hacktimer": "^1.1.0",
     "mdi-material-ui": "^5.2.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "^1.1.4",
@@ -23,8 +24,14 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "eslint": "^5.2.0",
-    "eslint-plugin-react": "^7.10.0",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "gh-pages": "^1.2.0"
   }

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Paper, Typography } from "@material-ui/core";
+import propTypes from "prop-types";
+
 class CookeStatus extends Component {
   render() {
     return (
@@ -35,4 +37,8 @@ class CookeStatus extends Component {
   }
 }
 
+CookeStatus.propTypes = {
+  cookies: propTypes.object.isRequired,
+  statistics: propTypes.object.isRequired
+};
 export default CookeStatus;
