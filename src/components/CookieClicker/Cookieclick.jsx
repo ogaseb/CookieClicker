@@ -56,9 +56,9 @@ class CookieClick extends Component {
 
     component.appendChild(cookie);
 
-    if (component.childNodes.length > 150) {
-      component.removeChild(component.childNodes[3]);
-    }
+    setTimeout(() => {
+      component.removeChild(cookie);
+    }, randomTime * 1000);
   };
   onClick = number => {
     this.props.onIncrement(number);
