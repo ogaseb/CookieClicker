@@ -208,7 +208,7 @@ class CookieAchievements extends Component {
 }
 
 CookieAchievements.propTypes = {
-  achievements: propTypes.object.isRequired,
+  achievements: propTypes.array.isRequired,
   statistics: propTypes.object.isRequired,
   status: propTypes.object.isRequired,
   upgrades: propTypes.array.isRequired,

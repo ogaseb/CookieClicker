@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import "../node_modules/hacktimer/HackTimer";
-import {
-  Grid,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton
-} from "@material-ui/core";
+import {Helmet} from "react-helmet";
+
+import Grid from "@material-ui/core/Grid";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+
 import CookieClick from "./components/CookieClicker/Cookieclick";
 import CookieStatus from "./components/CookieClicker/Cookiestatus";
 import CookieUpgrades from "./components/CookieClicker/Cookieupgrades";
 import CookieAchievements from "./components/CookieClicker/Cookieachievements";
 
-import { Autorenew } from "@material-ui/icons";
-import { GithubCircle } from "mdi-material-ui";
+import Autorenew from "@material-ui/icons/Autorenew";
+import GithubCircle  from "mdi-material-ui/GithubCircle";
 
 import "./App.css";
 import status from "./components/CookieClicker/stateModels/statusState";
@@ -34,28 +34,22 @@ class App extends Component {
 
   UNSAFE_componentWillMount() {
     //najpierw stwórz "model" state z domyślnych wartości
-    this.setState({ status: status });
-    this.setState({ upgrades: upgrades });
-    this.setState({ achievements: achievements });
-    this.setState({ statistics: statistics });
+    this.setState({ status, upgrades, achievements, statistics});
 
     //a następnie nadpisz je zapisaem z Local Storage
     this.loadProgressFromLocalStorage();
 
-    setInterval(this.saveProgressInLocalStorage, 5000);
 
-    let interval = () => {
-      this.handleIncrementTotalCookies(this.state.status.cookiePerSecond);
-      setTimeout(interval, 1000);
-    };
-    setTimeout(interval, 1000);
+    this.progress = setInterval(() => {
+      this.saveProgressInLocalStorage
+    }, 5000);
 
-    this.interval = setInterval(() => {
-      document.title =
-        Math.floor(this.state.status.totalCookies).toLocaleString("de-DE") +
-        " Cookies";
-    }, 2000);
-    this.setState({ isLoading: false });
+    this.CPSinterval = setInterval(() => {
+      const { cookiePerSecond } = this.state.status;
+      this.handleIncrementTotalCookies(cookiePerSecond);
+    }, 1000);
+
+
   }
 
   componentWillUnmount() {
@@ -63,10 +57,7 @@ class App extends Component {
   }
 
   handleReset = () => {
-    this.setState({ status: status });
-    this.setState({ upgrades: upgrades });
-    this.setState({ achievements: achievements });
-    this.setState({ statistics: statistics });
+    this.setState({ status, upgrades, achievements, statistics});
 
     localStorage.removeItem("save-status");
     localStorage.removeItem("save-upgrades");
@@ -109,8 +100,7 @@ class App extends Component {
     }
   };
 
-  handleIncrementTotalCookies = float => {
-    // let status = Object.assign({}, this.state.status);
+  handleIncrementTotalCookies = (float = 0) => {
     let status = { ...this.state.status };
 
     status.totalCookies = this.state.status.totalCookies + float;
@@ -225,8 +215,11 @@ class App extends Component {
   };
 
   render() {
+    const {  status, statistics, upgrades, achievements} = this.state
     return (
       <React.Fragment>
+        <Helmet>
+        </Helmet>
         <AppBar position="static" style={{ backgroundColor: "#1769aa" }}>
           <Toolbar>
             <Typography variant="headline" color="inherit">
@@ -253,14 +246,14 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         <CookieStatus
-          cookies={this.state.status}
-          statistics={this.state.statistics}
+          status={status}
+          statistics={statistics}
         />
         <CookieAchievements
-          achievements={this.state.achievements}
-          statistics={this.state.statistics}
-          status={this.state.status}
-          upgrades={this.state.upgrades}
+          achievements={achievements}
+          statistics={statistics}
+          status={status}
+          upgrades={upgrades}
           onAchievement={this.handleAchievement}
           onAchievementBonus={this.handleAchievementBonus}
         />

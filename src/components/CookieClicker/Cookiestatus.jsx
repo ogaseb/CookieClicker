@@ -1,44 +1,47 @@
-import React, { Component } from "react";
+import React from "react";
 import { Paper, Typography } from "@material-ui/core";
 import propTypes from "prop-types";
 
-class CookeStatus extends Component {
-  render() {
-    return (
-      <Paper
-        id="Cookiestatus"
-        square={true}
-        style={{
-          padding: "15px",
-          position: "absolute",
-          top: "25%",
-          left: "25%",
-          transform: "translate(-50%, -50%)"
-          // backgroundColor: "#1769aa"
-        }}
-        color="inherit"
-      >
-        <Typography align="center" color="inherit">
-          Cookies:{" "}
-          {Math.floor(this.props.cookies.totalCookies).toLocaleString("de-DE")}
-        </Typography>
-        <Typography align="center" color="inherit">
-          Level: {this.props.cookies.playerLevel} | to next:{" "}
-          {this.props.statistics.userClickToNextLevel}
-        </Typography>
-        <Typography align="center" color="inherit">
-          CPS:{" "}
-          {this.props.cookies.cookiePerSecond
-            .toFixed(1)
-            .toLocaleString("de-DE")}
-        </Typography>
-      </Paper>
-    );
-  }
-}
 
-CookeStatus.propTypes = {
-  cookies: propTypes.object.isRequired,
-  statistics: propTypes.object.isRequired
+const CookieStatus = ({
+                        status: {totalCookies, playerLevel, cookiePerSecond},
+                        statistics: {userClickToNextLevel}
+                      }) => {
+  return (
+    <Paper
+      id="Cookiestatus"
+      square={true}
+      style={{
+        padding: "15px",
+        position: "absolute",
+        top: "25%",
+        left: "25%",
+        transform: "translate(-50%, -50%)"
+      }}
+      color="inherit"
+    >
+      <Typography align="center" color="inherit">
+          Cookies:{" "}
+        <span className="status__total">{totalCookies || 0}</span>
+
+      </Typography>
+      <Typography align="center" color="inherit">
+        Level: <span className="status__level">{playerLevel || "1"}</span> | to next:{" "}
+        <span className="status__userClick">{userClickToNextLevel || "0"}</span>
+      </Typography>
+      <Typography align="center" color="inherit">
+        CPS:{" "}
+        <span className="status__CPS">{(cookiePerSecond || 0).toFixed(1).toLocaleString("de-DE")}</span>
+
+      </Typography>
+    </Paper>
+  );
 };
-export default CookeStatus;
+
+CookieStatus.propTypes = {
+  status: propTypes.object,
+  statistics : propTypes.object
+}
+export {CookieStatus}
+export default CookieStatus;
+

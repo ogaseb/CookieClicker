@@ -6,12 +6,14 @@ import { nFormatter } from "./utils.js";
 
 class CookieUpgrades extends Component {
   countPrice = (index, amount) => {
+    const { upgrades } = this.props
+
     let price = 0;
 
     for (let i = 1; i <= amount; i++) {
       price +=
-        this.props.upgrades[index].basePrice *
-        Math.pow(1.15, this.props.upgrades[index].count + (i - 1));
+        upgrades[index].basePrice *
+        Math.pow(1.15, upgrades[index].count + (i - 1));
     }
     // this.nFormatter(price.toFixed(0), 2);
     return price;
@@ -39,7 +41,7 @@ class CookieUpgrades extends Component {
   };
 
   render() {
-    // const { mouse, grandma } = this.props.upgrades;
+    const { upgrades, level, onMultiplierUpgrade, onUpgrade } = this.props;
     return (
       <Grid
         item
@@ -51,8 +53,8 @@ class CookieUpgrades extends Component {
           height: "calc(100vh - 70px)"
         }}
       >
-        {this.props.upgrades
-          .slice(0, this.props.level)
+        {upgrades
+          .slice(0, level)
           .map((content, index) => (
             <Paper key={index}>
               <Typography variant="display1" align="center">
@@ -71,12 +73,13 @@ class CookieUpgrades extends Component {
 
               <Typography align="center">
                 <Button
+                  className="multiplier__upgrade"
                   variant="contained"
                   color="inherit"
                   onMouseOver={this.handlePopoverOpen}
                   disabled={this.multiplierButtonCheck(index)}
                   onClick={() => {
-                    this.props.onMultiplierUpgrade(index);
+                    onMultiplierUpgrade(index);
                   }}
                 >
                   Multiplier: {content.multiplier}
@@ -119,7 +122,7 @@ class CookieUpgrades extends Component {
                   variant="contained"
                   color="primary"
                   style={{ flex: "1" }}
-                  onClick={() => this.props.onUpgrade(index, 1)}
+                  onClick={() => onUpgrade(index, 1)}
                 >
                   Buy
                 </Button>
@@ -128,7 +131,7 @@ class CookieUpgrades extends Component {
                   variant="contained"
                   style={{ flex: "1" }}
                   color="default"
-                  onClick={() => this.props.onUpgrade(index, 10)}
+                  onClick={() => onUpgrade(index, 10)}
                 >
                   x10
                 </Button>
@@ -137,7 +140,7 @@ class CookieUpgrades extends Component {
                   variant="contained"
                   style={{ flex: "1" }}
                   color="default"
-                  onClick={() => this.props.onUpgrade(index, 100)}
+                  onClick={() => onUpgrade(index, 100)}
                 >
                   x100
                 </Button>
