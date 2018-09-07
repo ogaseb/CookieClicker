@@ -266,9 +266,8 @@ class App extends Component {
             countClicks={this.handleCountClicks}
           />
           <CookieUpgrades
-            upgrades={this.state.upgrades}
-            cookies={this.state.status.totalCookies}
-            level={this.state.status.playerLevel}
+            upgrades={upgrades}
+            status={status}
             onUpgrade={this.handleUpgrade}
             onMultiplierUpgrade={this.handleMultipierUpgrade}
           />

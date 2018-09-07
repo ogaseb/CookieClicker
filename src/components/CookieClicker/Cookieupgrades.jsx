@@ -19,19 +19,22 @@ class CookieUpgrades extends Component {
     return price;
   };
   upgradeButtonCheck = (index, amount) => {
-    let price = this.countPrice(index, amount);
-    return this.props.cookies < price;
+      const { status } = this.props
+
+      let price = this.countPrice(index, amount);
+    return status.totalCookies < price;
   };
 
   multiplierButtonCheck = index => {
-    let obj = {
+      const { upgrades } = this.props
+      let obj = {
       count: [1, 5, 25, 50, 100, 150, 200, 250, 300, 350, 400],
       multiplierUpgradeLevel: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
     for (let i = 0; i < obj.count.length; i++) {
       if (
-        this.props.upgrades[index].count >= obj.count[i] &&
-        this.props.upgrades[index].multiplierUpgradeLevel ===
+        upgrades[index].count >= obj.count[i] &&
+        upgrades[index].multiplierUpgradeLevel ===
           obj.multiplierUpgradeLevel[i]
       ) {
         return false;
@@ -41,7 +44,7 @@ class CookieUpgrades extends Component {
   };
 
   render() {
-    const { upgrades, level, onMultiplierUpgrade, onUpgrade } = this.props;
+    const { upgrades, status, onMultiplierUpgrade, onUpgrade } = this.props;
     return (
       <Grid
         item
@@ -54,7 +57,7 @@ class CookieUpgrades extends Component {
         }}
       >
         {upgrades
-          .slice(0, level)
+          .slice(0, status.playerLevel)
           .map((content, index) => (
             <Paper key={index}>
               <Typography variant="display1" align="center">
@@ -146,16 +149,15 @@ class CookieUpgrades extends Component {
                 </Button>
               </Paper>
             </Paper>
-          ))}
+          )) || "none"}
       </Grid>
     );
   }
 }
 
 CookieUpgrades.propTypes = {
-  upgrades: propTypes.array.isRequired,
-  cookies: propTypes.number,
-  level: propTypes.number,
+  upgrades: propTypes.array,
+  status: propTypes.object,
   onUpgrade: propTypes.func,
   onMultiplierUpgrade: propTypes.func
 };
