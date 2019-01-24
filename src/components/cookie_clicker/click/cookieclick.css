@@ -1,0 +1,18 @@
+@keyframes cookieRandom {
+
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(-100%) rotateZ(0deg);
+  }
+
+  50% {
+    opacity: .9;
+  }
+
+  100% {
+    opacity: .6;
+    -webkit-transform: translateY(calc(100vh - 148px)) rotateZ(360deg);
+
+    /* -webkit-transform: translateY(calc(100vh - 148px)); */
+  }
+}

@@ -1,7 +1,23 @@
+import cursor from "../gfx/upgrades/Cursor.png"
+import grandmas from "../gfx/upgrades/Grandmas.gif"
+import farm from "../gfx/upgrades/Farm.png"
+import mine from "../gfx/upgrades/Mine.png"
+import factory from "../gfx/upgrades/Factory.png"
+import bank from "../gfx/upgrades/Bank.png"
+import temple from "../gfx/upgrades/Temple.png"
+import wizardTower from "../gfx/upgrades/Wizardtower.png"
+import shipment from "../gfx/upgrades/Shipment.png"
+import alchemyLab from "../gfx/upgrades/Alchemylab.png"
+import portal from "../gfx/upgrades/Portal.png"
+import timeMachine from "../gfx/upgrades/Timemachine.png"
+import antim from "../gfx/upgrades/Antim.png"
+import prism from "../gfx/upgrades/Prism.png"
+import chanceMaker from "../gfx/upgrades/Chancemaker.png"
+
 const upgrades = [
   {
     upgrade: "Cursor",
-    gfx: require("../../../gfx/upgrades/Cursor.png"),
+    gfx: cursor,
     count: 0,
     multiplier: 0.1,
     multiplierUpgrade: 50,
@@ -11,7 +27,7 @@ const upgrades = [
   },
   {
     upgrade: "Grandma",
-    gfx: require("../../../gfx/upgrades/Grandmas.gif"),
+    gfx: grandmas,
     count: 0,
     multiplier: 1,
     multiplierUpgrade: 500,
@@ -21,7 +37,7 @@ const upgrades = [
   },
   {
     upgrade: "Farm",
-    gfx: require("../../../gfx/upgrades/Farm.png"),
+    gfx: farm,
     count: 0,
     multiplier: 8,
     multiplierUpgrade: 5500,
@@ -31,7 +47,7 @@ const upgrades = [
   },
   {
     upgrade: "Mine",
-    gfx: require("../../../gfx/upgrades/Mine.png"),
+    gfx: mine,
     count: 0,
     multiplier: 47,
     multiplierUpgrade: 60000,
@@ -41,7 +57,7 @@ const upgrades = [
   },
   {
     upgrade: "Factory",
-    gfx: require("../../../gfx/upgrades/Factory.png"),
+    gfx: factory,
     count: 0,
     multiplier: 260,
     multiplierUpgrade: 650000,
@@ -51,7 +67,7 @@ const upgrades = [
   },
   {
     upgrade: "Bank",
-    gfx: require("../../../gfx/upgrades/Bank.png"),
+    gfx: bank,
     count: 0,
     multiplier: 1400,
     multiplierUpgrade: 7000000,
@@ -61,7 +77,7 @@ const upgrades = [
   },
   {
     upgrade: "Temple",
-    gfx: require("../../../gfx/upgrades/Temple.png"),
+    gfx: temple,
     count: 0,
     multiplier: 7800,
     multiplierUpgrade: 10000000,
@@ -71,7 +87,7 @@ const upgrades = [
   },
   {
     upgrade: "Wizard Tower",
-    gfx: require("../../../gfx/upgrades/Wizardtower.png"),
+    gfx: wizardTower,
     count: 0,
     multiplier: 44000,
     multiplierUpgrade: 650000000,
@@ -81,7 +97,7 @@ const upgrades = [
   },
   {
     upgrade: "Shipment",
-    gfx: require("../../../gfx/upgrades/Shipment.png"),
+    gfx: shipment,
     count: 0,
     multiplier: 260000,
     multiplierUpgrade: 2250000000,
@@ -91,7 +107,7 @@ const upgrades = [
   },
   {
     upgrade: "Alchemy Lab",
-    gfx: require("../../../gfx/upgrades/Alchemylab.png"),
+    gfx: alchemyLab,
     count: 0,
     multiplier: 1600000,
     multiplierUpgrade: 37500000000,
@@ -101,7 +117,7 @@ const upgrades = [
   },
   {
     upgrade: "Portal",
-    gfx: require("../../../gfx/upgrades/Portal.png"),
+    gfx: portal,
     count: 0,
     multiplier: 10000000,
     multiplierUpgrade: 500000000000,
@@ -111,7 +127,7 @@ const upgrades = [
   },
   {
     upgrade: "Time Machine",
-    gfx: require("../../../gfx/upgrades/Timemachine.png"),
+    gfx: timeMachine,
     count: 0,
     multiplier: 65000000,
     multiplierUpgrade: 7000000000000,
@@ -121,7 +137,7 @@ const upgrades = [
   },
   {
     upgrade: "Antimater Condenser",
-    gfx: require("../../../gfx/upgrades/Antim.png"),
+    gfx: antim,
     count: 0,
     multiplier: 430000000,
     multiplierUpgrade: 85000000000000,
@@ -131,7 +147,7 @@ const upgrades = [
   },
   {
     upgrade: "Prism",
-    gfx: require("../../../gfx/upgrades/Prism.png"),
+    gfx: prism,
     count: 0,
     multiplier: 2900000000,
     multiplierUpgrade: 105000000000000,
@@ -141,7 +157,7 @@ const upgrades = [
   },
   {
     upgrade: "Chancemaker",
-    gfx: require("../../../gfx/upgrades/Chancemaker.png"),
+    gfx: chanceMaker,
     count: 0,
     multiplier: 21000000000,
     multiplierUpgrade: 1300000000000000,
@@ -149,6 +165,6 @@ const upgrades = [
     basePrice: 2600000000000000,
     price: 2600000000000000
   }
-];
+]
 
-export default upgrades;
+export default upgrades

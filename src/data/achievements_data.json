@@ -1,0 +1,20 @@
+[
+  {
+    "name": "cookie_made_per_hand",
+    "level": 0
+  },
+  {
+    "name": "all_time_cookies",
+    "level": 0,
+    "criteria": 10
+  },
+  {
+    "name": "cookies_per_second",
+    "level": 0
+  },
+  {
+    "name": "player_level",
+    "level": 0,
+    "criteria": 1
+  }
+]
